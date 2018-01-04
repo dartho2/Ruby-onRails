@@ -8,10 +8,20 @@
 
 .nav.navbar-right li {
   .btn {
-    color: #fff !important;
+    color: #2E2F30 !important;
     margin-top: 5%;
   }
   .btn-danger:hover {
     background-color: darken(#d9534f, 20%) !important;
   }
+}
+.alert-notice {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+}
+.alert-alert {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
 }
