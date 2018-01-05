@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
+  resources :categories
   devise_for :admins, :controllers => { :registrations => "admin/registrations" }
-  namespace :panel do
+  scope :panel do
     resources :products
+    resources :categories
   end
-
-  post '/panel/products/new', to: 'panel/products#new'
-  post '/panel/products/create', to: 'panel/products#create'
+  # patch  '/panel/products', to: 'panel/products#update'
+  # post  '/panel/products', to: 'panel/products#update'
+  # post '/panel/products/new', to: 'panel/products#new'
+  # post '/panel/products/create', to: 'panel/products#create'
 
 
   # scope '/panel' do

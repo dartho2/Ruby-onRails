@@ -1,10 +1,14 @@
-class Panel::ProductsController < ApplicationController
+class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    @products = []
+    products = Product.where(deleted: false)
+    products.each do |product|
+      @products.push(product) unless Product.where(parent_id: product.id).any?
+    end
   end
 
   # GET /products/1
@@ -28,7 +32,7 @@ class Panel::ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to panel_products_path }
+        format.html { redirect_to products_path, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -56,7 +60,7 @@ class Panel::ProductsController < ApplicationController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to panel_products_path , notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to products_path , notice: 'Product was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +73,6 @@ class Panel::ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :price)
+      params.require(:product).permit(:name, :price, :category_id,:new_category_name)
     end
 end

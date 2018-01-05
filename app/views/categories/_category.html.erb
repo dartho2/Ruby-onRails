@@ -5,10 +5,10 @@
         <div class="panel-heading">
           <div class="row">
             <div class="col col-xs-6">
-              <h3 class="panel-title">Product</h3>
+              <h3 class="panel-title">Category</h3>
             </div>
             <div class="col col-xs-6 text-right">
-              <%= link_to("Create New", panel_products_new_path, class: "btn btn-success") %>
+              <%= link_to("Create New", new_category_path, class: "btn btn-success") %>
             </div>
           </div>
         </div>
@@ -18,24 +18,24 @@
             <tr>
               <th class="hidden-xs">ID</th>
               <th>Name</th>
-              <th>price</th>
+              <th>Description</th>
               <th class="col-md-2"><em class="fa fa-cog"></em></th>
             </tr>
             </thead>
-            <% obj.each do |product| %>
+            <% obj.each do |category| %>
                 <tbody>
                 <tr>
-                  <td class="hidden-xs"><%= product.id %></td>
-                  <td><%= product.name %></td>
-                  <td><%= product.price %></td>
+                  <td class="hidden-xs"><%= category.id %></td>
+                  <td><%= category.name %></td>
+                  <td><%= category.description %></td>
                   <td align="center">
-                    <%= link_to(panel_product_path(product), class: "btn btn-primary") do %>
+                    <%= link_to(category_path(category), class: "btn btn-primary") do %>
                         <em class="fa fa-search"></em>
                     <% end %>
-                    <%= link_to(edit_panel_product_path(product), class: "btn btn-default") do %>
+                    <%= link_to(edit_category_path(category), class: "btn btn-default") do %>
                         <em class="fa fa-pencil"></em>
                     <% end %>
-                    <%= link_to(panel_product_path(product), method: :delete,
+                    <%= link_to(category_path(category), method: :delete,
                                 data: {confirm: "Are u sure ?"},
                                 class: "btn btn-danger") do %>
                         <em class="fa fa-trash"></em>

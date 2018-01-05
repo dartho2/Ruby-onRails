@@ -1,0 +1,60 @@
+<%= render '/shared/errors', obj: @product %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-default panel-table">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col col-xs-6">
+              <h3 class="panel-title"></h3>
+            </div>
+            <div class="col-xs-12">
+              <%= form_for(@product, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+                  <div class="form-group">
+                    <div class="control-label col-sm-2">
+                      <label for="product_category_id">Category:</label><br/>
+                    </div>
+                    <div class="col-sm-2">
+                      <%= f.collection_select :category_id, Category.all, :id, :name, {:prompt => "Select a Category"}, {:class => "form-control custom-select custom-select-lg mb-3"} %>
+                    </div>
+                    <div class="control-label col-sm-2 center">
+                      <div class="center">or created:</div>
+                    </div>
+                    <div class="col-sm-4">
+                      <%= f.text_field :new_category_name, class: "form-control", placeholder: "category", autofocus: true %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="control-label col-sm-2">
+                      <%= f.label :name %>
+                    </div>
+                    <div class="col-sm-8">
+                      <%= f.text_field :name, class: "form-control", placeholder: "Name", autofocus: true %>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="control-label col-sm-2">
+                      <%= f.label :price %>
+                    </div>
+                    <div class="col-sm-8">
+                      <%= f.text_field :price, class: "form-control", placeholder: "Price" %>
+                    </div>
+                  </div>
+                  <div class="form-group center">
+                    <div class="col-sm-6">
+                      <%= f.submit class: "btn  btn-success" %>
+                    </div>
+                    <div class="col-sm-2">
+
+                    </div>
+                  </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

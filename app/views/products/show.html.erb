@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1 align="center">Show Product</h1>
+
+
+<%= @product.name %>
+<%= @product.parent_id %>
+<%= @x.name %>
+
+
+<% @x.each do |product| %>
+    <tbody>
+    <tr>
+      <td class="hidden-xs"><%= product.id %></td>
+      <td><%= product.name %></td>
+      <td><%= product.price %></td>
+      <td align="center">
+        <%= link_to(product_path(product), class: "btn btn-primary") do %>
+            <em class="fa fa-search"></em>
+        <% end %>
+        <%= link_to(edit_product_path(product), class: "btn btn-default") do %>
+            <em class="fa fa-pencil"></em>
+        <% end %>
+        <%= link_to(product_path(product), method: :delete,
+                    data: {confirm: "Are u sure ?"},
+                    class: "btn btn-danger") do %>
+            <em class="fa fa-trash"></em>
+        <% end %>
+      </td>
+    </tr>
+    </tbody>
+<% end %>
+
