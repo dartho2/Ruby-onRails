@@ -1,9 +1,11 @@
 class Product < ApplicationRecord
   attr_accessor :new_category_name
   # attr_accessor :show_product_history
+
   belongs_to :category, required: false
-  has_many :product_orders
-  has_many :order, :through => :product_orders
+  has_many :product_orders, inverse_of: :product
+  has_many :orders, :through => :product_orders, inverse_of: :products
+
   before_save :create_category_from_name
   before_update :check_parent_id
   before_destroy :set_deleted_id

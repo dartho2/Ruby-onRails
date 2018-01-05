@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="col-lg-12">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3>Object Store</h3></div>
+      <div class="panel-body"> <%= link_to "New", new_order_path, class: 'btn btn-success' %>
+        <table class="table table-striped" style="border-collapse:collapse;">
+
+          <thead>
+          <tr>
+            <th>&nbsp;</th>
+            <th>ID</th>
+            <th>Customer</th>
+            <th>Zamowienie</th>
+            <th>Action</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @orders.each do |order| %>
+              <tr data-toggle="collapse" data-target="#<%= order.id %>" class="accordion-toggle">
+                <td>
+                  <span class="glyphicon glyphicon-plus"></span>
+                </td>
+                <td><%= order.id %></td>
+                <td>customer  </td>
+                <td><%= order.total_price %></td>
+                <td>
+                  <%= link_to "Delete", order, method: :delete, class: 'btn btn-danger' %></i>
+                  <%= link_to "Edit", edit_order_path(order), class: 'btn btn-warning' %>
+                </td>
+              </tr>
+
+              <tr class="hiddenRow">
+                <td colspan="12" class="hiddenRow">
+                  <div class="accordian-body collapse" id="<%= order.id %>" href="#collapseThree">
+                    <table class="table table-striped">
+                      <thead>
+                      <th>Name</th>
+                      <th>Quantity</th>
+                      <th>price</th>
+                      </thead>
+                      <tbody>
+                      <% order.products.each do |order, array| %>
+                          <tr>
+                            <td><%= order.name %></td>
+                            <td><%= order.product_orders.map(&:quantity).join(', ') %></td>
+                            <td><%= order.price %></td>
+                          </tr>
+                      <% end %>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td><%= order.total_price %> zł</td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+

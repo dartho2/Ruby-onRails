@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  resources :orders
   resources :categories
   devise_for :admins, :controllers => { :registrations => "admin/registrations" }
   scope :panel do
     resources :products
     resources :categories
+    resources :orders
   end
   # patch  '/panel/products', to: 'panel/products#update'
   # post  '/panel/products', to: 'panel/products#update'

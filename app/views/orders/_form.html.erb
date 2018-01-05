@@ -1,0 +1,71 @@
+<%= render '/shared/errors', obj: @order %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-default panel-table">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col col-xs-6">
+              <h3 class="panel-title"></h3>
+            </div>
+            <div class="col-xs-12">
+              <%= form_for(@order, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+                  <%= f.fields_for :customer do |builder| %>
+                      <div class="form-group">
+                        <div class="control-label col-sm-2">
+                          <%= builder.label :FV %>
+                        </div>
+                        <div class="col-sm-8">
+                          <%= builder.text_field :name, class: 'form-control', placeholder: "Nuber FV" %>
+                        </div>
+                      </div>
+                      <div class="panel-body">
+                        <table class="table table-striped table-bordered table-list">
+                          <thead>
+                          <tr>
+                            <th class="col-sm-3">Quantity</th>
+                            <th class="col-sm-3">Name Product</th>
+                            <th class="col-sm-2">Price</th>
+                            <th class="col-sm-1 center"><em class="fa fa-cog"></em></th>
+                          </tr>
+                          </thead>
+                  <% end %>
+                  </table>
+                  <%= link_to_add_fields '+', f, :product_orders %>
+                  <%= f.submit class: "add_fields btn btn-success add-more" %>
+              <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
