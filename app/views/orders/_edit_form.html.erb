@@ -29,6 +29,27 @@
                       </tr>
                       </thead>
                     </table>
+                    <div class="order-table">
+                      <table class="table table-striped table-bordered table-list">
+                        <tbody>
+
+                          <%= order.fields_for :product_orders do |f| %>
+                            <tr>
+                              <td class="col-sm-3"><%= f.number_field :quantity, class: 'form-control bfh-number' %></td>
+                              <%= f.fields_for :product do |f| %>
+                                  <td class="col-sm-3"><%= f.collection_select(:id, Product.where(deleted: false), :id, :name, {:include_blank => ""}, {class: 'form-control'}) %></td>
+                                  <td class="col-sm-2"><%= f.text_field :price, class: 'form-control' %></td>
+                              <% end %>
+                              <td class="col-sm-1 center"><%= f.hidden_field :_destroy %><%= link_to('Delete', class: 'remove_fields btn btn-danger') do %>
+                                    <em class="fa fa-trash"></em>
+                                <% end %>
+                              </td>
+                            </tr>
+                          <% end %>
+
+                        </tbody>
+                      </table>
+                    </div>
                     <%= link_to_add_fields '+', order, :product_orders %>
                     <%= order.submit class: "add_fields btn btn-success add-more" %>
               <% end %>
@@ -40,30 +61,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

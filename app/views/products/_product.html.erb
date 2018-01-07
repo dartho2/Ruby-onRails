@@ -5,7 +5,7 @@
         <div class="panel-heading">
           <div class="row">
             <div class="col col-xs-6">
-              <h3 class="panel-title">Product</h3>
+              <h3 class="panel-title text-right">Listing Product</h3>
             </div>
             <div class="col col-xs-6 text-right">
               <%= link_to("Create New", new_product_path, class: "btn btn-success") %>
@@ -19,7 +19,7 @@
               <th class="hidden-xs">ID</th>
               <th>Name</th>
               <th>price</th>
-              <th class="col-md-2"><em class="fa fa-cog"></em></th>
+              <th class="col-md-2 center"><em class="fa fa-cog"></em></th>
             </tr>
             </thead>
             <% obj.each do |product| %>

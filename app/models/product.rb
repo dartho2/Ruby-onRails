@@ -15,7 +15,6 @@ class Product < ApplicationRecord
   def create_category_from_name
     create_category(name: new_category_name) unless new_category_name.blank?
   end
-
   # def show_product_history(id)
   #   if (Product.exists?(id) && Product.exists?(:parent_id => id ))
   #     product =  Product.find(id)

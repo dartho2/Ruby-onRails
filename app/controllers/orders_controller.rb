@@ -21,13 +21,14 @@ class OrdersController < ApplicationController
 
   # GET /orders/1/edit
   def edit
+    @order = Order.find(params[:id])
   end
 
   # POST /orders
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-
+    @products = ProductOrder.where(order_id: @order_id)
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }
@@ -72,8 +73,8 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
   def order_params
     params.require(:order)
-      .permit(product_orders_attributes: [:id, :quantity,
-                                           product_attributes: [:id, :price,]])
+      .permit([:name],product_orders_attributes: [:id, :quantity, :_destroy,
+                                           product_attributes: [:id, :price, :_destroy]])
   end
   def params_orderss
     params.require(:order)

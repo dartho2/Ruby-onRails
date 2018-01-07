@@ -8,6 +8,12 @@
 .center{
   text-align: center;
 }
+.table.table.table-striped.table-bordered.table-list td {
+  vertical-align: middle;
+}
+.collapse.in{
+  border: 1px solid #ddd
+}
 
 .nav.navbar-right li {
   .btn {
