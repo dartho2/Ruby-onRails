@@ -1,7 +1,7 @@
 class Product < ApplicationRecord
   attr_accessor :new_category_name
   # attr_accessor :show_product_history
-
+  has_many :magazines
   belongs_to :category, required: false
   has_many :product_orders, inverse_of: :product
   has_many :orders, :through => :product_orders, inverse_of: :products
@@ -15,15 +15,6 @@ class Product < ApplicationRecord
   def create_category_from_name
     create_category(name: new_category_name) unless new_category_name.blank?
   end
-  # def show_product_history(id)
-  #   if (Product.exists?(id) && Product.exists?(:parent_id => id ))
-  #     product =  Product.find(id)
-  #     history ||= "Price=  #{product.price} parent_id = #{product.parent_id}"
-  #     puts "#{history}"
-  #     show_product_history(product.parent_id)
-  #   end
-  # end
-
 
   def check_parent_id
     product = Product.find(self.id)

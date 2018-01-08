@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :magazines
   resources :orders
   resources :categories
   devise_for :admins, :controllers => { :registrations => "admin/registrations" }
@@ -6,6 +7,7 @@ Rails.application.routes.draw do
     resources :products
     resources :categories
     resources :orders
+    resources :magazines
   end
   # patch  '/panel/products', to: 'panel/products#update'
   # post  '/panel/products', to: 'panel/products#update'
