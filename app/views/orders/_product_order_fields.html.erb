@@ -5,8 +5,8 @@
       <td class="col-sm-3"><%= f.number_field :quantity, class: 'form-control bfh-number' %></td>
       <%= f.fields_for :product, @order.products.build do |f| %>
           <td class="col-sm-3"><%= f.collection_select(:id, Product.where.not(deleted: true, parent_id: nil), :id, :name, {:include_blank => ""}, {class: 'form-control'}) %></td>
-          <td class="col-sm-2"><%= f.text_field :price, class: 'form-control' %></td>
       <% end %>
+      <td class="col-sm-2"><%= f.text_field :price, class: 'form-control' %></td>
       <td class="col-sm-1 center"><%= f.hidden_field :_destroy %><%= link_to('Delete', class: 'remove_fields btn btn-danger') do %>
             <em class="fa fa-trash"></em>
         <% end %></td>

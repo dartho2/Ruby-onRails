@@ -10,19 +10,21 @@ class Product < ApplicationRecord
   before_update :check_parent_id
   before_destroy :set_deleted_id
   validates :name, presence: true, length: {minimum: 3, maximum: 20}
-  validates :price, numericality: true
+
 
   def create_category_from_name
     create_category(name: new_category_name) unless new_category_name.blank?
   end
 
   def check_parent_id
-    product = Product.find(self.id)
-    if (self.price != product.price)
-      Product.find(product.id).update(deleted: true)
-      product = Product.create(name: self.name, parent_id: product.id, price: self.price)
-      product.save
-    end
+    # product = Product.find(self.id)
+    # if (self.price != product.price)
+    #   Product.find(product.id).update(deleted: true)
+    #   Product.create(name: self.name, parent_id: product.id, price: self.price)
+    #   # product.save  todo
+    #
+    # end
+
   end
 
   def set_deleted_id

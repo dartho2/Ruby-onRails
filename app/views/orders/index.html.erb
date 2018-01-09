@@ -41,10 +41,10 @@
                             <th>price</th>
                             </thead>
                             <tbody>
-                            <% order.products.each do |order, array| %>
+                            <% order.product_orders.each do |order, array| %>
                                 <tr>
                                   <td><%= order.name %></td>
-                                  <td><%= order.product_orders.map(&:quantity).join(', ') %></td>
+                                  <td><%= order.quantity %></td>
                                   <td><%= order.price %></td>
                                 </tr>
                             <% end %>
