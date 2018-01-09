@@ -3,7 +3,6 @@ class Magazine < ApplicationRecord
 
   after_save :add_product_list
 
-
   def add_product_list
     if !self.product_id
       product = Product.create(:name => self.productname)
