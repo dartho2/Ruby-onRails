@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   has_many :orders, :through => :product_orders, inverse_of: :products
   # before_save :create_magazin_product if not exists
   before_save :create_category_from_name
-  before_update :check_parent_id
+  # before_update :check_parent_id
   before_destroy :set_deleted_id
   validates :name, presence: true, length: {minimum: 3, maximum: 20}
 
@@ -15,17 +15,15 @@ class Product < ApplicationRecord
   def create_category_from_name
     create_category(name: new_category_name) unless new_category_name.blank?
   end
+ def sd a = self.parent_id
 
-  def check_parent_id
-    # product = Product.find(self.id)
-    # if (self.price != product.price)
-    #   Product.find(product.id).update(deleted: true)
-    #   Product.create(name: self.name, parent_id: product.id, price: self.price)
-    #   # product.save  todo
-    #
-    # end
+   if !parent_id.nil?
+     self.parent_id = Product.find(parent_id)
+     puts "#{self.price}"
+     sd(self.parent_id)
+   end
+ end
 
-  end
 
   def set_deleted_id
     if (Product.exists?(:id => self.parent_id))

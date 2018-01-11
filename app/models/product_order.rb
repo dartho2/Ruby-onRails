@@ -19,12 +19,17 @@ class ProductOrder < ApplicationRecord
 
   end
 
-  def check_magazine #todo order update
-    a = Product.find(product_id)
-    a.update(:deleted => true)
+  def check_magazine
     debugger
-    Product.create(:price => self.price, :name => a.name, :parent_id => a.id)
-    self.name = a.name
+    a = Product.find(product_id)
+    if !a.deleted.blank?
+      a = Product.where(:parent_id => a.id).last
+      a.update(:price => self.price)
+    else
+      a.update(:deleted => true)
+      Product.create(:price => self.price, :name => a.name, :parent_id => a.id)
+      self.name = a.name
+    end
     check_magazine_product(a)
   end
 
@@ -41,29 +46,32 @@ class ProductOrder < ApplicationRecord
 # TODO
   def magazine_update x
 
-    # if !x.nil?
-    #   a = Magazine.find_by :product_id => x.id
-    #   if !ProductOrder.find_by(:order_id => self.order_id, :product_id => self.product_id).nil?
-    #     x = ProductOrder.find_by(:order_id => self.order_id, :product_id => self.product_id)
-    #     if x.quantity != self.quantity
-    #       if x.quantity < self.quantity
-    #         x.quantity = x.quantity - self.quantity #todo +=
-    #         a.quantity = a.quantity + x.quantity
-    #         a.update(quantity: a.quantity)
-    #       else
-    #         x.quantity = x.quantity - self.quantity #todo +=
-    #         a.quantity = a.quantity + x.quantity
-    #         a.update(quantity: a.quantity)
-    #       end
-    #     end
-    #   else
-    #     a.quantity = a.quantity - self.quantity #todo +=
-    #     a.update(quantity: a.quantity)
-    #   end
-    # else
-    #   self.flash_notice ="wrongs"
-    # end
-  end
+    if !x.nil?
+      a = Magazine.find_by :product_id => x.id
+      debugger
+      if !ProductOrder.find_by(:order_id => self.order_id, :product_id => self.product_id).nil?
+            x = ProductOrder.find_by(:order_id => self.order_id, :product_id => self.product_id)
+              if x.quantity != self.quantity
+              if x.quantity < self.quantity
+                x.quantity -= self.quantity #todo +=
+                a.quantity += x.quantity
+                a.update(quantity: a.quantity)
+              else
+                debugger
+                x.quantity -= self.quantity #todo +=
+                a.quantity += x.quantity
+                a.update(quantity: a.quantity)
+              end
+            end
+          else
+            a.quantity -= self.quantity #todo +=
+            a.update(quantity: a.quantity)
+          end
+      else
+        self.flash_notice ="wrongs"
+      end
+    end
 end
+
 
 
