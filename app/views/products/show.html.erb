@@ -1,29 +1,46 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 col-md-offset-1">
+      <div class="panel panel-default panel-table">
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col col-xs-6">
+              <h3 class="panel-title text-right"><b>History Product <%= "#{@product[0].name}" %></b></h3>
+            </div>
+            <div class="col col-xs-6 text-right">
+              <%= link_to("Create New", new_product_path, class: "btn btn-success") %>
+            </div>
+          </div>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped table-bordered table-list">
+            <thead>
+            <tr>
+              <th class="hidden-xs">ID</th>
+              <th>Name</th>
+              <th>price</th>
+              <th class="col-md-2 center"><em class="fa fa-cog"></em></th>
+            </tr>
+            </thead>
+            <% @product.each do |product| %>
+                <tbody>
+                <tr>
+                  <td class="hidden-xs"><%= product.id %></td>
+                  <td><%= product.name %></td>
+                  <td><%= product.price %></td>
+                  <td align="center">
 
-<h1 align="center">Show Product</h1>
+                  </td>
+                </tr>
+                </tbody>
+            <% end %>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-<%= @product.sd %>
-
-    <tbody>
-    <tr>
-      <td class="hidden-xs"><%= @product.id %></td>
-      <td><%= @product.name %></td>
-      <td><%= @product.price %></td>
-      <td align="center">
-        <%= link_to(product_path, class: "btn btn-primary") do %>
-            <em class="fa fa-search"></em>
-        <% end %>
-        <%= link_to(edit_product_path, class: "btn btn-default") do %>
-            <em class="fa fa-pencil"></em>
-        <% end %>
-        <%= link_to(product_path, method: :delete,
-                    data: {confirm: "Are u sure ?"},
-                    class: "btn btn-danger") do %>
-            <em class="fa fa-trash"></em>
-        <% end %>
-      </td>
-    </tr>
-    </tbody>
 
 

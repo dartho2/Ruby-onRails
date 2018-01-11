@@ -15,14 +15,14 @@ class Product < ApplicationRecord
   def create_category_from_name
     create_category(name: new_category_name) unless new_category_name.blank?
   end
- def sd a = self.parent_id
-
-   if !parent_id.nil?
-     self.parent_id = Product.find(parent_id)
-     puts "#{self.price}"
-     sd(self.parent_id)
-   end
- end
+ # def sd a = self.parent_id
+ #
+ #   if !parent_id.nil?
+ #     self.parent_id = Product.find(parent_id)
+ #     @a = "#{self.price}"
+ #     sd(self.parent_id)
+ #   end
+ # end
 
 
   def set_deleted_id
