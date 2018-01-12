@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180109212542) do
+ActiveRecord::Schema.define(version: 20180111225514) do
 
   create_table "admins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "email", default: "", null: false
@@ -73,6 +73,14 @@ ActiveRecord::Schema.define(version: 20180109212542) do
     t.index ["product_id"], name: "index_product_orders_on_product_id"
   end
 
+  create_table "product_structures", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string "label"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "magazine_id"
+    t.index ["magazine_id"], name: "index_product_structures_on_magazine_id"
+  end
+
   create_table "products", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string "name"
     t.integer "price"
@@ -96,4 +104,5 @@ ActiveRecord::Schema.define(version: 20180109212542) do
   add_foreign_key "orders", "customers"
   add_foreign_key "product_orders", "orders"
   add_foreign_key "product_orders", "products"
+  add_foreign_key "product_structures", "magazines"
 end
