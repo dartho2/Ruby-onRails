@@ -8,11 +8,11 @@ gem 'font-awesome-rails'
 gem 'devise-bootstrap-views'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
-gem 'mysql2', '>= 0.3.18', '< 0.5'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -41,6 +41,7 @@ gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'mysql2', '>= 0.3.18', '< 0.5'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
@@ -55,4 +56,8 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+group :production do
+  gem 'pg'
+end
 
