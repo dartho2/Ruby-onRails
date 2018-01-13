@@ -1,48 +1,24 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <div class="panel panel-default panel-table">
-        <div class="panel-heading">
-          <div class="row">
-            <div class="col col-xs-6">
-              <h3 class="panel-title text-right">Magazine</h3>
-            </div>
-            <div class="col col-xs-6 text-right">
-
-            </div>
-          </div>
-        </div>
-        <div class="panel-body">
-          <table class="table table-striped table-bordered table-list">
-            <thead>
-            <tr>
-              <th class="hidden-xs">ID</th>
-              <th>Name</th>
-              <th>Label</th>
-              <th>value</th>
-              <th class="col-md-2 center"><em class="fa fa-cog"></em></th>
-            </tr>
-            </thead>
-
-                <tbody>
-                <tr>
-                  <td class="hidden-xs"><%= @magazine.id %></td>
-                  <td><%= @magazine.productname %></td>
-                 <% @magazine.product_structures.each do |product_structures| %>
-
-                      <td><%= product_structures.label %></td>
-                      <td><%= product_structures.label %></td>
-
-                  <% end %>
-
-                </tr>
-                </tbody>
-
-          </table>
-        </div>
-      </div>
+    <div class="col-xs-4 item-photo">
+      <img style="max-width:100%;" src="http://allegro.fass24.pl/AUKCJE/KLAPP/3/img/1/6.png" />
     </div>
+    <div class="col-xs-5" style="border:0px solid gray">
+      <h3><%= "#{@magazine.productname}"%></h3>
+      <h5 style="color:#337ab7"></h5>
+      <h6 class="title-price"><small>CENA</small></h6>
+      <h3 style="margin-top:0px;">...</h3>
+      <div class="section" style="padding-bottom:5px;">
+        <h6 class="title-attr"><small>WYMIARY</small></h6>
+        <% @magazine.product_structures.each do |product_structures| %>
+        <div>
+          <div class="attr2"><%= product_structures.label %></div>
+        </div>
+        <% end %>
+      </div>
   </div>
 </div>
+
+
 
 
