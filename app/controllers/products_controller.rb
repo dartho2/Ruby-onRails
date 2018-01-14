@@ -14,8 +14,8 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-    product = Product.find(params[:id])
-    @product = Product.where(:name => product.name)
+    @product = Product.find(params[:id])
+    @products = Product.where(:name => @product.name)
  end
 
   # GET /products/new

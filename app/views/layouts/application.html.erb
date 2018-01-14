@@ -1,20 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>RoR2</title>
+  <%= csrf_meta_tags %>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= csrf_meta_tags %>
+
+  <title><%= yield :title %></title>
 </head>
-<body>
-  <%= render 'layouts/navigation' %>
-  <div class="container">
-  <%= render 'layouts/messages' %>
-  <%= yield %>
+
+<body class="nav-md">
+<div class="container body">
+  <div class="main_container">
+    <% if current_admin %>
+        <div class="col-md-3 left_col">
+          <div class="left_col scroll-view">
+            <%= render partial: 'layouts/shared/leftnav' %>
+          </div>
+        </div>
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <%= render partial: 'layouts/shared/topnav' %>
+            </nav>
+          </div>
+        </div>
+    <% end %>
+    <div class="right_col" role="main">
+      <%= yield %>
+    </div>
+    <footer>
+      <%= render partial: 'layouts/shared/footer' %>
+    </footer>
   </div>
-  <%= debug(params) if Rails.env.development? %>
-  <!-- #TODO Debuger -->
-    <%= render 'layouts/footer' %>
+</div>
+<%= javascript_include_tag 'application' %>
 </body>
+
 </html>
+

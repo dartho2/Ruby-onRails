@@ -1,0 +1,5 @@
+class AddRefProductStructoreToProducts < ActiveRecord::Migration[5.1]
+  def change
+    add_reference :product_structures, :product, foreign_key: true
+  end
+end

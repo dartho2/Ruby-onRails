@@ -39,13 +39,23 @@
                     </div>
                   </div>
                   <div class="form-group center">
-                    <div class="col-sm-6">
-                      <%= f.submit class: "btn  btn-success" %>
-                    </div>
+
                     <div class="col-sm-2">
 
                     </div>
-                  </div>
+                  </div>Specyfications
+                  <table class="table table-striped table-bordered table-list">
+                    <thead>
+                    <tr>
+                      <th class="col-sm-3">Label</th>
+                      <th class="col-sm-3">Value</th>
+                      <th class="col-sm-3">Value</th>
+
+                    </tr>
+                    </thead>
+                  </table>
+                  <%= link_to_add_fields '+', f, :product_structures %>
+                  <%= f.submit class: "add_fields btn btn-success add-more" %>
               <% end %>
             </div>
           </div>

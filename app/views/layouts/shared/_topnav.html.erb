@@ -1,0 +1,21 @@
+<div class="nav toggle">
+  <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+</div>
+
+<ul class="nav navbar-nav navbar-right">
+  <li class="">
+    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+      <img src="" alt="">
+      <%= current_admin.full_name.present? ? current_admin.full_name : current_admin.email %>
+      <span class=" fa fa-angle-down"></span>
+    </a>
+    <ul class="dropdown-menu dropdown-usermenu pull-right">
+      <li><%= link_to "Profil", edit_admin_registration_path(current_admin) %></li>
+      <li>
+        <%= link_to("logout", destroy_admin_session_path,
+                    class: "", method: :delete) %>
+      </li>
+    </ul>
+  </li>
+</ul>
+
