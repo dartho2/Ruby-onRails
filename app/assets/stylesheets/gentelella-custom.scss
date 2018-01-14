@@ -322,7 +322,7 @@ html , body{
 }
 .nav_menu {
   float: left;
-  background: #EDEDED;
+  background: #2a3f54;
   border-bottom: 1px solid #D9DEE4;
   margin-bottom: 10px;
   width: 100%;
@@ -647,7 +647,7 @@ h3,
   margin-bottom: 10px
 }
 a {
-  color: #5A738E;
+  color: #dddddd;
   text-decoration: none
 }
 a,
@@ -824,7 +824,7 @@ a:focus {
   text-decoration: none
 }
 .nav.navbar-nav>li>a {
-  color: #515356 !important
+  //color: #515356 !important
 }
 .nav.top_menu>li>a {
   position: relative;

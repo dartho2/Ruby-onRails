@@ -25,9 +25,8 @@
         </tr>
         </thead>
 
-
+        <tbody>
         <% obj.each do |magazine| %>
-            <tbody>
             <tr>
               <td><%= magazine.productname %></td>
               <td><%= magazine.quantity %></td>
@@ -46,8 +45,8 @@
                 <% end %>
               </td>
             </tr>
-            </tbody>
         <% end %>
+        </tbody>
       </table>
     </div>
   </div>

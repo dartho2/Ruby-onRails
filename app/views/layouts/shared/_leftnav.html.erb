@@ -1,49 +1,40 @@
-<div class="navbar nav_title" style="border: 0;">
-
-  <%= link_to "", class: "navbar-brand", id: "logo" do %>
-      <i class="fa fa-paw"></i><span>FASS</span><%= root_path %>
-  <% end %>
-</div>
-
-<div class="clearfix"></div>
-<br />
-
-<!-- sidebar menu -->
-<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-  <div class="menu_section">
-    <h3>General</h3>
-    <ul class="nav side-menu">
-      <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
-        <ul class="nav child_menu">
-          <li><%= link_to "Products", products_path %></li>
-          <li><%= link_to "Category", categories_path %></li>
-          <li><%= link_to "Orders", orders_path %></li>
-          <li><%= link_to "Magazines", magazines_path %></li>
-        </ul>
-      </li>
-      <li><a><i class="fa fa-edit"></i>Faktury<span class="fa fa-chevron-down"></span></a>
-        <ul class="nav child_menu">
-          <li><%= link_to "Zestawienie Faktur", orders_path %></li>
-          <li><%= link_to "Nowa Faktura", new_order_path %></li>
-        </ul>
-      </li>
-      <li><a><i class="fa fa-table"></i>Magazyn<span class="fa fa-chevron-down"></span></a>
-        <ul class="nav child_menu">
-          <li><%= link_to "Lista", magazines_path %></li>
-          <hr>
-          <li><%= link_to "Nowy Produkt", new_magazine_path %></li>
-        </ul>
-      </li>
-      <li><a><i class="fa fa-bar-chart-o"></i> Produkty <span class="fa fa-chevron-down"></span></a>
-        <ul class="nav child_menu">
-          <li><%= link_to "Historia Produktu", products_path %></li>
-          <hr>
-          <li><%= link_to "Kategoria Produktu", categories_path %></li>
-          <li><%= link_to "Nowa Kategoria", new_category_path %></li>
-        </ul>
-      </li>
-    </ul>
+<nav class="navbar navbar-default sidebar" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">FASS<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Produkty <span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-bar-chart-o"></span></a>
+          <ul class="dropdown-menu forAnimate" role="menu">
+            <li><%= link_to "Historia Produktu", products_path %></li>
+            <li><%= link_to "Kategoria Produktu", categories_path %></li>
+            <li><%= link_to "Nowa Kategoria", new_category_path %></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Faktury <span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-edit"></span></a>
+          <ul class="dropdown-menu forAnimate" role="menu">
+            <li><%= link_to "Zestawienie Faktur", orders_path %></li>
+            <li><%= link_to "Nowa Faktura", new_order_path %></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Magazyn<span class="caret"></span><span style="font-size:16px;" class="pull-right hidden-xs showopacity fa fa-table"></span></a>
+          <ul class="dropdown-menu forAnimate" role="menu">
+            <li><%= link_to "Lista", magazines_path %></li>
+            <li><%= link_to "Nowy Produkt", new_magazine_path %></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
-
+</nav>
 

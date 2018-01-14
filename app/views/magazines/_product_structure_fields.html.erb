@@ -1,20 +1,23 @@
-<div class="order-table">
-  <table class="table table-striped table-bordered table-list">
-    <tbody>
-    <tr>
 
-      <td class="col-sm-2"><%= f.text_field :label, class: 'form-control bfh-number' %>
+<table class="table table-striped table-bordered table-list">
 
-      <td class="col-sm-2"><%= f.text_field :value, class: 'form-control bfh-number' %>
-
-      <td class="col-sm-1 center"><%= f.hidden_field :_destroy %><%= link_to('Delete', class: 'remove_fields btn btn-danger') do %>
+  <tr>
+    <td>
+      <%= f.label :wymiary, "Wymiary", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+      <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+        <%= f.text_field :label, class: "form-control col-md-7 col-xs-2" %>
+      </div>
+      <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+        <%= f.text_field :value, class: "form-control col-md-7 col-xs-2" %>
+      </div>
+      <div class="col-md-1 col-sm-1 col-xs-12 form-group has-feedback">
+        <%= f.hidden_field :_destroy %><%= link_to('Delete', class: 'remove_fields') do %>
             <em class="fa fa-trash"></em>
-        <% end %></td>
-    </tr>
-    </tbody>
-  </table>
-</div>
+        <% end %>
+      </div>
+    </td>
+  </tr>
 
-
+</table>
 
 
