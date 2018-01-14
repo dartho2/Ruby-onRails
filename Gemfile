@@ -34,6 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'bcrypt', '~> 3.1.11'
 gem 'bcrypt', '~> 3.1.11'
 # Use jquery
+
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
 gem 'pg', '~> 0.20'
 # gem 'gentelella-rails'
