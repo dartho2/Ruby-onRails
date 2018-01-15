@@ -1,4 +1,168 @@
 <p id="notice"><%= notice %></p>
+<div class="page-title">
+  <div class="title_left">
+    <h3>Faktura
+      <small>-</small>
+    </h3>
+  </div>
+
+  <div class="title_right">
+    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Go!</button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2><%= @order.name %>
+          <small>numer faktury</small>
+        </h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+            <ul class="dropdown-menu" role="menu">
+            </ul>
+          </li>
+          <li><a class="close-link"><i class="fa fa-close"></i></a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+
+        <section class="content invoice">
+          <!-- title row -->
+          <div class="row">
+            <div class="col-xs-12 invoice-header">
+              <h1>
+                <i class="fa fa-globe"></i> FASS
+                <small class="pull-right">Data: <%= @order.created_at %></small>
+              </h1>
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- info row -->
+          <div class="row invoice-info">
+            <div class="col-sm-4 invoice-col">
+              Od
+              <address>
+                <strong>Wystawca</strong>
+                <br>adres
+                <br>adres
+                <br>adres
+                <br>adres
+              </address>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 invoice-col">
+              Do
+              <address>
+                <strong>Odbiorca</strong>
+                <br>adres
+                <br>adres
+                <br>adres
+                <br>adres
+              </address>
+            </div>
+            <!-- /.col -->
+            <div class="col-sm-4 invoice-col">
+              <br>
+              <b>Numer FV:</b> 4F3S8J
+              <br>
+              <b>Data płatności:</b><%= @order.name %>
+              <br>
+
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+
+          <!-- Table row -->
+          <div class="row">
+            <div class="col-xs-12 table">
+              <table class="table table-striped">
+                <thead>
+                <tr>
+                  <th>Produkt</th>
+                  <th>Ilość</th>
+                  <th>Price</th>
+                  <th>Cena</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <% @order.product_orders.each do |order, array| %>
+                    <tr>
+                      <td><%= order.name %></td>
+                      <td><%= order.quantity %></td>
+                      <td><%= order.price %> zł</td>
+                      <td><%= order.price * order.quantity %> zł</td>
+                    </tr>
+                <% end %>
+                </tbody>
+              </table>
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+
+          <div class="row">
+            <!-- accepted payments column -->
+            <div class="col-xs-6">
+              <p class="lead">Metoda Płatności:</p>
+              <img src="images/visa.png" alt="Visa">
+              <img src="images/mastercard.png" alt="Mastercard">
+              <img src="images/american-express.png" alt="American Express">
+              <img src="images/paypal.png" alt="Paypal">
+              <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
+                Informacje dodatkowe
+              </p>
+            </div>
+            <!-- /.col -->
+            <div class="col-xs-6">
+              <p class="lead"><%= @order.name %></p>
+              <div class="table-responsive">
+                <table class="table">
+                  <tbody>
+                  <tr>
+                    <th>Cena Brutto:</th>
+                    <td><%= @order.total_price %> zł</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+
+          <!-- this row will not appear when printing -->
+          <div class="row no-print">
+            <div class="col-xs-12">
+              <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
+              <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Zapłacono</button>
+              <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i>
+                Generate PDF
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_order_path(@order) %> |
 <%= link_to 'Back', orders_path %>

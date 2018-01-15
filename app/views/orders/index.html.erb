@@ -39,7 +39,7 @@
               <td><%= order.name %></td>
               <td><%= order.total_price %></td>
               <td class="center">
-                <%= link_to "Zobacz", order_path(order), class: 'btn btn-warning' %>
+                <%= link_to "Zobacz FV", order_path(order), class: 'btn btn-success' %>
                 <%= link_to "Delete", order, method: :delete, class: 'btn btn-danger' %></i>
                 <%= link_to "Edit", edit_order_path(order), class: 'btn btn-warning' %>
               </td>
