@@ -12,7 +12,7 @@
   <title><%= yield :title %></title>
 
 </head>
-
+<% if current_admin %>
 <body class="nav-md">
 <div class="container body">
   <div class="main_container">
@@ -30,6 +30,7 @@
         </nav>
       </div>
     </div>
+    <% end %>
     <!-- /top navigation -->
 
     <!-- page content -->
