@@ -12,3 +12,9 @@ $(document).on 'click', 'form .add_fields', (event) ->
   $(this).before($(this).data('fields').replace(regexp, time))
   event.preventDefault()
 
+$(document).ready ->
+  $('input.custom-control-input').click ->
+    inputValue = $(this).attr('value')
+    $('.' + inputValue).toggle()
+    return
+  return

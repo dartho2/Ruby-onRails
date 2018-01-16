@@ -18,6 +18,37 @@
                       <%= order.text_field :name, class: 'form-control', placeholder: "Nuber FV" %>
                     </div>
                   </div>
+                  <div class="form-group">
+                    <div class="col-sm-8">
+                  <label class="custom-control custom-checkbox">Paragon:
+                    <input type="checkbox" class="custom-control-input" value="checkedbox">
+                    <span class="custom-control-indicator"></span>
+                  </label>
+                    </div>
+                  </div>
+                  <%= order.fields_for :client do |client| %>
+                      <div class="checkedbox">
+                      <div class="form-group">
+                      <div class="control-label col-sm-2">
+                        <%= client.label :Client_name %>
+                      </div>
+                      <div class="col-sm-8">
+                        <%= client.text_field :firstname, class: 'form-control', placeholder: "First_name" %>
+                      </div>
+                      </div>
+                      <%= client.fields_for :adress do |adress| %>
+                            <div class="form-group">
+                          <div class="control-label col-sm-2">
+                            <%= adress.label :city %>
+                          </div>
+                          <div class="col-sm-8">
+                            <%= adress.text_field :city, class: 'form-control', placeholder: "City" %>
+                          </div>
+                          </div>
+                            </div>
+                      <% end %>
+
+                      <% end %>
                   <div class="panel-body">
                     <table class="table table-striped table-bordered table-list">
                       <thead>

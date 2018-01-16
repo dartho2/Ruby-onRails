@@ -70,10 +70,12 @@
               Do
               <address>
                 <strong>Odbiorca</strong>
-                <br>adres
-                <br>adres
-                <br>adres
-                <br>adres
+
+                    <tr>
+                     <br> <%= @order.client.firstname %>
+                      <br> <%= @order.client.adress.city %>
+                    </tr>
+
               </address>
             </div>
             <!-- /.col -->
