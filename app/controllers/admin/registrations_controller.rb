@@ -5,8 +5,8 @@ class Admin::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name])
-    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :zip, :city, :nip, :phone, :fullname, :street])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :zip, :city, :nip, :phone, :fullname, :street])
   end
 
   def is_admin?

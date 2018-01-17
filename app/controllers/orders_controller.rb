@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
   def new
       @order = Order.new
       @order.build_client
-    @order.client.build_adress
+      @order.client.build_adress
 
   end
 
@@ -76,7 +76,7 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
   def order_params
     params.require(:order)
-      .permit([:name, client_attributes: [:firstname , adress_attributes: [:city]]],product_orders_attributes: [:id, :quantity, :name, :price, :_destroy,
+      .permit([:name, :datatime, client_attributes: [:firstname, :lastname, adress_attributes: [:city, :zip, :street, :number, :company_zip, :company_city, :company_street, :company_number, :company_nip]]],product_orders_attributes: [:id, :quantity, :name, :price, :_destroy,
                                            product_attributes: [:id, :price, :_destroy]])
   end
   def params_orderss

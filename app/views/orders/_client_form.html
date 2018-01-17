@@ -1,0 +1,134 @@
+
+<div class="checkedbox">
+    <div class="form-group">
+        <div class="control-label col-sm-2">
+            <%= client.label :Imie %>
+        </div>
+        <div class="col-sm-2">
+            <%= client.text_field :firstname, class: 'form-control', placeholder: "Imię" %>
+        </div>
+        <div class="control-label col-sm-2">
+            <%= client.label :Nazwisko %>
+        </div>
+        <div class="col-sm-2">
+            <%= client.text_field :lastname, class: 'form-control', placeholder: "Nazwisko" %>
+        </div>
+    </div>
+
+    <div class="x_title">
+    </div>
+
+
+
+    <div class="form-group col-md-6">
+
+        <h2 class="center">Adres <small> Firmy</small></h2>
+        <br>
+
+        <div class="clearfix"></div>
+        <div class="form-group">
+            <label class="col-sm-2 col-form-label">Kod pocztowy</label>
+            <div class="col-sm-4">
+                <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 col-form-label">Miejscowość</label>
+            <div class="col-sm-4">
+                <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 col-form-label">Ulica</label>
+            <div class="col-sm-4">
+                <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 col-form-label">Nr</label>
+            <div class="col-sm-4">
+                <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 col-form-label">Województwo</label>
+            <div class="col-sm-4">
+                <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 col-form-label">NIP</label>
+            <div class="col-sm-4">
+                <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="form-group col-md-6"">
+
+    <h2 class="center">Adres <small> Opcjonalnie wysyłka</small></h2>
+    <br>
+    <div class="clearfix"></div>
+    <div class="form-group">
+        <label class="col-sm-2 col-form-label">Kod pocztowy</label>
+        <div class="col-sm-4">
+            <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 col-form-label">Miejscowość</label>
+        <div class="col-sm-4">
+            <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 col-form-label">Ulica</label>
+        <div class="col-sm-4">
+            <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 col-form-label">Nr</label>
+        <div class="col-sm-4">
+            <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 col-form-label">Województwo</label>
+        <div class="col-sm-4">
+            <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%= order.fields_for :adress do |adress| %>
+<div class="form-group">
+    <div class="control-label col-sm-2">
+        <%= adress.label :city %>
+    </div>
+    <div class="col-sm-8">
+        <%= adress.text_field :city, class: 'form-control', placeholder: "City" %>
+    </div>
+</div>
+
+</div>
+
+<% end %>
+</div>
+
+<% end %>

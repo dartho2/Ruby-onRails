@@ -14,7 +14,9 @@
   nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
     margin-left: 0px;
   }
-
+  label {
+    font-weight: 300;
+  }
   nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
     text-align: center;
     width: 100%;
