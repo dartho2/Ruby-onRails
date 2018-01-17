@@ -15,6 +15,7 @@ $(document).on 'click', 'form .add_fields', (event) ->
 $(document).ready ->
   $('input.custom-control-input').click ->
     inputValue = $(this).attr('value')
+    $('.' + inputValue).val(1)
     $('.' + inputValue).toggle()
     return
   return

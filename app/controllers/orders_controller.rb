@@ -25,6 +25,10 @@ class OrdersController < ApplicationController
   # GET /orders/1/edit
   def edit
     @order = Order.find(params[:id])
+    if @order.client.nil?
+    @order.build_client
+    @order.client.build_adress
+      end
   end
 
   # POST /orders
@@ -76,7 +80,7 @@ class OrdersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
   def order_params
     params.require(:order)
-      .permit([:name, :datatime, client_attributes: [:firstname, :lastname, adress_attributes: [:city, :zip, :street, :number, :company_zip, :company_city, :company_street, :company_number, :company_nip]]],product_orders_attributes: [:id, :quantity, :name, :price, :_destroy,
+      .permit([:name, :datatime, client_attributes: [:id, :firstname, :_destroy, adress_attributes: [:id, :city, :zip, :street, :phone, :number, :company_zip, :company_city, :company_street, :company_number, :company_nip]]],product_orders_attributes: [:id, :quantity, :name, :price, :_destroy,
                                            product_attributes: [:id, :price, :_destroy]])
   end
   def params_orderss

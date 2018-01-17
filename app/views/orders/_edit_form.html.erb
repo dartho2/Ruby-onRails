@@ -1,34 +1,192 @@
 <%= render '/shared/errors', obj: @order %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <div class="panel panel-default panel-table">
-        <div class="panel-heading">
-          <div class="row">
-            <div class="col col-xs-6">
-              <h3 class="panel-title"></h3>
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Faktura
+        <small>paragon</small>
+      </h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+        </li>
+        <li><a class="close-link"><i class="fa fa-close"></i></a>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
+      <%= form_for(@order, :html => {class: "form-horizontal", role: "form"}) do |order| %>
+          <div class="form-group">
+            <div class="control-label col-sm-3">
+              <%= order.label :name, "Numer Faktury" %>
             </div>
-            <div class="col-xs-12">
-              <%= form_for(@order, :html => {class: "form-horizontal", role: "form"}) do |order| %>
-                  <div class="form-group">
-                    <div class="control-label col-sm-2">
-                      <%= order.label :FV %>
-                    </div>
-                    <div class="col-sm-8">
-                      <%= order.text_field :name, class: 'form-control', placeholder: "Nuber FV" %>
+            <div class="col-sm-2">
+              <%= order.text_field :name, class: 'form-control', placeholder: "Numer FV" %>
+            </div>
+            <div class="col-sm-2">
+
+              <fieldset>
+                <div class="control-group">
+                  <div class="controls">
+                    <div class="col-md-11 xdisplay_inputx form-group has-feedback">
+                      <%= order.text_field :datatime, class: 'form-control has-feedback-left', id: "single_cal3", placeholder: "data", 'aria-describedby' => "inputSuccess2Status3" %>
+                      <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
+                      <span id="inputSuccess2Status3" class="sr-only">(success)</span>
                     </div>
                   </div>
-                  <div class="panel-body">
-                    <table class="table table-striped table-bordered table-list">
-                      <thead>
-                      <tr>
-                        <th class="col-sm-3">Quantity</th>
-                        <th class="col-sm-3">Name Product</th>
-                        <th class="col-sm-2">Price</th>
-                        <th class="col-sm-1 center"><em class="fa fa-cog"></em></th>
-                      </tr>
-                      </thead>
-                    </table>
+                </div>
+              </fieldset>
+            </div>
+            <div class="col-sm-2">
+              <label class="custom-control custom-checkbox">Paragon:
+                <input type="checkbox" class="custom-control-input" value="checkedbox">
+                <span class="custom-control-indicator"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="checkedbox">
+            <div class="x_panel">
+              <div class="x_title">
+                <h2>Adress
+                  <small>dodaj</small>
+                </h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                  </li>
+                  <li><a class="close-link"><i class="fa fa-close"></i></a>
+                  </li>
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+                <%= order.fields_for :client do |client| %>
+                    <div class="form-group">
+                      <div class="control-label col-sm-3">
+                        <%= client.label :firstname, "Imię, Nazwisko (nazwa firmy)" %>
+                      </div>
+                      <div class="col-sm-2">
+                        <%= client.text_field :firstname, class: 'form-control', placeholder: "Imię, Nazwisko (nazwa firmy)" %>
+                      </div>
+                      <%= client.hidden_field :_destroy, class: 'checkedbox' %>
+                    </div>
+                    <div class="x_title"></div>
+                    <%= client.fields_for :adress do |adress| %>
+                        <div class="form-group col-md-6 cont-left">
+                          <h2 class="center">Dane
+                            <small> do faktury</small>
+                          </h2>
+                          <br>
+                          <div class="clearfix"></div>
+                          <div class="form-group">
+                            <%= adress.label :company_zip, "Kod pocztowy", class: "col-sm-2 col-md-offset-3 col-form-label" %>
+                            <div class="col-sm-4">
+                              <%= adress.text_field :company_zip, class: 'form-control col-sm-4', placeholder: "Kod pocztowy" %>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <%= adress.label :company_city, "Miejscowość", class: "col-sm-2 col-md-offset-3 col-form-label" %>
+                            <div class="col-sm-4">
+                              <%= adress.text_field :company_city, class: 'form-control col-sm-4', placeholder: "Miasto" %>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <%= adress.label :company_street, "Ulica", class: "col-sm-2 col-md-offset-3 col-form-label" %>
+                            <div class="col-sm-4">
+                              <%= adress.text_field :company_street, class: 'form-control col-sm-4', placeholder: "Ulica" %>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <%= adress.label :company_number, "Nr", class: "col-sm-2 col-md-offset-3 col-form-label" %>
+                            <div class="col-sm-4">
+                              <%= adress.text_field :company_number, class: 'form-control col-sm-4', placeholder: "Nr" %>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <%= adress.label :company_nip, "NIP", class: "col-sm-2 col-md-offset-3 col-form-label" %>
+                            <div class="col-sm-4">
+                              <%= adress.text_field :company_nip, class: 'form-control col-sm-4', placeholder: "Nip" %>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <div class="form-group col-md-6">
+                          <h2 class="center">Dane
+                            <small> do wysyłki</small>
+                          </h2>
+                          <br>
+                          <div class="blocked-div"></div>
+                          <div class="clearfix"></div>
+                          <div class="form-group">
+                            <%= adress.label :zip, "Kod pocztowy", class: "col-sm-2 col-md-offset-3 col-form-label" %>
+                            <div class="col-sm-4">
+                              <%= adress.text_field :zip, class: 'form-control col-sm-4', placeholder: "Kod pocztowy" %>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <%= adress.label :city, "Miejscowość", class: "col-sm-2 col-md-offset-3 col-form-label" %>
+                            <div class="col-sm-4">
+                              <%= adress.text_field :city, class: 'form-control col-sm-4', placeholder: "Miasto" %>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <%= adress.label :street, "Ulica", class: "col-sm-2 col-md-offset-3 col-form-label" %>
+                            <div class="col-sm-4">
+                              <%= adress.text_field :street, class: 'form-control col-sm-4', placeholder: "Ulica" %>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <%= adress.label :number, "Nr", class: "col-sm-2 col-md-offset-3 col-form-label" %>
+                            <div class="col-sm-4">
+                              <%= adress.text_field :number, class: 'form-control col-sm-4', placeholder: "Nr" %>
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <%= adress.label :phone, "Telefon", class: "col-sm-2 col-md-offset-3 col-form-label" %>
+                            <div class="col-sm-4">
+                              <%= adress.text_field :phone, class: 'form-control col-sm-4', placeholder: "telefon" %>
+                            </div>
+                          </div>
+                        </div>
+                    <% end %>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <div class="x_panel">
+            <div class="x_title">
+              <h2>Produkty
+                <small>dodaj</small>
+              </h2>
+              <ul class="nav navbar-right panel_toolbox">
+                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                </li>
+                <li><a class="close-link"><i class="fa fa-close"></i></a>
+                </li>
+              </ul>
+              <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+              <div class="panel-body">
+                <table class="table table-striped table-bordered table-list">
+                  <thead>
+                  <tr>
+                    <th class="col-sm-3">Quantity</th>
+                    <th class="col-sm-3">Name Product</th>
+                    <th class="col-sm-2">Price</th>
+                    <th class="col-sm-1 center"><em class="fa fa-cog"></em></th>
+                  </tr>
+                  </thead>
+                </table>
                     <div class="order-table">
                       <table class="table table-striped table-bordered table-list">
                         <tbody>
@@ -38,9 +196,8 @@
                               <td class="col-sm-3"><%= f.number_field :quantity, class: 'form-control bfh-number' %></td>
                                   <td class="col-sm-3"><%= f.text_field :name, class: 'form-control' %></td>
                                   <td class="col-sm-2"><%= f.text_field :price, class: 'form-control' %></td>
-
-                              <td class="col-sm-1 center"><%= f.hidden_field :_destroy %><%= link_to('Delete', class: 'remove_fields btn btn-danger') do %>
-                                    <em class="fa fa-trash"></em>
+                                  <td class="col-sm-1 center"><%= f.hidden_field :_destroy %>
+                                    <%= link_to('Delete', class: 'remove_fields glyphicon glyphicon-trash') do %>
                                 <% end %>
                               </td>
                             </tr>
@@ -50,13 +207,19 @@
                       </table>
                     </div>
                     <%= link_to_add_fields '+', order, :product_orders %>
-                    <%= order.submit class: "add_fields btn btn-success add-more" %>
-              <% end %>
+                    <%= order.submit class: "add_fields btn btn-dark add-more" %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
+
+      <% end %>
     </div>
   </div>
-</div>
+
+
+
+
+
+
+

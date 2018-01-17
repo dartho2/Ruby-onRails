@@ -1577,14 +1577,14 @@ if (typeof NProgress != 'undefined') {
 
 			var cb = function(start, end, label) {
 			  console.log(start.toISOString(), end.toISOString(), label);
-			  $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+			  $('#reportrange span').html(start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY'));
 			};
 
 			var optionSet1 = {
 			  startDate: moment().subtract(29, 'days'),
 			  endDate: moment(),
 			  minDate: '01/01/2012',
-			  maxDate: '12/31/2015',
+			  maxDate: '31/12/2015',
 			  dateLimit: {
 				days: 60
 			  },
@@ -1605,7 +1605,7 @@ if (typeof NProgress != 'undefined') {
 			  buttonClasses: ['btn btn-default'],
 			  applyClass: 'btn-small btn-primary',
 			  cancelClass: 'btn-small',
-			  format: 'MM/DD/YYYY',
+			  format: 'DD/MM/YYYY',
 			  separator: ' to ',
 			  locale: {
 				applyLabel: 'Submit',
@@ -1619,7 +1619,7 @@ if (typeof NProgress != 'undefined') {
 			  }
 			};
 
-			$('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+			$('#reportrange span').html(moment().subtract(29, 'days').format('D MMMM, YYYY') + ' - ' + moment().format('D MMMM, YYYY'));
 			$('#reportrange').daterangepicker(optionSet1, cb);
 			$('#reportrange').on('show.daterangepicker', function() {
 			  console.log("show event fired");
@@ -1628,7 +1628,7 @@ if (typeof NProgress != 'undefined') {
 			  console.log("hide event fired");
 			});
 			$('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-			  console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+			  console.log("apply event fired, start/end dates are " + picker.startDate.format('D MMMM, YYYY') + " to " + picker.endDate.format('D MMMM, YYYY'));
 			});
 			$('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
 			  console.log("cancel event fired");
@@ -1652,14 +1652,14 @@ if (typeof NProgress != 'undefined') {
 
 				var cb = function(start, end, label) {
 				  console.log(start.toISOString(), end.toISOString(), label);
-				  $('#reportrange_right span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+				  $('#reportrange_right span').html(start.format('D MMMM, YYYY') + ' - ' + end.format('D MMMM, YYYY'));
 				};
 
 				var optionSet1 = {
 				  startDate: moment().subtract(29, 'days'),
 				  endDate: moment(),
 				  minDate: '01/01/2012',
-				  maxDate: '12/31/2020',
+				  maxDate: '31/12/2020',
 				  dateLimit: {
 					days: 60
 				  },
@@ -1680,7 +1680,7 @@ if (typeof NProgress != 'undefined') {
 				  buttonClasses: ['btn btn-default'],
 				  applyClass: 'btn-small btn-primary',
 				  cancelClass: 'btn-small',
-				  format: 'MM/DD/YYYY',
+				  format: 'DD/MM/YYYY',
 				  separator: ' to ',
 				  locale: {
 					applyLabel: 'Submit',
@@ -1694,7 +1694,7 @@ if (typeof NProgress != 'undefined') {
 				  }
 				};
 
-				$('#reportrange_right span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+				$('#reportrange_right span').html(moment().subtract(29, 'days').format('D MMMM, YYYY') + ' - ' + moment().format('D MMMM, YYYY'));
 
 				$('#reportrange_right').daterangepicker(optionSet1, cb);
 
@@ -1705,7 +1705,7 @@ if (typeof NProgress != 'undefined') {
 				  console.log("hide event fired");
 				});
 				$('#reportrange_right').on('apply.daterangepicker', function(ev, picker) {
-				  console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
+				  console.log("apply event fired, start/end dates are " + picker.startDate.format('D MMMM, YYYY') + " to " + picker.endDate.format('D MMMM, YYYY'));
 				});
 				$('#reportrange_right').on('cancel.daterangepicker', function(ev, picker) {
 				  console.log("cancel event fired");
@@ -1744,7 +1744,10 @@ if (typeof NProgress != 'undefined') {
 			});
 			$('#single_cal3').daterangepicker({
 			  singleDatePicker: true,
-			  singleClasses: "picker_3"
+			  singleClasses: "picker_3",
+                locale: {
+                    format: 'DD/MM/YYYY'
+                }
 			}, function(start, end, label) {
 			  console.log(start.toISOString(), end.toISOString(), label);
 			});
@@ -1772,7 +1775,7 @@ if (typeof NProgress != 'undefined') {
 			  timePicker: true,
 			  timePickerIncrement: 30,
 			  locale: {
-				format: 'MM/DD/YYYY h:mm A'
+				format: 'DD/MM/YYYY h:mm A'
 			  }
 			});
 

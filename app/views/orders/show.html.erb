@@ -58,8 +58,8 @@
             <div class="col-sm-4 invoice-col">
               <address>
                 <strong>Sprzedawca</strong>
-                <br> <%= current_admin.fullname %>
-                <br> <%= current_admin.zip  %> <%= current_admin.city %>
+                <br><%= current_admin.fullname %>
+                <br><%= current_admin.zip %> <%= current_admin.city %>
                 <br><%= current_admin.street %> <%= current_admin.number %>
                 <br><%= current_admin.nip %>
               </address>
@@ -69,12 +69,14 @@
               <address>
                 <strong>Nabywca</strong>
 
-                    <tr>
-                     <br> <%= @order.client.firstname %> <%= @order.client.lastname %>
-                      <br> <%= @order.client.adress.zip %> <%= @order.client.adress.street %> <%= @order.client.adress.company_zip %> <%= @order.client.adress.company_street %>
-                      <br> <%= @order.client.adress.city %> <%= @order.client.adress.company_city %>
-                      <br><%= @order.client.adress.company_nip %>
-                    </tr>
+                <tr>
+                  <% if !@order.client.blank? %>
+                      <br><%= @order.client.firstname.present? ? @order.client.firstname : "" %>
+                      <br><%= @order.client.adress.zip.present? ? (@order.client.adress.zip + " " + @order.client.adress.street) : @order.client.adress.company_zip.present? ? (@order.client.adress.company_zip + " " + @order.client.adress.company_street) : "" %>
+                      <br><%= @order.client.adress.city.present? ? @order.client.adress.city : @order.client.adress.company_city.present? ? @order.client.adress.company_city : "" %>
+                      <br><%= @order.client.adress.company_nip.present? ? @order.client.adress.company_nip : "" %>
+                  <% end %>
+                </tr>
 
               </address>
             </div>
@@ -163,5 +165,3 @@
   </div>
 </div>
 
-<%= link_to 'Edit', edit_order_path(@order) %> |
-<%= link_to 'Back', orders_path %>
