@@ -12,7 +12,6 @@ class Order < ApplicationRecord
   validates :name, presence: true
 
   def data_change
-    debugger
     order = Order.last
     self.name = order.id.to_s + "/" + order.datatime.to_s
 
