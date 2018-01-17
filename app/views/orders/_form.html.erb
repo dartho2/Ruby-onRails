@@ -1,42 +1,155 @@
 <%= render '/shared/errors', obj: @order %>
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <div class="panel panel-default panel-table">
-        <div class="panel-heading">
-          <div class="row">
-            <div class="col col-xs-6">
-              <h3 class="panel-title"></h3>
-            </div>
-            <div class="col-xs-12">
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Magazyn <small>-</small></h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+        </li>
+        <li><a class="close-link"><i class="fa fa-close"></i></a>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content">
               <%= form_for(@order, :html => {class: "form-horizontal", role: "form"}) do |order| %>
                   <div class="form-group">
                     <div class="control-label col-sm-2">
                       <%= order.label :FV %>
                     </div>
+                    <div class="col-sm-2">
+                      <%= order.text_field :name, class: 'form-control', placeholder: "Numer FV" %>
+                    </div>
                     <div class="col-sm-8">
-                      <%= order.text_field :name, class: 'form-control', placeholder: "Nuber FV" %>
+                      <label class="custom-control custom-checkbox">Paragon:
+                        <input type="checkbox" class="custom-control-input" value="checkedbox">
+                        <span class="custom-control-indicator"></span>
+                      </label>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <div class="col-sm-8">
-                  <label class="custom-control custom-checkbox">Paragon:
-                    <input type="checkbox" class="custom-control-input" value="checkedbox">
-                    <span class="custom-control-indicator"></span>
-                  </label>
-                    </div>
-                  </div>
+
                   <%= order.fields_for :client do |client| %>
                       <div class="checkedbox">
                       <div class="form-group">
                       <div class="control-label col-sm-2">
-                        <%= client.label :Client_name %>
+                        <%= client.label :Imie %>
                       </div>
-                      <div class="col-sm-8">
-                        <%= client.text_field :firstname, class: 'form-control', placeholder: "First_name" %>
+                      <div class="col-sm-2">
+                        <%= client.text_field :firstname, class: 'form-control', placeholder: "Imię" %>
                       </div>
+                        <div class="control-label col-sm-2">
+                          <%= client.label :Nazwisko %>
+                        </div>
+                        <div class="col-sm-2">
+                          <%= client.text_field :lastname, class: 'form-control', placeholder: "Nazwisko" %>
+                        </div>
                       </div>
-                      <%= client.fields_for :adress do |adress| %>
+
+                        <div class="x_title">
+                        </div>
+
+
+
+                        <div class="form-group col-md-6">
+
+                          <h2 class="center">Adres <small> Firmy</small></h2>
+                          <br>
+
+                          <div class="clearfix"></div>
+                          <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Kod pocztowy</label>
+                            <div class="col-sm-4">
+                              <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Miejscowość</label>
+                            <div class="col-sm-4">
+                              <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Ulica</label>
+                            <div class="col-sm-4">
+                              <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Nr</label>
+                            <div class="col-sm-4">
+                              <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-sm-2 col-form-label">Województwo</label>
+                            <div class="col-sm-4">
+                              <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+                            </div>
+                          </div>
+                          <div class="form-group">
+                            <label class="col-sm-2 col-form-label">NIP</label>
+                            <div class="col-sm-4">
+                              <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+                            </div>
+                          </div>
+
+
+                          </div>
+
+
+
+                        <div class="form-group col-md-6"">
+
+                        <h2 class="center">Adres <small> Opcjonalnie wysyłka</small></h2>
+                        <br>
+                        <div class="clearfix"></div>
+                        <div class="form-group">
+                          <label class="col-sm-2 col-form-label">Kod pocztowy</label>
+                          <div class="col-sm-4">
+                            <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-2 col-form-label">Miejscowość</label>
+                          <div class="col-sm-4">
+                            <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-2 col-form-label">Ulica</label>
+                          <div class="col-sm-4">
+                            <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-2 col-form-label">Nr</label>
+                          <div class="col-sm-4">
+                            <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label class="col-sm-2 col-form-label">Województwo</label>
+                          <div class="col-sm-4">
+                            <input type="email" class="form-control form-control-warning" id="inputHorizontalWarning" placeholder="name@example.com">
+                          </div>
+                        </div>
+
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
+                        <%= client.fields_for :adress do |adress| %>
                             <div class="form-group">
                           <div class="control-label col-sm-2">
                             <%= adress.label :city %>
@@ -45,8 +158,10 @@
                             <%= adress.text_field :city, class: 'form-control', placeholder: "City" %>
                           </div>
                           </div>
+
                             </div>
                       <% end %>
+                        </div>
 
                       <% end %>
                   <div class="panel-body">
@@ -65,27 +180,8 @@
               <% end %>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
