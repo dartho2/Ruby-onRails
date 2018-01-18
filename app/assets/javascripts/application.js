@@ -12,9 +12,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
+//= require turbolinks
 //= require gentelella
 //= require gentelella-custom
-//= require turbolinks
 //= require_tree .
 
 

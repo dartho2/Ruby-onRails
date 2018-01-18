@@ -74,13 +74,12 @@
         </tr>
         </thead>
         <tbody>
-        <% @products.each do |product| %>
-            <% product.product_structure.each do |a| %>
+        <% @product.magazine.product_structures.each do |product| %>
                 <tr>
-                  <td><%= a.label %> </td>
-                  <td><%= a.value %></td>
+                  <td><%= product.label %> </td>
+                  <td><%= product.value %></td>
                 </tr>
-            <% end %>
+
         <% end %>
         </tbody>
       </table>

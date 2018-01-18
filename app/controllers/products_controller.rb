@@ -16,7 +16,11 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @products = Product.where(:name => @product.name)
- end
+    # Product.find(:all)
+    # Product.find(:id, :conditions => [ "id = :u", { :u => product.parent_id }])
+
+
+  end
 
   # GET /products/new
   def new

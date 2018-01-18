@@ -4,6 +4,7 @@ class Order < ApplicationRecord
   has_one :client
   has_one :adress, :through => :client
   before_create :data_change
+after_save :set_product
 
   accepts_nested_attributes_for :product_orders, allow_destroy: true
   accepts_nested_attributes_for :client, allow_destroy: true
@@ -16,7 +17,7 @@ class Order < ApplicationRecord
         self.name = "1" + "/" + self.datatime.to_s
       else
         order = Order.last
-        self.name = order.id.to_s + "/" + self.datatime.to_s
+        self.name = (order.id + 1).to_s + "/" + self.datatime
       end
     else
       if Order.last.nil?
@@ -29,6 +30,10 @@ class Order < ApplicationRecord
     @total_price ||= product_orders.includes(:product).reduce(0) do |sum, a|
       sum + (a.quantity * a.price)
     end
+  end
+
+  def set_product
+    debugger
   end
 
 end

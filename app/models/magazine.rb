@@ -11,9 +11,6 @@ class Magazine < ApplicationRecord
       product = Product.create(:name => self.productname, :parent_id => false)
       product.save(:validate => false)
       self.update_columns(product_id: product.id)
-      debugger
-      # product_structures.update('product_id' => self.product_id)
-      product_structures.update_attribute('product_id' => self.product_id)
     end
   end
 end

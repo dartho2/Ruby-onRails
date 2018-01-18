@@ -23,5 +23,9 @@ class Product < ApplicationRecord
       Product.find(self.parent_id).update(deleted: false)
     end
   end
+
+  def dupa
+
+  end
 end
 
