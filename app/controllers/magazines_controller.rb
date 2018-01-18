@@ -18,12 +18,13 @@ class MagazinesController < ApplicationController
   # GET /magazines/new
   def new
     @magazine = Magazine.new
+    @magazine.build_productshipment
   end
 
   # GET /magazines/1/edit
   def edit
     @structurebuild = ProductStructure.where(:product_id => @magazine.product_id)
-    @magazine.product_structures
+
 
   end
 
@@ -75,7 +76,7 @@ class MagazinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def magazine_params
-      params.require(:magazine).permit(:productname,:quantity, product_structures_attributes: [:id, :label, :value, :_destroy])
+      params.require(:magazine).permit(:productname, :quantity, productshipment_attributes: [:height, :weight, :width, :depth, :_destroy], product_structures_attributes: [:id, :label, :value, :_destroy])
     end
   def magazine_params_update
     params.require(:magazine).permit(:productname,:quantity, product_structures_attributes: [:id, :label, :value, :_destroy]).merge(id: @magazine.product_id)

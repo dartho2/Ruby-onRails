@@ -2,9 +2,10 @@ class Product < ApplicationRecord
   attr_accessor :new_category_name
 
   has_many :product_structure, foreign_key: "product_id"
-  has_many :magazines
+  has_one :magazine
   belongs_to :category, required: false
   has_many :product_orders, inverse_of: :product
+  has_one :productshipment, :through => :magazine
   has_many :orders, :through => :product_orders, inverse_of: :products
 
   before_save :create_category_from_name
