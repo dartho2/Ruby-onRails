@@ -1,5 +1,5 @@
 class MagazinesController < ApplicationController
-  before_action :set_magazine, only: [:show, :edit, :update, :destroy]
+  before_action :set_magazine, only: [:edit, :destroy]
 
   # GET /magazines
   # GET /magazines.json
@@ -10,6 +10,9 @@ class MagazinesController < ApplicationController
   # GET /magazines/1
   # GET /magazines/1.json
   def show
+    @magazine = Magazine.find(params[:id])
+    @structures = ProductStructure.where(:product_id => @magazine.product_id)
+
   end
 
   # GET /magazines/new
@@ -19,6 +22,9 @@ class MagazinesController < ApplicationController
 
   # GET /magazines/1/edit
   def edit
+    @structurebuild = ProductStructure.where(:product_id => @magazine.product_id)
+    @magazine.product_structures
+
   end
 
   # POST /magazines
@@ -39,8 +45,9 @@ class MagazinesController < ApplicationController
   # PATCH/PUT /magazines/1
   # PATCH/PUT /magazines/1.json
   def update
+    @magazine = Magazine.find(params[:id])
     respond_to do |format|
-      if @magazine.update(magazine_params)
+      if @magazine.update(magazine_params_update)
         format.html { redirect_to @magazine, notice: 'Magazine was successfully updated.' }
         format.json { render :show, status: :ok, location: @magazine }
       else
@@ -70,4 +77,7 @@ class MagazinesController < ApplicationController
     def magazine_params
       params.require(:magazine).permit(:productname,:quantity, product_structures_attributes: [:id, :label, :value, :_destroy])
     end
+  def magazine_params_update
+    params.require(:magazine).permit(:productname,:quantity, product_structures_attributes: [:id, :label, :value, :_destroy]).merge(id: @magazine.product_id)
+  end
 end

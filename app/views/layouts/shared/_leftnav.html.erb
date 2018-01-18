@@ -10,14 +10,14 @@
   <div class="menu_section">
     <h3>General</h3>
     <ul class="nav side-menu">
-      <li><a><i class="fa fa-edit"></i>Historia <span class="fa fa-chevron-down"></span></a>
+      <li><a><i class="fa fa-area-chart"></i>Historia <span class="fa fa-chevron-down"></span></a>
       <ul class="nav child_menu">
         <li><%= link_to "Historia Produktu", products_path %></li>
         <li><%= link_to "Kategoria Produktu", categories_path %></li>
         <li><%= link_to "Nowa Kategoria", new_category_path %></li>
       </ul>
       </li>
-      <li><a><i class="fa fa-edit"></i>Faktury <span class="fa fa-chevron-down"></span></a>
+      <li><a><i class="fa fa-dollar"></i>Faktury <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           <li><%= link_to "Zestawienie Faktur", orders_path %></li>
           <li><%= link_to "Nowa Faktura", new_order_path %></li>
@@ -32,7 +32,15 @@
          </ul>
   </div>
   <div class="menu_section">
-    <h3>Live On</h3>
+    <h3>Ustawienia</h3>
+    <ul class="nav side-menu">
+      <li><a><i class="fa fa-gear"></i>Dane Firmy <span class="fa fa-chevron-down"></span></a>
+        <ul class="nav child_menu">
+          <li><%= link_to "Ustawienia", edit_admin_registration_path(current_admin) %></li>
+
+        </ul>
+      </li>
+    </ul>
      </div>
 
 </div>

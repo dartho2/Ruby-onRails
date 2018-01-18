@@ -32,17 +32,13 @@
               <td><%= magazine.quantity %></td>
 
               <td align="center">
-                <%= link_to(magazine_path(magazine), class: "btn btn-primary") do %>
-                    <em class="fa fa-search"></em>
+                <%= link_to(magazine_path(magazine), class: 'glyphicon glyphicon-search') do %>
+
                 <% end %>
-                <%= link_to(edit_magazine_path(magazine), class: "btn btn-default") do %>
-                    <em class="fa fa-pencil"></em>
+                <%= link_to(edit_magazine_path(magazine), class: 'glyphicon glyphicon-edit') do %>
+
                 <% end %>
-                <%= link_to(magazine_path(magazine), method: :delete,
-                            data: {confirm: "Are u sure ?"},
-                            class: "btn btn-danger") do %>
-                    <em class="fa fa-trash"></em>
-                <% end %>
+
               </td>
             </tr>
         <% end %>

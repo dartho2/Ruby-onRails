@@ -27,10 +27,7 @@
               <td><%= product.price %> zł</td>
               <td>
                 <%= link_to(product_path(product), class: "glyphicon glyphicon-search") do %><% end %>
-                <%= link_to(edit_product_path(product), class: "glyphicon glyphicon-edit") do %><% end %>
-                <%= link_to(product_path(product), method: :delete,
-                            data: {confirm: "Are u sure ?"},
-                            class: "glyphicon glyphicon-trash") do %><% end %>
+
               </td>
             </tr>
 

@@ -1,0 +1,2 @@
+class Productshipment < ApplicationRecord
+end

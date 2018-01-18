@@ -11,7 +11,8 @@
         <%= f.text_field :value, class: "form-control col-md-7 col-xs-2" %>
       </div>
       <div class="col-md-1 col-sm-1 col-xs-12 form-group has-feedback">
-        <%= f.hidden_field :_destroy %><%= link_to('Delete', class: 'remove_fields') do %>
+        <%= f.hidden_field :_destroy %>
+        <%= link_to('Delete', class: 'remove_fields') do %>
             <em class="fa fa-trash"></em>
         <% end %>
       </div>

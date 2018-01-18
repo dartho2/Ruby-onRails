@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :productshipments
   resources :adresses
   resources :clients
   resources :product_structures
@@ -7,7 +8,7 @@ Rails.application.routes.draw do
   resources :categories
   devise_for :admins, :controllers => { :registrations => "admin/registrations" }
   scope :panel do
-    resources :products
+    resources :products, only: [:index, :show]
     resources :categories
     resources :orders
     resources :magazines

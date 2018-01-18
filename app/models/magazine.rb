@@ -1,6 +1,6 @@
 class Magazine < ApplicationRecord
   has_many :products
-  has_many :product_structures, :foreign_key => "product_id"
+  has_many :product_structures, :foreign_key => 'product_id'
   after_save :add_product_list
   accepts_nested_attributes_for :product_structures, allow_destroy: true
 
@@ -9,6 +9,7 @@ class Magazine < ApplicationRecord
       product = Product.create(:name => self.productname, :parent_id => false)
       product.save(:validate => false)
       self.update_columns(product_id: product.id)
+      product_structures.update('product_id' => self.product_id)
     end
   end
 end
