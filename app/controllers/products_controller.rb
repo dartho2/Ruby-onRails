@@ -15,7 +15,8 @@ class ProductsController < ApplicationController
   # GET /products/1.json
   def show
     @product = Product.find(params[:id])
-    @products = Product.where(:name => @product.name)
+    @p = Product.where(:product_f => @product.product_f)
+    @a = Product.find(@product.product_f)
     # Product.find(:all)
     # Product.find(:id, :conditions => [ "id = :u", { :u => product.parent_id }])
 

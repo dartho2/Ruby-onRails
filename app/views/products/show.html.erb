@@ -22,7 +22,7 @@
         </tr>
         </thead>
         <tbody>
-        <% @products.each do |product| %>
+        <% @p.each do |product| %>
             <tr>
               <td><%= product.name %></td>
               <td><%= product.price %></td>
@@ -74,7 +74,7 @@
         </tr>
         </thead>
         <tbody>
-        <% @product.magazine.product_structures.each do |product| %>
+        <% @a.magazine.product_structures.each do |product| %>
                 <tr>
                   <td><%= product.label %> </td>
                   <td><%= product.value %></td>
@@ -112,10 +112,10 @@
           <tbody>
 
                   <tr>
-                    <td> <%= @product.productshipment.height.present? ? @product.productshipment.height : "-" %></td>
-                    <td> <%= @product.productshipment.weight.present? ? @product.productshipment.weight : "-" %></td>
-                    <td> <%= @product.productshipment.depth.present? ? @product.productshipment.depth : "-" %></td>
-                    <td> <%= @product.productshipment.width.present? ? @product.productshipment.width : "-" %></td>
+                    <td> <%= @a.productshipment.height.present? ? @a.productshipment.height : "-" %></td>
+                    <td> <%= @a.productshipment.weight.present? ? @a.productshipment.weight : "-" %></td>
+                    <td> <%= @a.productshipment.depth.present? ? @a.productshipment.depth : "-" %></td>
+                    <td> <%= @a.productshipment.width.present? ? @a.productshipment.width : "-" %></td>
                   </tr>
 
 

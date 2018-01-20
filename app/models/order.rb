@@ -4,7 +4,7 @@ class Order < ApplicationRecord
   has_one :client
   has_one :adress, :through => :client
   before_create :data_change
-after_save :set_product
+
 
   accepts_nested_attributes_for :product_orders, allow_destroy: true
   accepts_nested_attributes_for :client, allow_destroy: true
@@ -32,8 +32,6 @@ after_save :set_product
     end
   end
 
-  def set_product
-    debugger
-  end
+
 
 end

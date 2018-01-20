@@ -21,6 +21,8 @@ class ProductOrder < ApplicationRecord
       a.update(:price => self.price)
     else
       a.update(:deleted => true)
+
+      # nowa kolumna z poczatkowym id magazynu
       Product.create(:price => self.price, :name => a.name, :parent_id => a.id)
       self.name = a.name
     end
@@ -28,10 +30,15 @@ class ProductOrder < ApplicationRecord
   end
 
   def check_magazine_product a
+
     if Product.exists?(a.parent_id)
       a = Product.find(a.parent_id)
       check_magazine_product(a)
     else
+      # update product magazyne
+
+      Product.where(:id => self.product_id).update(:product_f => a.id)
+
       magazine_update(a)
     end
   end

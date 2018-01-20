@@ -35,7 +35,7 @@ class OrdersController < ApplicationController
   # POST /orders.json
   def create
     @order = Order.new(order_params)
-    @products = ProductOrder.where(order_id: @order_id)
+    # @products = ProductOrder.where(order_id: @order_id)
     respond_to do |format|
       if @order.save
         format.html { redirect_to @order, notice: 'Order was successfully created.' }

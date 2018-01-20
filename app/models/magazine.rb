@@ -8,8 +8,12 @@ class Magazine < ApplicationRecord
 
   def add_product_list
     if !self.product_id
-      product = Product.create(:name => self.productname, :parent_id => false)
-      product.save(:validate => false)
+
+      product = Product.new(:name => self.productname, :parent_id => false)
+
+     product.save(:validate => false)
+      product.update('product_f' => product.id)
+
       self.update_columns(product_id: product.id)
     end
   end
