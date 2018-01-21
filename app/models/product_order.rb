@@ -21,9 +21,8 @@ class ProductOrder < ApplicationRecord
       a.update(:price => self.price)
     else
       a.update(:deleted => true)
-
       # nowa kolumna z poczatkowym id magazynu
-      Product.create(:price => self.price, :name => a.name, :parent_id => a.id)
+      Product.create(:price => self.price, :name => a.name, :parent_id => a.id, :product_f => a.product_f)
       self.name = a.name
     end
     check_magazine_product(a)
