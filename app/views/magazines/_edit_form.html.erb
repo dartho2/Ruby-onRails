@@ -38,6 +38,12 @@
                 <%= f.text_field :productname, class: "form-control col-md-7 col-xs-12", placeholder: "Name", autofocus: true %>
               </div>
             </div>
+            <div class="form-group">
+              <%= f.label :marza, "Marża", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <%= f.text_field :marza, class: "form-control col-md-7 col-xs-12", placeholder: "Marza" %>
+              </div>
+            </div>
 
             <div class="form-group">
               <%= f.label :quantity, "Ilość", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
@@ -68,6 +74,27 @@
                     </tr>
 
                   </table>
+              <% end %>
+              <%= f.fields_for :productshipment, class: "col-md-12" do |f| %>
+                  <div class="form-group">
+                    <%= f.label :height, "Wysokość/ najdłuższy bok", class: "control-label col-md-1" %>
+                    <div class="col-sm-1">
+                      <%= f.text_field :height, class: "form-control col-md-1" %>
+                    </div>
+                    <%= f.label :width, "Szerokość", class: "control-label col-md-1" %>
+                    <div class="col-sm-1">
+                      <%= f.text_field :width, class: "form-control col-md-1" %>
+                    </div>
+                    <%= f.label :depth, "Głębokość", class: "control-label col-md-1" %>
+                    <div class="col-md-1">
+                      <%= f.text_field :depth, class: "form-control col-md-1" %>
+                    </div>
+                    <%= f.label :weight, "Waga", class: "control-label col-md-1" %>
+                    <div class="col-md-1">
+                      <%= f.text_field :weight, class: "form-control col-md-1" %>
+                    </div>
+                    <%= f.hidden_field :_destroy %>
+                  </div>
               <% end %>
             </div>
             <%= link_to_add_fields '+', f, :product_structures %>

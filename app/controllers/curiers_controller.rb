@@ -69,6 +69,7 @@ class CuriersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def curier_params
-      params.fetch(:curier, {})
+      params.require(:curier).permit(:label, :price, :maxweight, :minweight, :maxheight)
+
     end
 end

@@ -46,9 +46,15 @@
             </div>
           </div>
           <div class="form-group">
-            <%= f.label :price, "Cena Zakupu", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+      <%= f.label :price, "Cena Zakupu", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+      <div class="col-md-6 col-sm-6 col-xs-12">
+        <%= f.text_field :price, class: "form-control col-md-7 col-xs-12", placeholder: "Cena Zakupu" %>
+      </div>
+    </div>
+          <div class="form-group">
+            <%= f.label :marza, "Marża", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
             <div class="col-md-6 col-sm-6 col-xs-12">
-              <%= f.text_field :price, class: "form-control col-md-7 col-xs-12", placeholder: "Cena Zakupu" %>
+              <%= f.text_field :marza, class: "form-control col-md-7 col-xs-12", placeholder: "marza" %>
             </div>
           </div>
           <div class="col-md-12 col-sm-12 col-xs-12">
@@ -68,7 +74,7 @@
               <div class="x_content2">
                 <%= f.fields_for :productshipment, class: "col-md-12" do |f| %>
                     <div class="form-group">
-                      <%= f.label :height, "Wysokość", class: "control-label col-md-1" %>
+                      <%= f.label :height, "Wysokość/ najdłuższy bok", class: "control-label col-md-1" %>
                       <div class="col-sm-1">
                         <%= f.text_field :height, class: "form-control col-md-1" %>
                       </div>

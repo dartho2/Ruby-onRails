@@ -15,6 +15,11 @@
               <div class="attr2"><%= product_structures.label %> - <%= product_structures.value %></div>
             </div>
         <% end %>
+        <h6 class="title-attr"><small>WYMIARY paczki</small></h6>
+        <%= @magazine.productshipment.height %>
+        <br><%= @magazine.productshipment.width %>
+        <br><%= @magazine.productshipment.depth %>
+        <br><%= @magazine.productshipment.weight %>
         <tbody>
 
       </div>

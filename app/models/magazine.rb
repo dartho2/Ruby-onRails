@@ -8,11 +8,10 @@ class Magazine < ApplicationRecord
 
   def add_product_list
     if !self.product_id
-
-      product = Product.new(:name => self.productname, :parent_id => false)
+      product = Product.new(:name => self.productname, :parent_id => false, :product_f => self.id)
 
       product.save(:validate => false)
-      product.update('product_f' => product.id)
+      # product.update('product_f' => product.id)
 
       self.update_columns(product_id: product.id)
     end
@@ -22,30 +21,25 @@ class Magazine < ApplicationRecord
     @f ||= (self.price * 0.7).round(2)
   end
 
-  def g x
-    # koszt transportu
-    # a = Curier.where(x: => :minweight.to_s..:maxweight.to_s)
-    # User.where("name = :name and email = :email", { name: "Joe", email: "joe@example.com" })
-   a = Curier.where(":x BETWEEN minweight AND maxweight",{ x: x }).first
+  def g x, y
+    a = Curier.where(":x BETWEEN minweight AND maxweight AND maxheight > :y", {x: x, y: y}).order("price ASC").first
 
-    # a = Curier.where(x => ('maxweidth'.to_f)..('minweidth'.to_f))
-# debugger
-#      a = Curier.all
-#      x.to_f.between?(1, 3)
-#
+    if a.present?
+      @g ||= a.price
+       a.label + " " + @g.to_s
+          else
+      @g = 0
+       "-"
 
-if a.present?
-  @g ||= a.price.to_f
-
-else
-  @g = 0
-
-end
+    end
+  end
+  def kurier kurier
+    kurier
   end
 
   def h
     # marza
-    @h ||= 10
+    @h ||= self.marza
   end
 
   def i
@@ -53,19 +47,17 @@ end
   end
 
   def j
-    @j ||= ((@l).to_i / 1.23).round(2)
+    @j ||= ((@k).to_i / 1.23).round(2)
   end
 
   def k
+    #  Cena sprzedazy allegro brutto
     @k ||= (@i * 1.23).round()
   end
 
-  def l
-    @l ||= @k.round(0)
-  end
 
   def m
-    @m ||= ((@l * 0.08)/1.23).round(2)
+    @m ||= ((@k * 0.08)/1.23).round(2)
   end
 
   def n
@@ -73,7 +65,7 @@ end
   end
 
   def o
-    @o ||= (@l-(((@f+@g)*1.23)+(@m*1.23))).round(2)
+    @o ||= (@k-(((@f+@g)*1.23)+(@m*1.23))).round(2)
   end
 
 

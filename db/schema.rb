@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180121172918) do
+ActiveRecord::Schema.define(version: 20180123123917) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -73,11 +73,12 @@ ActiveRecord::Schema.define(version: 20180121172918) do
 
   create_table "curiers", force: :cascade do |t|
     t.string "label"
-    t.integer "maxweight"
-    t.integer "minweight"
+    t.decimal "maxweight", precision: 5, scale: 2
+    t.decimal "minweight", precision: 5, scale: 2
     t.decimal "price", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "maxheight", precision: 5, scale: 2
   end
 
   create_table "customers", force: :cascade do |t|
@@ -92,7 +93,8 @@ ActiveRecord::Schema.define(version: 20180121172918) do
     t.string "productname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "price"
+    t.decimal "price", precision: 8, scale: 2
+    t.decimal "marza", precision: 5, scale: 2
     t.index ["product_id"], name: "index_magazines_on_product_id"
   end
 
@@ -112,7 +114,7 @@ ActiveRecord::Schema.define(version: 20180121172918) do
     t.integer "order_id"
     t.integer "product_id"
     t.string "name"
-    t.integer "price"
+    t.decimal "price", precision: 8, scale: 2
     t.index ["order_id"], name: "index_product_orders_on_order_id"
     t.index ["product_id"], name: "index_product_orders_on_product_id"
   end
@@ -130,7 +132,7 @@ ActiveRecord::Schema.define(version: 20180121172918) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.integer "price"
+    t.decimal "price", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
@@ -140,10 +142,10 @@ ActiveRecord::Schema.define(version: 20180121172918) do
   end
 
   create_table "productshipments", force: :cascade do |t|
-    t.string "height"
-    t.string "weight"
-    t.string "width"
-    t.string "depth"
+    t.decimal "height", precision: 5, scale: 2
+    t.decimal "weight", precision: 5, scale: 2
+    t.decimal "width", precision: 5, scale: 2
+    t.decimal "depth", precision: 5, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "magazine_id"

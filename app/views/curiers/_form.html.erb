@@ -1,17 +1,78 @@
-<%= form_with(model: curier, local: true) do |form| %>
-  <% if curier.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(curier.errors.count, "error") %> prohibited this curier from being saved:</h2>
+<%= render '/shared/errors', obj: @curier %>
+<div class="container">
 
-      <ul>
-      <% curier.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <div class="title_right">
+    <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button">Go!</button>
+        </span>
+      </div>
     </div>
-  <% end %>
-
-  <div class="actions">
-    <%= form.submit %>
   </div>
-<% end %>
+</div>
+<div class="clearfix"></div>
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="x_panel">
+    <div class="x_title">
+      <h2>Kurier
+        <small>dodaj</small>
+      </h2>
+      <ul class="nav navbar-right panel_toolbox">
+        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+        </li>
+        <li><a class="close-link"><i class="fa fa-close"></i></a>
+        </li>
+      </ul>
+      <div class="clearfix"></div>
+    </div>
+    <div class="x_content2">
+      <br/>
+      <%= form_for(@curier, :html => {class: "form-horizontal form-label-left", id: "demo-form2", role: "form"}) do |f| %>
+
+          <div class="form-group">
+            <%= f.label :label, "Kurier", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_field :label, class: "form-control col-md-7 col-xs-12", placeholder: "Kurier", autofocus: true %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :minweight, "Minimalna Waga", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_field :minweight, class: "form-control col-md-7 col-xs-12", placeholder: "Waga", autofocus: true %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :maxweight, "Maxymalna Waga", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_field :maxweight, class: "form-control col-md-7 col-xs-12", placeholder: "Waga" %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :maxheight, "Maxymalna Wysokość", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_field :maxheight, class: "form-control col-md-7 col-xs-12", placeholder: "Wysokość" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :price, "Cena", class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+            <div class="col-md-6 col-sm-6 col-xs-12">
+              <%= f.text_field :price, class: "form-control col-md-7 col-xs-12", placeholder: "Cena" %>
+            </div>
+          </div>
+
+          <%= f.submit "Zapisz", class: "add_fields btn btn-dark add-more" %>
+
+
+          </div>
+          </div>
+          </div>
+
+
+      <% end %>
+
