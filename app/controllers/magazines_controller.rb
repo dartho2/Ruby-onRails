@@ -77,7 +77,7 @@ class MagazinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def magazine_params
-      params.require(:magazine).permit(:productname, :price, :marza, :quantity, productshipment_attributes: [:height, :weight, :width, :depth, :_destroy], product_structures_attributes: [:id, :label, :value, :_destroy])
+      params.require(:magazine).permit(:productname, :price, :marza, :quantity, productshipment_attributes: [:id, :height, :weight, :width, :depth, :_destroy], product_structures_attributes: [:id, :label, :value, :_destroy])
     end
   def magazine_params_update
     # params.require(:magazine).permit(:productname,:quantity, product_structures_attributes: [:id, :label, :value, :_destroy]).merge(id: @magazine.product_id)
