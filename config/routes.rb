@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :curiers
   resources :productshipments
   resources :adresses
   resources :clients
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
     resources :products, only: [:index, :show]
     resources :categories
     resources :orders
+    resources :curiers
     resources :magazines
   end
   # patch  '/panel/products', to: 'panel/products#update'

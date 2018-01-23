@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180119225202) do
+ActiveRecord::Schema.define(version: 20180121172918) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -71,6 +71,15 @@ ActiveRecord::Schema.define(version: 20180119225202) do
     t.index ["order_id"], name: "index_clients_on_order_id"
   end
 
+  create_table "curiers", force: :cascade do |t|
+    t.string "label"
+    t.integer "maxweight"
+    t.integer "minweight"
+    t.decimal "price", precision: 8, scale: 2
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -83,6 +92,7 @@ ActiveRecord::Schema.define(version: 20180119225202) do
     t.string "productname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price"
     t.index ["product_id"], name: "index_magazines_on_product_id"
   end
 

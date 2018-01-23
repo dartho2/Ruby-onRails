@@ -1,0 +1,2 @@
+class Curier < ApplicationRecord
+end

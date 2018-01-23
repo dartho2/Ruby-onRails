@@ -21,6 +21,17 @@
         <tr>
           <th>Nazwa</th>
           <th>Ilość</th>
+          <th>Cena Zakupu (E)</th>
+          <th>CZ (F)</th>
+          <th>KT (G)</th>
+          <th>Marza (H)</th>
+          <th>Z+KT (I)</th>
+          <th>CS B (K)</th>
+          <th>KS B (L)</th>
+          <th>CS N (J)</th>
+          <th>A K (M)</th>
+          <th>Z N (N)</th>
+          <th>Z B (O)</th>
           <th class="col-md-2 center"><em class="fa fa-cog"></em></th>
         </tr>
         </thead>
@@ -30,15 +41,23 @@
             <tr>
               <td><%= magazine.productname %></td>
               <td><%= magazine.quantity %></td>
+              <td><%= magazine.price %></td>
+              <td><%= magazine.f %></td>
+              <td><%= magazine.g(magazine.productshipment.weight) %></td>
+              <td><%= magazine.h %></td>
+              <td><%= magazine.i %></td>
+              <td><%= magazine.k %></td>
+              <td><%= magazine.l %></td>
+              <td><%= magazine.j %></td>
+              <td><%= magazine.m %></td>
+              <td><%= magazine.n %></td>
+              <td><%= magazine.o %></td>
 
               <td align="center">
                 <%= link_to(magazine_path(magazine), class: 'glyphicon glyphicon-search') do %>
-
                 <% end %>
                 <%= link_to(edit_magazine_path(magazine), class: 'glyphicon glyphicon-edit') do %>
-
                 <% end %>
-
               </td>
             </tr>
         <% end %>
