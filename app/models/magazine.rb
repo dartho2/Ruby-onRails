@@ -2,17 +2,27 @@ class Magazine < ApplicationRecord
   has_many :products
   has_many :product_structures, :foreign_key => 'product_id'
   has_one :productshipment
+  has_many :magazine_invoices, inverse_of: :magazine
+  has_many :invoices, :through => :magazine_invoices, inverse_of: :magazines
+
   after_save :add_product_list
+  # before_update :add_quantity_to_magazine
+
   accepts_nested_attributes_for :product_structures, allow_destroy: true
   accepts_nested_attributes_for :productshipment, allow_destroy: true
+
+
+  # def add_quantity_to_magazine
+  #   a = Magazine.find(self.id)
+  #   self.quantity += a.quantity
+  # end
+
+
 
   def add_product_list
     if !self.product_id
       product = Product.new(:name => self.productname, :parent_id => false, :product_f => self.id)
-
       product.save(:validate => false)
-      # product.update('product_f' => product.id)
-
       self.update_columns(product_id: product.id)
     end
   end
@@ -23,18 +33,13 @@ class Magazine < ApplicationRecord
 
   def g x, y
     a = Curier.where(":x BETWEEN minweight AND maxweight AND maxheight > :y", {x: x, y: y}).order("price ASC").first
-
     if a.present?
       @g ||= a.price
        a.label + " " + @g.to_s
           else
       @g = 0
        "-"
-
     end
-  end
-  def kurier kurier
-    kurier
   end
 
   def h
@@ -55,7 +60,6 @@ class Magazine < ApplicationRecord
     @k ||= (@i * 1.23).round()
   end
 
-
   def m
     @m ||= ((@k * 0.08)/1.23).round(2)
   end
@@ -67,6 +71,4 @@ class Magazine < ApplicationRecord
   def o
     @o ||= (@k-(((@f+@g)*1.23)+(@m*1.23))).round(2)
   end
-
-
 end

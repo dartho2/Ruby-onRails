@@ -1,16 +1,11 @@
 Rails.application.routes.draw do
-  resources :curiers
-  resources :productshipments
-  resources :adresses
-  resources :clients
-  resources :product_structures
-  resources :magazines
-  resources :orders
-  resources :categories
+
+
+  resources :invoices
   devise_for :admins, :controllers => { :registrations => "admin/registrations" }
   scope :panel do
     resources :products, only: [:index, :show]
-    resources :categories
+      resources :categories
     resources :orders
     resources :curiers
     resources :magazines
