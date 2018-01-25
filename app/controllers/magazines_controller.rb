@@ -12,6 +12,7 @@ class MagazinesController < ApplicationController
   def show
 
     @magazine = Magazine.find(params[:id])
+    @last = Product.where('product_f' => @magazine.id).last
     @structures = ProductStructure.where(:product_id => @magazine.product_id)
 
   end
