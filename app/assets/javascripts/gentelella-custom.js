@@ -6,6 +6,9 @@
  *     // code here
  * });
  */
+
+$( document ).ready(function() {
+
 (function($,sr){
     // debouncing function from John Hann
     // http://unscriptable.com/index.php/2009/03/20/debouncing-javascript-methods/
@@ -624,9 +627,12 @@ if (typeof NProgress != 'undefined') {
 		// init_autocomplete();
 
 		init_sidebar();
-        // init_daterangepicker_single_call();
-        // init_DataTables();
-        // init_calendar();
-        // init_autosize();
-        // init_autocomplete();
+        init_daterangepicker_single_call();
+        init_DataTables();
+        init_calendar();
+        init_autosize();
+        init_autocomplete();
 	});
+
+    console.log( "ready!" );
+});
