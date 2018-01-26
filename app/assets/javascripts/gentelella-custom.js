@@ -627,11 +627,11 @@ if (typeof NProgress != 'undefined') {
 		// init_autocomplete();
 
 		init_sidebar();
-        init_daterangepicker_single_call();
-        init_DataTables();
-        init_calendar();
-        init_autosize();
-        init_autocomplete();
+        // init_daterangepicker_single_call();
+        // init_DataTables();
+        // init_calendar();
+        // init_autosize();
+        // init_autocomplete();
 	});
 
     console.log( "ready!" );
