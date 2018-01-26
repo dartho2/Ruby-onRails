@@ -12,6 +12,7 @@ class Product < ApplicationRecord
   before_destroy :set_deleted_id
 
   validates :name, presence: true, length: {minimum: 3, maximum: 40}
+  validates :price, presence: true, :numericality => true
 
 
   def create_category_from_name
@@ -24,8 +25,5 @@ class Product < ApplicationRecord
     end
   end
 
-  def dupa
-
-  end
 end
 

@@ -25,11 +25,11 @@
       <table id="datatable-buttons" class="table table-striped table-bordered col-sm-3">
         <thead>
         <tr>
-          <th class="col-6 col-sm-3">Kupujący</th>
-          <th class="col-6 col-sm-3">Numer FV</th>
+          <th class="col-6 col-sm-2">Kupujący</th>
+          <th class="col-6 col-sm-2">Numer FV</th>
           <th class="col-6 col-sm-2">Cena</th>
-          <th class="col-6 col-sm-3">Data Wystawienia</th>
-          <th class="col-6 col-sm-1">Akcja</th>
+          <th class="col-6 col-sm-2">Data Wystawienia</th>
+          <th class="col-6 col-sm-2">Akcja</th>
 
         </tr>
         </thead>
@@ -44,9 +44,9 @@
               <td><%= order.total_price %> zł</td>
               <td><%= order.datatime %></td>
               <td>
-                <%= link_to ".", order_path(order), class: 'glyphicon glyphicon-search' %>
-                <%= link_to "", order, method: :delete, class: 'glyphicon glyphicon-trash' %></i>
-                  <%= link_to "", edit_order_path(order), class: 'glyphicon glyphicon-edit' %>
+                <%= link_to "Zobacz", order_path(order), class: 'btn btn-dark' %>
+                <%= link_to "Usuń", order, method: :delete, class: 'btn btn-danger' %></i>
+                  <%= link_to "Edycja", edit_order_path(order), class: 'btn btn-primary' %>
               </td>
             </tr>
 

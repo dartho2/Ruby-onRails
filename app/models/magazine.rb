@@ -5,6 +5,13 @@ class Magazine < ApplicationRecord
   has_many :magazine_invoices, inverse_of: :magazine
   has_many :invoices, :through => :magazine_invoices, inverse_of: :magazines
 
+  validates :productname, :presence => true
+  validates :price, :presence => true, :numericality => true
+  validates :marza, :presence => true, :numericality => true
+  validates :quantity, :presence => true, :numericality => true
+  validates :productshipment, :presence => true
+
+
   after_save :add_product_list
   # before_update :add_quantity_to_magazine
 
@@ -37,7 +44,7 @@ class Magazine < ApplicationRecord
       @g ||= a.price
        a.label + " " + @g.to_s
           else
-      @g = 0
+      @g = 1
        "-"
     end
   end

@@ -17,23 +17,24 @@
     </div>
     <div class="x_content">
       <p class="text-muted font-13 m-b-30">
-        <%= link_to("Create New", new_magazine_path, class: "btn btn-success") %>  </p>
+
+  </p>
       <table id="datatable-buttons" class="table table-striped table-bordered">
 
         <thead>
         <tr>
           <th>Nazwa</th>
           <th>Ilość</th>
-          <th>Cena Zakupu</th>
+          <div style="display: none">Cena Zakupu</div>
           <th>Cena Zakupu</th>
           <th>Koszt Transportu</th>
           <th>Marza</th>
-          <th>Zakup + Koszt Transportu</th>
+          <div style="display: none">Zakup + Koszt Transportu</div>
           <th>Kwota Sprzedaży</th>
-          <th>Cena Sprzedaży</th>
+          <div style="display: none">Cena Sprzedaży</div>
           <th>Allegro Koszta</th>
           <th>Zysk</th>
-          <th>Zysk</th>
+          <div style="display: none">Zysk</div>
           <th class="col-md-2 center"><em class="fa fa-cog"></em></th>
         </tr>
         </thead>
@@ -42,22 +43,23 @@
         <% obj.each do |magazine| %>
             <tr>
               <td><%= magazine.productname %></td>
-              <td class="table-secondary"><%= magazine.quantity %></td>
-              <td><%= magazine.price %></td>
+              <td><%= magazine.quantity %></td>
+              <div style="display: none"><%= magazine.price %></div>
               <td><%= magazine.f %></td>
               <td><%= magazine.g((magazine.productshipment.weight),(magazine.productshipment.height)) %></td>
               <td><%= magazine.h %>%</td>
-              <td><%= magazine.i %></td>
+                <div style="display: none"><%= magazine.i %></div>
               <td><%= magazine.k %></td>
-              <td><%= magazine.j %></td>
+                  <div style="display: none"><%= magazine.j %></div>
               <td><%= magazine.m %></td>
               <td><%= magazine.n %></td>
-              <td><%= magazine.o %></td>
-
+                    <div style="display: none"><%= magazine.o %></div>
               <td align="center">
-                <%= link_to(magazine_path(magazine), class: 'glyphicon glyphicon-search') do %>
+                <%= link_to(magazine_path(magazine), class: 'btn btn-dark') do %>
+                Zobacz
                 <% end %>
-                <%= link_to(edit_magazine_path(magazine), class: 'glyphicon glyphicon-edit') do %>
+                <%= link_to(edit_magazine_path(magazine), class: 'btn btn-primary') do %>
+                Edycja
                 <% end %>
               </td>
             </tr>

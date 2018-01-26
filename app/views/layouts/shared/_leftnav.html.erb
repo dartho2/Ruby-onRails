@@ -20,14 +20,14 @@
       <li><a><i class="fa fa-dollar"></i>Faktury <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           <li><%= link_to "Zestawienie Faktur", orders_path %></li>
-          <li><%= link_to "Nowa Faktura sprzedaży", new_order_path %></li>
+          <li><%= link_to "Nowa FV Sprzedaży", new_order_path %></li>
+          <li><%= link_to "Nowa FV Zakupu", new_invoice_path %></li>
         </ul>
       </li>
       <li><a><i class="fa fa-bar-chart-o"></i>Magazyn <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
           <li><%= link_to "Lista", magazines_path %></li>
           <li><%= link_to "Nowy Produkt", new_magazine_path %></li>
-          <li><%= link_to "Nowy FV Zakupu", new_invoice_path %></li>
         </ul>
       </li>
     </ul>

@@ -1,13 +1,13 @@
 body {
 
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-family: Montserrat, verdana, arial, helvetica, sans-serif;
+  font-size: 15px;
   line-height: 18px;
 }
 .table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
 
-  /* vertical-align: middle; */
+  vertical-align: middle;
   text-align: center;
 }
 .blocked-div {
@@ -27,8 +27,8 @@ body {
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-family: Montserrat, verdana, arial, helvetica, sans-serif;
+  font-size: 15px;
   line-height: 18px;
 }
 
