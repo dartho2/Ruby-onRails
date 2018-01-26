@@ -12,8 +12,9 @@ $(document).on 'click', 'form .add_fields', (event) ->
   $(this).before($(this).data('fields').replace(regexp, time))
   event.preventDefault()
 
-$(document).ready ->
+$(document).on 'turbolinks:load', ->
   $('input.custom-control-input').click ->
+    console.log( "ready!" );
     inputValue = $(this).attr('value')
     $('.' + inputValue).val(1)
     $('.' + inputValue).toggle()
