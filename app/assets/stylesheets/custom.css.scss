@@ -14,8 +14,14 @@
   nav.sidebar.navbar.sidebar>.container .navbar-brand, .navbar>.container-fluid .navbar-brand {
     margin-left: 0px;
   }
+  .table-striped>tbody>tr:nth-child(odd) {
+    background-color: #FFFFFF;
+  }
+  .table-bordered>thead>tr>th, .table-bordered>tbody>tr>th, .table-bordered>tfoot>tr>th, .table-bordered>thead>tr>td, .table-bordered>tbody>tr>td, .table-bordered>tfoot>tr>td {
+    border: none;
+  }
   label {
-    font-weight: 300;
+    font-weight: 500;
   }
   nav.sidebar .navbar-brand, nav.sidebar .navbar-header{
     text-align: center;
@@ -102,14 +108,19 @@
   }
 }
 
+.list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
+  height: 45px;
+}
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
-  padding: 20px;
+  padding: 6px;
 }
 nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
   color: #CCC;
   background-color: transparent;
 }
-
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small, .h1 small, .h2 small, .h3 small, .h4 small, .h5 small, .h6 small, h1 .small, h2 .small, h3 .small, h4 .small, h5 .small, h6 .small, .h1 .small, .h2 .small, .h3 .small, .h4 .small, .h5 .small, .h6 .small {
+  color: #FFFFFF;
+}
 nav:hover .forAnimate{
   opacity: 1;
 }

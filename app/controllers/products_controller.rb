@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @p = Product.where(:product_f => @product.product_f)
-    @a = Product.find(@product.product_f)
+    @a = Product.find_by('product_f' => @product.product_f)
     # Product.find(:all)
     # Product.find(:id, :conditions => [ "id = :u", { :u => product.parent_id }])
 

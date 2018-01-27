@@ -123,7 +123,7 @@ $MENU_TOGGLE.on('click', function() {
 	$SIDEBAR_MENU.find('a[href="' + CURRENT_URL + '"]').parent('li').addClass('current-page');
 
 	$SIDEBAR_MENU.find('a').filter(function () {
-		return this.href == CURRENT_URL;
+		// return this.href == CURRENT_URL;
 	}).parent('li').addClass('current-page').parents('ul').slideDown(function() {
 		setContentHeight();
 	}).parent().addClass('active');
@@ -626,13 +626,11 @@ if (typeof NProgress != 'undefined') {
 		// init_autosize();
 		// init_autocomplete();
 
-		init_sidebar();
+        init_sidebar();
         init_daterangepicker_single_call();
         init_DataTables();
         init_calendar();
         init_autosize();
         init_autocomplete();
 	});
-
-
 });

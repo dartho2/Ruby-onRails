@@ -44,9 +44,9 @@
               <td><%= order.total_price %> zł</td>
               <td><%= order.datatime %></td>
               <td>
-                <%= link_to "Zobacz", order_path(order), class: 'btn btn-dark' %>
-                <%= link_to "Usuń", order, method: :delete, class: 'btn btn-danger' %></i>
-                  <%= link_to "Edycja", edit_order_path(order), class: 'btn btn-primary' %>
+                <%= link_to "Zobacz", order_path(order), class: 'btn btn-dark btn-xs' %>
+                <%= link_to "Usuń", order, method: :delete, class: 'btn btn-danger btn-xs' %></i>
+                  <%= link_to "Edycja", edit_order_path(order), class: 'btn btn-primary btn-xs' %>
               </td>
             </tr>
 
