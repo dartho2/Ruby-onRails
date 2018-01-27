@@ -1,107 +1,119 @@
 <div class="col" role="main">
-    <div class="">
-      <div class="page-title">
-        <div class="title_left">
-          <h3><%= "#{@magazine.productname}"%></h3>
-        </div>
-        <div class="title_right">
-          <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Search for...">
-              <span class="input-group-btn">
+  <div class="">
+    <div class="page-title">
+      <div class="title_left">
+        <h3><%= "#{@magazine.productname}" %></h3>
+      </div>
+      <div class="title_right">
+        <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
                       <button class="btn btn-default" type="button">Go!</button>
                     </span>
-            </div>
           </div>
         </div>
       </div>
-      <div class="clearfix"></div>
-      <div class="row">
-        <div class="col-md-12 col-sm-12 col-xs-12">
-          <div class="x_panel">
-            <div class="x_title">
-              <h2><%= "#{@magazine.productname}"%></h2>
-              <ul class="nav navbar-right panel_toolbox">
-                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                </li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                </li>
-                <li><a class="close-link"><i class="fa fa-close"></i></a>
-                </li>
-              </ul>
-              <div class="clearfix"></div>
-            </div>
-            <div class="x_content">
+    </div>
+    <div class="clearfix"></div>
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+          <div class="x_title">
+            <h2><%= "#{@magazine.productname}" %></h2>
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+            <div class="clearfix"></div>
+          </div>
+          <div class="x_content">
 
-              <div class="col-md-7 col-sm-7 col-xs-12">
-                <div class="product-image">
-                  <img src="https://cdn.dribbble.com/users/310943/screenshots/2792692/empty-state-illustrations.gif" alt="..." />
-                </div>
-                <div class="product_gallery">
+            <div class="col-md-7 col-sm-7 col-xs-12">
+              <div class="product-image">
+                <img src="https://cdn.dribbble.com/users/310943/screenshots/2792692/empty-state-illustrations.gif" alt="..."/>
+              </div>
+              <div class="product_gallery">
+              </div>
+            </div>
+
+            <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
+
+              <h3 class="prod_title"><%= "#{@magazine.productname}" %></h3>
+
+              <div class="product_price">
+                <h2>Wymiary przedmiotu</h2>
+                <ul class="list-inline">
+                  <% @magazine.product_structures.each do |product_structures| %>
+                      <div class="attr2"><%= product_structures.label %> - <%= product_structures.value %></div>
+                  <% end %>
+                  <br/>
+                </ul>
+              </div>
+
+              <div class="product_price">
+                <h2>Wymiary paczki</h2>
+                <ul class="list-inline">
+                  <li><p>Wysokość</p><%= @magazine.productshipment.height %></li>
+                  <li><p>Szerokość</p><%= @magazine.productshipment.width %></li>
+                  <li><p>Głębokość</p><%= @magazine.productshipment.depth %></li>
+                  <li><p>Waga</p><%= @magazine.productshipment.weight %></li>
+                </ul>
+              </div>
+              <br/>
+
+              <div class="">
+                <div class="product_price">Aktualna cena sprzedaży:
+                  <h1 class="price"><%= @last.price %></h1>
+                  <br>
+                  Sugerowana cena sprzedaży:
+                  <% @magazine.productname %>
+                  <% @magazine.quantity %>
+                  <% @magazine.price %>
+                  <% @magazine.f %>
+                  <% @magazine.g((@magazine.productshipment.weight), (@magazine.productshipment.height)) %>
+                  <% @magazine.h %>
+                  <% @magazine.i %>
+                  <h1 class="price"> <%= @magazine.k %></h1>
+                  <% @magazine.j %>
+                  <% @magazine.m %>
+                  <% @magazine.n %>
+                  <% @magazine.o %>
+                  <br>
+                  Aktualna cena zakupu:
+                  <h1 class="price"><%= @magazine.price %></h1>
+                  <br>
                 </div>
               </div>
 
-              <div class="col-md-5 col-sm-5 col-xs-12" style="border:0px solid #e5e5e5;">
 
-                <h3 class="prod_title"><%= "#{@magazine.productname}"%></h3>
-
-                <div class="product_price">
-                  <h2>Wymiary przedmiotu</h2>
-                  <ul class="list-inline">
-                    <% @magazine.product_structures.each do |product_structures| %>
-                    <div class="attr2"><%= product_structures.label %> - <%= product_structures.value %></div>
-                    <% end %>
-                    <br />
-                  </ul>
-                </div>
-
-                <div class="product_price">
-                  <h2>Wymiary paczki</h2>
-                  <ul class="list-inline">
-                    <li><p>Wysokość</p><%= @magazine.productshipment.height %></li>
-                    <li><p>Szerokość</p><%= @magazine.productshipment.width %></li>
-                    <li><p>Głębokość</p><%= @magazine.productshipment.depth %></li>
-                    <li><p>Waga</p><%= @magazine.productshipment.weight %></li>
-                  </ul>
-                </div>
-                <br />
-
-                <div class="">
-                  <div class="product_price">Aktualna cena sprzedaży
-                    <h1 class="price"><%= @last.price %></h1>
-                    <br>
-                    Aktualna cena zakupu
-                    <h1 class="price"><%= @magazine.price %></h1>
-                    <br>
-                  </div>
-                </div>
-
-
-
-                <div class="product_social">
-                  <ul class="list-inline">
-                    <li><a href="#"><i class="fa fa-facebook-square"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-twitter-square"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-envelope-square"></i></a>
-                    </li>
-                    <li><a href="#"><i class="fa fa-rss-square"></i></a>
-                    </li>
-                  </ul>
-                </div>
-
+              <div class="product_social">
+                <ul class="list-inline">
+                  <li><a href="#"><i class="fa fa-facebook-square"></i></a>
+                  </li>
+                  <li><a href="#"><i class="fa fa-twitter-square"></i></a>
+                  </li>
+                  <li><a href="#"><i class="fa fa-envelope-square"></i></a>
+                  </li>
+                  <li><a href="#"><i class="fa fa-rss-square"></i></a>
+                  </li>
+                </ul>
               </div>
 
-
-
             </div>
+
+
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 
 
