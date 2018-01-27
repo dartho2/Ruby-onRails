@@ -1,28 +1,25 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
   <div class="x_panel">
     <div class="x_title">
-      <h2>Faktury <small> -</small></h2>
-      <ul class="nav navbar-right panel_toolbox">
-        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Settings 1</a>
+      <div class="list-group-item active">
+        <h2>Faktury
+          <small>- lista</small>
+        </h2>
+        <div class="pull-right">
+          <ul class="nav navbar-right panel_toolbox">
+            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
             </li>
-            <li><a href="#">Settings 2</a>
+            <li><a class="close-link"><i class="fa fa-close"></i></a>
             </li>
           </ul>
-        </li>
-        <li><a class="close-link"><i class="fa fa-close"></i></a>
-        </li>
-      </ul>
+        </div> <!-- pull-right -->
+      </div>
       <div class="clearfix"></div>
     </div>
     <div class="x_content">
       <p class="text-muted font-13 m-b-30">
-       </p>
-      <table id="datatable-buttons" class="table table-striped table-bordered col-sm-3">
+      </p>
+      <table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
         <thead>
         <tr>
           <th class="col-6 col-sm-2">Kupujący</th>
@@ -30,26 +27,21 @@
           <th class="col-6 col-sm-2">Cena</th>
           <th class="col-6 col-sm-2">Data Wystawienia</th>
           <th class="col-6 col-sm-2">Akcja</th>
-
         </tr>
         </thead>
-
-
         <tbody>
         <% @orders.each do |order| %>
             <tr data-toggle="collapse" data-target="#<%= order.id %>" class="accordion-toggle">
-
-              <td><%= order.client.present? ? order.client.firstname : "paragon"  %></td>
+              <td><%= order.client.present? ? order.client.firstname : "paragon" %></td>
               <td><%= order.name %></td>
               <td><%= order.total_price %> zł</td>
               <td><%= order.datatime %></td>
               <td>
                 <%= link_to "Zobacz", order_path(order), class: 'btn btn-dark btn-xs' %>
                 <%= link_to "Usuń", order, method: :delete, class: 'btn btn-danger btn-xs' %></i>
-                  <%= link_to "Edycja", edit_order_path(order), class: 'btn btn-primary btn-xs' %>
+                <%= link_to "Edycja", edit_order_path(order), class: 'btn btn-primary btn-xs' %>
               </td>
             </tr>
-
         <% end %>
         </tbody>
       </table>

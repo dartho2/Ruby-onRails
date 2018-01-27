@@ -144,7 +144,7 @@ html , body{
     padding: 0 0 4px 0
 }
 .left_col {
-    background: #2A3F54
+    background: #ffffff
 }
 .nav-sm .container.body .col-md-3.left_col {
     min-height: 100%;
@@ -223,7 +223,7 @@ html , body{
     top: 0;
     width: 210px;
     z-index: 4000;
-    background: #3E5367;
+    background: #f7f7f7;
     display: none
 }
 .nav-sm ul.nav.child_menu li {
@@ -356,7 +356,7 @@ body .container.body .right_col {
 .nav_title {
     width: 230px;
     float: left;
-    background: #2A3F54;
+    background: #ffffff;
     border-radius: 0;
     height: 57px
 }
@@ -724,7 +724,7 @@ a:focus {
     margin-bottom: 6px
 }
 .nav.side-menu>li>a:hover {
-    color: #F2F5F7 !important
+    color: #428bca !important
 }
 .nav.side-menu>li>a:hover,
 .nav>li>a:focus {
@@ -764,7 +764,7 @@ a:focus {
 }
 .nav.side-menu>li>a,
 .nav.child_menu>li>a {
-    color: #E7E7E7;
+    color: #000000;
     font-weight: 500
 }
 .nav.child_menu li li:hover,
@@ -773,7 +773,7 @@ a:focus {
 }
 .nav.child_menu li li a:hover,
 .nav.child_menu li li a.active {
-    color: #fff
+    color: #000000;
 }
 .nav>li>a {
     position: relative;
@@ -795,7 +795,7 @@ a:focus {
 }
 .nav.side-menu>li.active>a {
     text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
-    background: linear-gradient(#334556, #2C4257), #2A3F54;
+  background: linear-gradient(#f3f3f3, #f7f7f7), #cfcfd0;
     box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0
 }
 .navbar-brand,
@@ -811,7 +811,7 @@ a:focus {
     font-weight: 400;
     font-size: 22px;
     width: 100%;
-    color: #ECF0F1 !important;
+    color: #000000 !important;
     margin-left: 0 !important;
     line-height: 59px;
     display: block;
@@ -873,7 +873,7 @@ a:focus {
     font-size: 26px
 }
 .nav.child_menu>li>a {
-    color: rgba(255, 255, 255, 0.75);
+    color: rgba(0, 0, 0, 0.75);
     font-size: 12px;
     padding: 9px
 }
@@ -891,7 +891,7 @@ a:focus {
     font-size: 14px
 }
 .panel_toolbox>li>a:hover {
-    background: #F5F7FA
+    //background: #F5F7FA
 }
 .line_30 {
     line-height: 30px

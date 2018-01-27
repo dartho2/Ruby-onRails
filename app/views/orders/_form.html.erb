@@ -3,7 +3,9 @@
   <div class="x_panel">
     <div class="x_title">
       <div class="list-group-item active">
-        <h2>Faktura<small> - sprzedaży</small></h2>
+        <h2>Faktura
+          <small> - sprzedaży</small>
+        </h2>
         <div class="pull-right">
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -43,12 +45,13 @@
               </label>
             </div>
           </div>
-
           <div class="checkedbox">
             <div class="x_panel x_panel2">
               <div class="x_title">
                 <div class="list-group-item active">
-                 <h2>Adress<small> - dodaj</small></h2>
+                  <h2>Adress
+                    <small> - dodaj</small>
+                  </h2>
                   <div class="pull-right">
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -60,7 +63,6 @@
                 </div>
                 <div class="clearfix"></div>
               </div>
-
               <div class="x_content">
                 <%= order.fields_for :client do |client| %>
                     <div class="form-group">
@@ -70,12 +72,10 @@
                       </div>
                       <div class="col-sm-6">
                         <%= client.label :lastname, "Imię, Nazwisko (nazwa firmy)" %>
-                        <%= client.text_field :lastname, class: 'form-control'%>
+                        <%= client.text_field :lastname, class: 'form-control' %>
                       </div>
                       <%= client.hidden_field :_destroy, class: 'checkedbox' %>
                     </div>
-
-
                     <%= client.fields_for :adress do |adress| %>
                         <div class="form-group col-md-6 cont-left">
                           <h2 class="center">Dane
@@ -106,8 +106,6 @@
                             </div>
                           </div>
                         </div>
-
-
                         <div class="form-group col-md-6">
                           <h2 class="center">Dane
                             <small> do wysyłki</small>
@@ -125,53 +123,50 @@
                               <%= adress.text_field :number, class: 'form-control' %>
                             </div>
                             <div class="col-sm-3">
-                            <%= adress.label :zip, "Kod pocztowy" %>
+                              <%= adress.label :zip, "Kod pocztowy" %>
                               <%= adress.text_field :zip, class: 'form-control' %>
                             </div>
                             <div class="col-sm-9">
-                            <%= adress.label :city, "Miejscowość" %>
+                              <%= adress.label :city, "Miejscowość" %>
                               <%= adress.text_field :city, class: 'form-control' %>
                             </div>
                             <div class="col-sm-12">
-                            <%= adress.label :phone, "Telefon" %>
+                              <%= adress.label :phone, "Telefon" %>
                               <%= adress.text_field :phone, class: 'form-control' %>
                             </div>
-                            </div>
                           </div>
+                        </div>
                     <% end %>
                 <% end %>
               </div>
             </div>
           </div>
           <div class="x_panel x_panel2">
-
             <div class="x_content">
-
-                <div class="list-group-item active">
-                  <h2>Pozycje na fakturze<small> - dodaj</small></h2>
-                </div>
-                <table class="table table-striped table-bordered table-list">
-                  <thead>
-                  <tr>
-                    <th class="col-sm-7">Nazwa Produktu</th>
-                    <th class="col-sm-2">Ilość</th>
-                    <th class="col-sm-2">Cena</th>
-                    <th class="col-sm-1 center"><em class="fa fa-cog"></em></th>
-                  </tr>
-                  </thead>
-                </table>
-                <%= link_to_add_fields '+', order, :product_orders %>
-
-
+              <div class="list-group-item active">
+                <h2>Pozycje na fakturze
+                  <small> - dodaj</small>
+                </h2>
+              </div>
+              <table class="table table-striped table-bordered table-list">
+                <thead>
+                <tr>
+                  <th class="col-sm-7">Nazwa Produktu</th>
+                  <th class="col-sm-2">Ilość</th>
+                  <th class="col-sm-2">Cena</th>
+                  <th class="col-sm-1 center"><em class="fa fa-cog"></em></th>
+                </tr>
+                </thead>
+              </table>
+              <%= link_to_add_fields '+', order, :product_orders %>
             </div>
           </div>
           </div>
-          <%= order.submit "Zapisz Fakturę",class: "add_fields btn btn-primary add-more" %>
+          <%= order.submit "Zapisz Fakturę", class: "add_fields btn btn-primary add-more" %>
       <% end %>
       </div>
 </div>
-</div>
-</div>
+
 
 
 
