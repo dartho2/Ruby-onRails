@@ -25,6 +25,7 @@
           <th class="col-6 col-sm-2">Kupujący</th>
           <th class="col-6 col-sm-2">Numer FV</th>
           <th class="col-6 col-sm-2">Cena</th>
+          <th class="col-6 col-sm-2">Status</th>
           <th class="col-6 col-sm-2">Data Wystawienia</th>
           <th class="col-6 col-sm-2">Akcja</th>
         </tr>
@@ -35,6 +36,12 @@
               <td><%= order.client.present? ? order.client.firstname : "paragon" %></td>
               <td><%= order.name %></td>
               <td><%= order.total_price %> zł</td>
+              <td>
+                <%= form_tag status_order_path(order), method: :put do |f| %>
+                      <%= select_tag(:status, options_for_select([['Wysłane', true], ['Nie Wysłane', false]],
+                       {:selected => order.status, }), remote: true, :onchange => "this.form.submit();") %>
+                <% end %>
+              </td>
               <td><%= order.datatime %></td>
               <td>
                 <%= link_to "Zobacz", order_path(order), class: 'btn btn-dark btn-xs' %>
@@ -48,10 +55,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-

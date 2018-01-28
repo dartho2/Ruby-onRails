@@ -20,3 +20,5 @@ $(document).on 'turbolinks:load', ->
     $('.' + inputValue).toggle()
     return
   return
+
+

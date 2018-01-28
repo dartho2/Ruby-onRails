@@ -2,11 +2,16 @@ Rails.application.routes.draw do
 
 
   resources :invoices
-  devise_for :admins, :controllers => { :registrations => "admin/registrations" }
+  devise_for :admins, :controllers => {:registrations => "admin/registrations"}
   scope :panel do
     resources :products, only: [:index, :show]
-      resources :categories
-    resources :orders
+    resources :categories
+    resources :orders do
+      member do
+        put :status
+
+      end
+    end
     resources :curiers
     resources :magazines
   end

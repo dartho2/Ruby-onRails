@@ -38,6 +38,7 @@
                 </div>
               </fieldset>
             </div>
+
             <div class="col-sm-2">
               <label class="custom-control custom-checkbox">Paragon:
                 <input type="checkbox" class="custom-control-input" value="checkedbox">
@@ -159,10 +160,10 @@
                 </thead>
               </table>
               <%= link_to_add_fields '+', order, :product_orders %>
+              <%= order.submit "Zapisz Fakturę", class: "add_fields btn btn-primary add-more" %>
             </div>
           </div>
           </div>
-          <%= order.submit "Zapisz Fakturę", class: "add_fields btn btn-primary add-more" %>
       <% end %>
       </div>
 </div>

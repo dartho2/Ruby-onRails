@@ -11,8 +11,7 @@ class Product < ApplicationRecord
   before_save :create_category_from_name
   before_destroy :set_deleted_id
 
-  validates :name, presence: true, length: {minimum: 3, maximum: 40}
-  validates :price, presence: true, :numericality => true
+
 
 
   def create_category_from_name
