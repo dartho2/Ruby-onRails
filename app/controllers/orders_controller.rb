@@ -76,10 +76,8 @@ class OrdersController < ApplicationController
   end
 
   def status
-    debugger
     @orders = Order.find(params[:id])
     @orders.update(status: params[:status])
-
   end
 
   private
