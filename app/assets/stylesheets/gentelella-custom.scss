@@ -1050,23 +1050,23 @@ h2 {
     background: #F2F5F7
 }
 .x_panel {
-    position: relative;
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px 17px;
-    display: inline-block;
-    background: #fff;
-    border: 1px solid #E6E9ED;
-    -webkit-column-break-inside: avoid;
-    -moz-column-break-inside: avoid;
-    column-break-inside: avoid;
-    opacity: 1;
-    transition: all .2s ease
+    //position: relative;
+    //width: 100%;
+    //margin-bottom: 10px;
+    //padding: 10px 17px;
+    //display: inline-block;
+    //background: #fff;
+    //border: 1px solid #E6E9ED;
+    //-webkit-column-break-inside: avoid;
+    //-moz-column-break-inside: avoid;
+    //column-break-inside: avoid;
+    //opacity: 1;
+    //transition: all .2s ease
 }
 .x_title {
-    border-bottom: 2px solid #E6E9ED;
-    padding: 1px 5px 6px;
-    margin-bottom: 10px
+    //border-bottom: 2px solid #E6E9ED;
+    //padding: 1px 5px 6px;
+    //margin-bottom: 10px
 }
 .x_title .filter {
     width: 40%;
@@ -2163,8 +2163,7 @@ span.section {
     border-bottom: 1px solid #e5e5e5
 }
 .form-control {
-    border-radius: 0;
-    width: 100%
+  line-height: 0;
 }
 .form-horizontal .control-label {
     padding-top: 8px

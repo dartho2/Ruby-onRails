@@ -11,8 +11,9 @@ class Product < ApplicationRecord
   before_save :create_category_from_name
   before_destroy :set_deleted_id
 
-
-
+def productname
+  "#{name} - #{price}zł"
+end
 
   def create_category_from_name
     create_category(name: new_category_name) unless new_category_name.blank?

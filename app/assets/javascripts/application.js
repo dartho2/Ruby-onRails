@@ -18,4 +18,27 @@
 //= require_tree .
 
 
+function update_subtotal() {
+    var subtotal = 0;
+    $('.price').each(function(i){
+        var price = $(this).html();
+        if (!isNaN(price)) subtotal += Number(price);
+    });
 
+    subtotal = subtotal.toFixed(2);
+    $('.subtotal').html(subtotal);
+
+    update_balance();
+}
+function update_balance() {
+    var total = Number($('#subtotal').html()) + Number($('#9').val());
+    total = total.toFixed(2);
+
+    $('.due').html(total);
+}
+$(document).on('click', 'tr .remove_fields', function(){
+    console.log('delete')
+    $(this).parents('.order-table').remove();
+    update_subtotal();
+    if ($('.delete').length < 2) $('.delete').hide();
+});
