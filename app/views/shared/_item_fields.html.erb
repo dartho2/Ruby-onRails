@@ -1,25 +1,27 @@
 
-
-
-<div class="invoice-col invoice-col--quantity form-group">
-  <%= f.label :quantity %>
-  <%= f.text_field :quantity, class: "form-control", "data-role": "quantity" %>
-</div>
+<div class="invoice-row invoice-item js-item col-sm-12" id="js-item-product">
+<%= f.hidden_field :_destroy %>
+<%= f.hidden_field :id %>
 <%= f.fields_for :product, @order.products.build, include_id: true do |product| %>
-    <div class="invoice-row invoice-item js-item">
-      <div class="invoice-col invoice-col--description form-group">
+
+      <div class="invoice-col invoice-col--description form-group col-sm-5">
         <%= product.label :name %>
         <%= product.text_area :name, class: "form-control", rows: 1, "data-role": "item-description" %>
-        <%= product.hidden_field :id %>
-        <div class="invoice-col invoice-col--quantity form-group">
+      </div>
+        <div class="invoice-col invoice-col--price form-group col-sm-1">
           <%= product.label :price %>
           <%= product.text_field :price, class: "form-control", "data-role": "price" %>
         </div>
-      </div>
-    </div>
-<% end %>
+          <div class="invoice-col invoice-col--quantity form-group col-sm-1">
+            <%= product.label :quantity %>
+            <%= product.text_field :quantity, class: "form-control", "data-role": "quantity" %>
+          </div>
+          <%= product.hidden_field :id %>
 
+      <%= product.hidden_field :_destroy %>
 <%= link_to_remove_association f, {wrapper_class: 'js-item', class: 'destroy-icon'} do %>
     <i class="material-icons hidden-md-down">delete</i>
     <span class="hidden-lg-up">Remove Line</span>
 <% end %>
+<% end %>
+</div>

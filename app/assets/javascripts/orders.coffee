@@ -37,8 +37,12 @@ get_id_prefix = (input_field) ->
 init_invoice_item_autocomplete = (input_field) ->
   id_prefix = get_id_prefix input_field
   input_field.autocomplete source: '/panel/products/autocomplete.json', select: (event, ui) ->
-    $("##{id_prefix}_unitary_cost").val ui.item.unitary_cost
-    $("##{id_prefix}_unitary_cost").trigger "change" # to trigger recalculations
+    $("##{id_prefix}_id").val ui.item.id
+    console.log(ui.item.id ,'init_invoice_item_autocomplete')
+    $("##{id_prefix}_id").trigger "change" # to trigger recalculations
+    $("##{id_prefix}_price").val ui.item.price
+    console.log(ui.item.price ,'init_invoice_item_autocomplete')
+    $("##{id_prefix}_price").trigger "change" # to trigger recalculations
 
 
 # Function to deactivate autocomplete behavior on invoice-like items
@@ -53,6 +57,15 @@ destroy_invoice_item_autocomplete = (input_field) ->
 # - http://github.com/kossnocorp/jquery.turbolinks
 # - https://github.com/rails/turbolinks#jqueryturbolinks
 jQuery(document).ready ($) ->
+
+
+  $('input.custom-control-input').click ->
+    console.log( "ready!" );
+    inputValue = $(this).attr('value')
+    $('.' + inputValue).val(1)
+    $('.' + inputValue).toggle()
+    return
+
 #
 #  #
 #  # Navigation

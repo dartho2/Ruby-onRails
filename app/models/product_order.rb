@@ -2,7 +2,7 @@ class ProductOrder < ApplicationRecord
   belongs_to :order, inverse_of: :product_orders
   belongs_to :product, inverse_of: :product_orders
 
-  validates :quantity, presence: true
+
   before_save :check_magazine
 
   accepts_nested_attributes_for :product, allow_destroy: true
@@ -15,6 +15,7 @@ class ProductOrder < ApplicationRecord
   end
 
   def check_magazine
+    debugger
     a = Product.find(product_id)
     if !a.deleted.blank?
       a = Product.where(:parent_id => a.id).last
@@ -22,8 +23,11 @@ class ProductOrder < ApplicationRecord
     else
       a.update(:deleted => true)
       # nowa kolumna z poczatkowym id magazynu
-      Product.create(:price => self.price, :name => a.name, :parent_id => a.id, :product_f => a.product_f)
+      Product.create(:price => a.price, :name => a.name, :parent_id => a.id, :product_f => a.product_f)
+      debugger
       self.name = a.name
+      self.price = a.price
+      self.quantity = a.quantity
     end
     check_magazine_product(a)
   end

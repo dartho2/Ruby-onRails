@@ -39,9 +39,9 @@
 //
 //     $('.due').html(total);
 // }
-// $(document).on('click', 'tr .remove_fields', function(){
-//     console.log('delete')
-//     $(this).parents('.order-table').remove();
-//     update_subtotal();
-//     if ($('.delete').length < 2) $('.delete').hide();
-// });
+$(document).on('click', '#js-item-product .remove_fields', function(){
+    console.log('delete')
+    $(this).parents('#js-item-product').remove();
+    // update_subtotal();
+    // if ($('.delete').length < 2) $('.delete').hide();
+});

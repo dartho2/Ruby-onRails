@@ -97,7 +97,7 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order)
       .permit([:name, :datatime, client_attributes: [:id, :firstname, :_destroy, adress_attributes: [:id, :city, :zip, :street, :phone, :number, :company_zip, :company_city, :company_street, :company_number, :company_nip]]], product_orders_attributes: [:id, :quantity, :name, :price, :_destroy,
-                                                                                                                                                                                                                                                             product_attributes: [:id, :price, :_destroy]])
+                                                                                                                                                                                                                                                             product_attributes: [:id, :price, :name, :quantity, :_destroy]])
   end
 
   def params_orderss
