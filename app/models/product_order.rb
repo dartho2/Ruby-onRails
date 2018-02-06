@@ -59,8 +59,8 @@ class ProductOrder < ApplicationRecord
           end
         end
       else
-        a.quantity -= self.quantity #todo +=
-        a.update(quantity: a.quantity)
+        # a.quantity -= self.quantity #todo +=
+        # a.update(quantity: a.quantity)
       end
   end
 end

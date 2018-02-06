@@ -13,6 +13,13 @@ class OrdersController < ApplicationController
 
   end
 
+  def autocomplete
+    @items = Product.autocomplete_by_description(params[:term])
+    respond_to do |format|
+      format.json
+    end
+  end
+
   def show
   end
 

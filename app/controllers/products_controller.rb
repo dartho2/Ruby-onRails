@@ -10,6 +10,12 @@ class ProductsController < ApplicationController
       @products.push(product) unless Product.where(parent_id: product.id).any?
     end
   end
+  def autocomplete
+    @items = Product.autocomplete_by_description(params[:term])
+    respond_to do |format|
+      format.json
+    end
+  end
 
   # GET /products/1
   # GET /products/1.json

@@ -18,7 +18,7 @@
       <div class="clearfix"></div>
     </div>
     <div class="x_content">
-      <%= form_for(@order, :html => {class: "form-horizontal", role: "form"}) do |order| %>
+      <%= form_for(@order,:data => {role: 'invoice'}, :html => {class: "form-horizontal", role: "form"}) do |order| %>
           <div class="form-group">
             <div class="col-sm-2">
               <%= order.label :name, "Numer Faktury" %>
@@ -168,7 +168,7 @@
                 </tr>
                 </thead>
               </table>
-              <%= link_to_add_fields '', order, :product_orders %>
+              <%= render partial: 'shared/item_form', locals: {f: order, invoice: @order} %>
 
 
             </div>
@@ -176,7 +176,7 @@
           </div>
           <div id="buttons1">
             <div id="container-pos">
-            <%= order.submit "Zapisz Fakturę", class: "add_fields btn btn-primary add-more" %>
+            <%= order.submit "Zapisz Fakturę" %>
             </div>
           </div>
       <% end %>

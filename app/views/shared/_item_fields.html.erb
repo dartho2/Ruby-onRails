@@ -1,0 +1,25 @@
+
+
+
+<div class="invoice-col invoice-col--quantity form-group">
+  <%= f.label :quantity %>
+  <%= f.text_field :quantity, class: "form-control", "data-role": "quantity" %>
+</div>
+<%= f.fields_for :product, @order.products.build, include_id: true do |product| %>
+    <div class="invoice-row invoice-item js-item">
+      <div class="invoice-col invoice-col--description form-group">
+        <%= product.label :name %>
+        <%= product.text_area :name, class: "form-control", rows: 1, "data-role": "item-description" %>
+        <%= product.hidden_field :id %>
+        <div class="invoice-col invoice-col--quantity form-group">
+          <%= product.label :price %>
+          <%= product.text_field :price, class: "form-control", "data-role": "price" %>
+        </div>
+      </div>
+    </div>
+<% end %>
+
+<%= link_to_remove_association f, {wrapper_class: 'js-item', class: 'destroy-icon'} do %>
+    <i class="material-icons hidden-md-down">delete</i>
+    <span class="hidden-lg-up">Remove Line</span>
+<% end %>

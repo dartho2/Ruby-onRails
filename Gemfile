@@ -41,6 +41,7 @@ gem 'gentelella-rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'jquery-ui-rails'
+gem 'cocoon'
 group :development, :test do
   # gem 'mysql2', '>= 0.3.18', '< 0.5'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
