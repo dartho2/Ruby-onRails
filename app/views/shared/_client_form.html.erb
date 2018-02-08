@@ -1,0 +1,15 @@
+<%= f.fields_for :client do |client| %>
+    <div class="form-group">
+      <div class="col-sm-6">
+        <%= client.label :firstname, "Imię, Nazwisko (nazwa firmy)" %>
+        <%= client.text_field :firstname, class: 'form-control' %>
+      </div>
+      <div class="col-sm-6">
+        <%= client.label :lastname, "Imię, Nazwisko (nazwa firmy)" %>
+        <%= client.text_field :lastname, class: 'form-control' %>
+      </div>
+      <%= client.hidden_field :_destroy, class: 'checkedbox' %>
+    </div>
+    <%= render partial: 'shared/adress_form', locals: {f: client} %>
+
+<% end %>

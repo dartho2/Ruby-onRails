@@ -6,11 +6,11 @@
 <div class="row">
   <div class="col-xs-12 col-sm-6 col-md-7 col-lg-8">
     <div class="invoice-table-actions">
-      <%= link_to_add_association t("add line"), f, :product_orders,
+      <%= link_to_add_association t(" "), f, :product_orders,
       'data-association-insertion-node' => '#js-items-table',
       'data-association-insertion-method' => 'append',
       :partial => 'shared/item_fields',
-      :class => 'btn btn-secondary' %>
+      :class => 'fa fa-plus material-button-toggle' %>
     </div>
   </div>
 </div>

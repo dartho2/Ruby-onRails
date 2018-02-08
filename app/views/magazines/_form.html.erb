@@ -87,9 +87,9 @@
                   </table>
               <% end %>
 
-              <%= link_to_add_fields '+', f, :product_structures %>
+              <%= link_to_add_association t(" "), f, :product_structures %>
             </div>
-            <%= f.submit 'Zapisz', class: "add_fields btn btn-primary add-more" %>
+            <%= f.submit 'Zapisz', class: "btn btn-primary add-more" %>
         <% end %>
       </div>
     </div>
