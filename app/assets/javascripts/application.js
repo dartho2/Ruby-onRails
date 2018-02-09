@@ -12,6 +12,8 @@
 //= require jquery2
 //= require jquery_ujs
 //= require jquery-ui
+//= require dataTables/jquery.dataTables
+//= require dataTables/extras/dataTables.responsive
 //= require twitter/bootstrap
 //= require autosize
 //= require select2
@@ -19,21 +21,17 @@
 //= require cocoon
 
 
-/**
- * Resize function without multiple trigger
- *
- * Usage:
- * $(window).smartresize(function(){
- *     // code here
- * });
- */
+
 $(document).ready(function() {
-    $('.container').on('click', '.radioBtn a', function() {
+    console.log('a')
+
+    $('#datatable-orders').on('click', '.toggle-button.toggle-button--aava a', function(e) {
         var sel = $(this).data('title');
         var tog = $(this).data('toggle');
-        row = $(this).parents('.accordion-toggle')
+        row = $(this).parents('.accordion-toggle');
         row.find($('a[data-toggle="'+tog+'"]')).not('[data-title="'+sel+'"]').removeClass('active hidden').addClass('notActive');
         row.find($('a[data-toggle="'+tog+'"][data-title="'+sel+'"]')).removeClass('notActive').addClass('active hidden');
+
         if (sel == "Y") {
             $link = row.find($('a[data-role="true"]'));
             $link[0].click();
@@ -540,8 +538,6 @@ $(document).ready(function() {
 
     function init_DataTables() {
 
-
-
         if( typeof ($.fn.DataTable) === 'undefined'){ return; }
 
 
@@ -664,11 +660,11 @@ $(document).ready(function() {
         // init_autocomplete();
 
         init_sidebar();
-        init_daterangepicker_single_call();
-        init_DataTables();
-        init_calendar();
-        init_autosize();
-        init_autocomplete();
+        // init_daterangepicker_single_call();
+        // init_DataTables();
+        // init_calendar();
+        // init_autosize();
+        // init_autocomplete();
     });
 });
 

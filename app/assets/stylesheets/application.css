@@ -12,6 +12,8 @@
  *
  *= require devise_bootstrap_views
  *= require font-awesome
+ *= require dataTables/jquery.dataTables
+ *= require dataTables/extras/dataTables.responsive
  *= require_tree .
  *= require_self
  */

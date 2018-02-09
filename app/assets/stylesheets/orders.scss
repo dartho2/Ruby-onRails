@@ -39,12 +39,66 @@ body {
   background: #068B78; }
 
 .toggle-button {
-  margin: 0 20px; }
+  //margin: 0 20px;
+}
+a.btn.btn-dark.btn-xs, a.btn.btn-danger.btn-xs, a.btn.btn-primary.btn-xs{
+  display: block;
+}
+.dropdown-toggle-split {
+  /* border-bottom-right-radius: 24em; */
+  background-color: #589e33;
+  width: 36px;
+  border: 1px;
+  /* color: white; */
+  -webkit-box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 1px 5px 1px rgba(0, 0, 0, 0.45);
+  height: 20px;
+  color: white;
+  margin-left: -32px;
+  z-index: 2;
+  line-height: 20px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  position: absolute;
+  /* display: block; */
+  text-align: center;
+  border-radius: 3rem;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  /* border-top-right-radius: 0; */
+}
+.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
 
-/*
- * Toggle button styles
- */
+  background-color: #61B136;
+  width: 120px;
+  border: 1px;
+  /* color: white; */
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  height: 20px;
+  color: white;
+  line-height: 10px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  display: block;
+  text-align: inherit;
+  border-radius: 2rem;
+
+}
+button a:hover, a:focus {
+  text-decoration: none;
+  color: white;
+}
+button a {
+  color: white;
+}
+.dropdown-menu {
+  min-width: 123px;
+}
 .toggle-button {
+  font-size: 10px;
   position: relative;
   display: inline-block;
   color: #fff; }

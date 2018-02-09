@@ -108,4 +108,10 @@ $ ->
     return
   return
 
+jQuery ->
+  $('#datatable-orders').dataTable
+    sPaginationType: "full_numbers"
+    bProcessing: true
+    autoWidth: true
+
 

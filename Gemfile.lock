@@ -119,6 +119,11 @@ GEM
     jbuilder (2.7.0)
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
+    jquery-datatables-rails (3.4.0)
+      actionpack (>= 3.1)
+      jquery-rails
+      railties (>= 3.1)
+      sass-rails
     jquery-rails (4.3.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -248,7 +253,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  bcrypt (~> 3.1.11)
+  bcrypt
   bootstrap-sass (~> 3.3.7)
   byebug
   capybara (~> 2.13)
@@ -259,6 +264,7 @@ DEPENDENCIES
   font-awesome-rails
   gentelella-rails
   jbuilder (~> 2.5)
+  jquery-datatables-rails
   jquery-rails (~> 4.1, >= 4.1.1)
   jquery-ui-rails
   pg (~> 0.20)
