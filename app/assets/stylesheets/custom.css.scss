@@ -34,6 +34,52 @@
     width: 100%;
   }
 }
+.radioBtn .notActive .active {
+  //color: #3276b1;
+  height: 30px;
+  width: 120px;
+  line-height: 30px;
+  transition: all 0.2s;
+  border-radius: 2rem;
+}
+a[data-title="Y"] {
+  background-color: #61B136;
+  width: 120px;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  height: 23px;
+  color: white;
+  line-height: 23px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  display: block;
+  border-radius: 2rem;
+}
+a[data-title="Y"]:after {
+
+}
+a[data-title="N"] {
+  background-color: #61B136;
+  width: 120px;
+  background: #428bca;
+  color: white;
+  text-transform: uppercase;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  height: 23px;
+  line-height: 23px;
+  transition: all 0.2s;
+  display: block;
+  border-radius: 2rem;
+}
+a.active.hidden {
+  display: none;
+}
+a[data-role="true"], a[data-role="false"] {
+  display: none;
+}
 a.remove_fields.dynamic {
   position: absolute;
   right: 2px;

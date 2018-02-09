@@ -24,6 +24,9 @@ class OrdersController < ApplicationController
   end
 
   # GET /orders/new
+  def order
+
+  end
 
   def new
     @order = Order.new
@@ -82,7 +85,10 @@ class OrdersController < ApplicationController
     end
   end
 
+
+
   def status
+    sleep 2
     @orders = Order.find(params[:id])
     @orders.update(status: params[:status])
   end

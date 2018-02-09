@@ -12,7 +12,6 @@ Rails.application.routes.draw do
       get 'autocomplete', on: :collection
       member do
         put :status
-
       end
     end
     resources :curiers

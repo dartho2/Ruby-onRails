@@ -27,7 +27,22 @@
  *     // code here
  * });
  */
-
+$(document).ready(function() {
+    $('.container').on('click', '.radioBtn a', function() {
+        var sel = $(this).data('title');
+        var tog = $(this).data('toggle');
+        row = $(this).parents('.accordion-toggle')
+        row.find($('a[data-toggle="'+tog+'"]')).not('[data-title="'+sel+'"]').removeClass('active hidden').addClass('notActive');
+        row.find($('a[data-toggle="'+tog+'"][data-title="'+sel+'"]')).removeClass('notActive').addClass('active hidden');
+        if (sel == "Y") {
+            $link = row.find($('a[data-role="true"]'));
+            $link[0].click();
+        } else {
+            $link = row.find($('a[data-role="false"]'));
+            $link[0].click();
+        }
+        });
+});
 
 $(document).ready(function() {
 

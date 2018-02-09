@@ -37,18 +37,13 @@
               <td><%= order.name %></td>
               <td><%= order.total_price %> zł</td>
               <td>
-
-
-                    <%= form_tag status_order_path(order), method: :put do |f| %>
-
-                          <%= radio_button_tag :status, order.status.nil? ? {:checked => true} : {:checked => false} %>
-
-                        <%= select_tag(:status, options_for_select([['Wysłane', true], ['Nie Wysłane', false]],
-                                                                   {:selected => order.status }), remote: true, :onchange => "this.form.submit();") %>
-                    <% end %>
-
+                    <div class="toggle-button toggle-button--aava">
+                    <a class=" <%= order.status.present? ? "notActive" : "active hidden" %>" data-toggle="happy"  data-title="Y">Wystłana</a>
+                    <a class=" <%= order.status.present? ? "active hidden" : "notActive" %> " data-toggle="happy" data-title="N">Nie Wysłana</a>
+                        <%= link_to 'wysłane', status_order_path(order , :status => false), {method: :put , 'data-role' => true, remote: true} %>
+                        <%= link_to 'nie wysłane', status_order_path(order, :status => true), {method: :put, 'data-role' => false, remote: true} %>
+                    </div>
                 </div>
-
               </td>
               <td><%= order.datatime %></td>
               <td>
