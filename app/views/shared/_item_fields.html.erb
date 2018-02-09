@@ -2,7 +2,7 @@
   <%= f.hidden_field :_destroy %>
   <%= f.hidden_field :id %>
   <%= f.fields_for :product, @order.products.build, include_id: true do |product| %>
-      <div class="invoice-col invoice-col--description form-group col-sm-5">
+      <div class="invoice-col invoice-col--description form-group col-sm-6">
         <div class="phidden">
         <%= product.label :name %>
         </div>
@@ -15,29 +15,49 @@
         <%= product.text_field :quantity, class: "form-control", "data-role": "quantity" %>
       </div>
       <div class="invoice-col invoice-col--unit form-group col-sm-1">
+        <div class="phidden">
+          <%= product.label :unit %>
+        </div>
+        <p class="form-control-static js-net-unit">szt.</p>
+        <%= product.hidden_field :unit, class: "form-control", "data-role": "unit" %>
       </div>
-      <div class="invoice-col invoice-col--price-n form-group col-sm-1">
+      <div class="invoice-col invoice-col--price-b form-group col-sm-1">
+        <div class="phidden">
+          <%= product.label :price %>
+        </div>
+        <%= product.text_field :price, class: "form-control", "data-role": "price" %>
       </div>
       <div class="invoice-col invoice-col--vat form-group col-sm-1">
+        <div class="phidden">
+          <%= product.label :vat_ %>
+        </div>
+        <p class="form-control-static js-net-vat">23%</p>
+        <%= product.hidden_field :vat_, class: "form-control", "data-role": "vat_" %>
       </div>
       <div class="invoice-col invoice-col--price-n form-group col-sm-1">
-      </div>
-      <div class="invoice-col invoice-col--price form-group col-sm-1">
         <div class="phidden">
-        <%= product.label :price %>
+          <%= product.label :prince_n %>
         </div>
-          <%= product.text_field :price, class: "form-control", "data-role": "price" %>
+        <p class="form-control-static js-net-prince-n"></p>
+        <%= product.hidden_field :prince_n, class: "form-control", "data-role": "prince_n" %>
+      </div>
+      <div class="invoice-col invoice-col--value-b form-group col-sm-1">
+        <div class="phidden">
+          <%= product.label :value_b %>
+        </div>
+        <p class="form-control-static js-net-val-b">0.00</p>
+        <%= product.hidden_field :value_b, class: "form-control", "data-role": "value_b" %>
       </div>
       <tr>
         <td class="col-sm-1"></td>
         <td class="price_td"><span class="price"></span><span class="subtotal_currency"></span></td>
-        <td class="col-sm-1 center">
+
       </tr>
       <%= product.hidden_field :id %>
-
       <%= product.hidden_field :_destroy %>
-      <div class="invoice-col invoice-col--removal form-group col-sm-1">
-        <%= link_to_remove_association f, {wrapper_class: 'js-item', class: 'glyphicon glyphicon-trash'} do %>
+      <div class="invoice-col invoice-col--removal form-group">
+        <%= link_to_remove_association f, {wrapper_class: 'js-item', class: ''} do %>
+            <i class="fa fa-remove"></i>
         <% end %>
       </div>
   <% end %>

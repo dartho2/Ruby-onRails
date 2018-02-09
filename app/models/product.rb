@@ -11,18 +11,28 @@ class Product < ApplicationRecord
   before_save :create_category_from_name
   before_destroy :set_deleted_id
 
-def productname
-  "#{name} - #{price}zł"
-end
+  def value_b
+  end
+
+  def vat_
+  end
+
+  def unit
+  end
+
+  def prince_n
+  end
+
   def Product.autocomplete_by_description(term)
     t = arel_table
-           q = t
-          .project(t[:id].maximum.as("id"), t[:name],t[:price])
+    q = t
+          .project(t[:id].maximum.as("id"), t[:name], t[:price])
           .where(t[:name].matches("%#{term}%"))
           .group(t[:name])
           .order(t[:name])
     find_by_sql(q.to_sql)
   end
+
   def create_category_from_name
     create_category(name: new_category_name) unless new_category_name.blank?
   end

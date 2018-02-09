@@ -87,7 +87,11 @@ body {
 
 .toggle-button--aava input[type=checkbox] + label {
   width: 120px;
-  background: #428bca; }
+  background: #428bca;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+}
 .toggle-button--aava input[type=checkbox] + label:before {
   opacity: 0;
   transform: translate(0, 20px); }
@@ -497,28 +501,21 @@ input[type="radio"], input[type="checkbox"] {
   line-height: normal;
 }
 a.add_fields.fa.fa-plus.material-button-toggle {
-  margin-left: -19px;
-  display: inline-block;
-  height: 30px;
-  width: 30px;
-  /* line-height: 30px; */
+  border-radius: 100px;
   -moz-border-radius: 15px;
-  background-color: #FFF;
-  color: #428bca;
-  text-align: center;
-  -webkit-box-shadow: 0px 0px 0px 3px rgb(66, 139, 202);
   -moz-box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 0px 3px rgb(66, 139, 202);
   position: absolute;
   margin-top: -39px;
+  margin-left: -10px;
   text-align: center;
-  /* padding: 6px 0; */
-  font-size: 12px;
-  /* line-height: 1.428571429; */
-  /* border-radius: 15px; */
-  padding: 9px 7px;
-  line-height: 1.33;
-  border-radius: 25px;
+  padding: 0px 0px;
+  font-size: 27px;
+  background-color: #61b136;
+  color: #ffffff;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  padding: 2px 5px;
 }
 .ui-autocomplete {
   position: absolute;
@@ -564,30 +561,19 @@ a.add_fields.fa.fa-plus.material-button-toggle {
   color: #2E2F30;
   background-color: #00aeef;
 }
+
 a.add_fields.fa.fa-plus.material-button-toggle:hover {
-  margin-left: -19px;
-  display: inline-block;
-  height: 30px;
-  width: 30px;
-  /* line-height: 30px; */
-  -moz-border-radius: 15px;
-  background-color: #FFF;
-  color: red;
-  text-align: center;
-  -webkit-box-shadow: 0px 0px 0px 3px rgb(66, 139, 202);
-  -moz-box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 0px 3px rgb(66, 139, 202);
-  position: absolute;
-  margin-top: -39px;
-  text-align: center;
-  /* padding: 6px 0; */
-  font-size: 12px;
-  /* line-height: 1.428571429; */
-  /* border-radius: 15px; */
-  padding: 9px 7px;
-  line-height: 1.33;
-  border-radius: 25px;
-}
+  opacity: 1.0;
+  transform: scale(2.05, 2.07);
+  transition-timing-function: ease-out;
+  transition-duration: 250ms;
+  -webkit-transform: scale(1.05, 1.07);
+  -webkit-transition-timing-function: ease-out;
+  -webkit-transition-duration: 250ms;
+  -moz-transform: scale(1.05, 1.07);
+  -moz-transition-timing-function: ease-out;
+  -moz-transition-duration: 250ms;
+  }
 a.add_fields.btn.btn-dark {
    margin-top: -66px;
    margin-left: -17px;

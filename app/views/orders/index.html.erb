@@ -37,10 +37,18 @@
               <td><%= order.name %></td>
               <td><%= order.total_price %> zł</td>
               <td>
-                <%= form_tag status_order_path(order), method: :put do |f| %>
-                      <%= select_tag(:status, options_for_select([['Wysłane', true], ['Nie Wysłane', false]],
-                       {:selected => order.status, }), remote: true, :onchange => "this.form.submit();") %>
-                <% end %>
+
+
+                    <%= form_tag status_order_path(order), method: :put do |f| %>
+
+                          <%= radio_button_tag :status, order.status.nil? ? {:checked => true} : {:checked => false} %>
+
+                        <%= select_tag(:status, options_for_select([['Wysłane', true], ['Nie Wysłane', false]],
+                                                                   {:selected => order.status }), remote: true, :onchange => "this.form.submit();") %>
+                    <% end %>
+
+                </div>
+
               </td>
               <td><%= order.datatime %></td>
               <td>

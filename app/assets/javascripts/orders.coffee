@@ -1,3 +1,27 @@
+update_subtotal = ->
+  subtotal = 0
+  b = undefined
+
+  $('.js-net-val-b').each (i) ->
+    price = $(this).html()
+    a = parseFloat($('.js-net-vat').html())
+    if !isNaN(price)
+      subtotal += Number(price)
+    return
+  subtotal = subtotal.toFixed(2)
+  $('.subtotal').html subtotal
+  update_balance()
+  return
+
+update_balance = ->
+  total = (Number($('.subtotal').html()) * (parseFloat($('.js-net-vat').html())/100))
+  total = total.toFixed(2)
+  total_1 =  Number($('.subtotal').html()) - total
+  total_1 = total_1.toFixed(2)
+  $('.vat').html total
+  $('.netto_price').html total_1
+  return
+
 get_id_prefix = (input_field) ->
   id_prefix = input_field.attr('id')
   id_prefix = id_prefix.substring(0, id_prefix.lastIndexOf('_'))
@@ -21,7 +45,7 @@ bind = (input_field) ->
 update_prices = ->
   rows = $(this).parents('.table-list')
   price = rows.find('select[data-role="name"]').val()
-  if isNaN(price) then $(this).parents('.table-list').find('.price').html('NaN') else $(this).parents('.table-list').find('input[data-role="price"]').html(price)
+  if isNaN(price) then $(this).parents('.table-list').find('.price').html('0') else $(this).parents('.table-list').find('input[data-role="price"]').html(price)
   return
 
 $('body').on 'click', '.remove_fields', ->
@@ -35,7 +59,10 @@ update_price = ->
   row = $(this).parents('#js-item-product')
   price = row.find('input[data-role="quantity"]').val() * row.find('input[data-role="price"]').val()
   price = price.toFixed(2)
-  if isNaN(price) then row.find('.price').html('NaN') else row.find('span.price').html(price)
+  if isNaN(price) then row.find('.js-net-val-b').html('0') else row.find('.js-net-val-b').html(price)
+  a = row.find('.js-net-val-b').html()-(row.find('.js-net-val-b').html() * (parseFloat($('.js-net-vat').html())/100))
+  a = a.toFixed(2)
+  row.find('.js-net-prince-n').html(a)
   update_subtotal()
   return
 

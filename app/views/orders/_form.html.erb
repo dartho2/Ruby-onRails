@@ -21,10 +21,6 @@
       <%= form_for(@order, :data => {role: 'invoice'}, :html => {class: "form-horizontal", role: "form"}) do |order| %>
           <div class="form-group">
             <div class="col-sm-2">
-              <%= order.label :name, "Numer Faktury" %>
-              <%= order.text_field :name, class: 'form-control', placeholder: "Numer FV" %>
-            </div>
-            <div class="col-sm-2">
               <%= order.label :datatime, "Data Wystawienia" %>
               <%= order.text_field :datatime, {class: 'form-control', as: :date, 'id' => "datepicker", value: Date.today.strftime("%d/%m/%Y")} %>
             </div>
@@ -72,14 +68,13 @@
                 <table class="table table-striped table-bordered table-list phidden-odd">
                   <thead>
                   <tr>
-                    <th class="col-sm-5">Nazwa Produktu</th>
+                    <th class="col-sm-6">Nazwa Produktu</th>
                     <th class="col-sm-1">Ilość</th>
                     <th class="col-sm-1">Jednostka</th>
-                    <th class="col-sm-1">Cena Netto</th>
+                    <th class="col-sm-1">Cena Brutto</th>
                     <th class="col-sm-1">VAT</th>
                     <th class="col-sm-1">Wartość Netto</th>
                     <th class="col-sm-1">Wartość Brutto</th>
-                    <th class="col-sm-1 center"></th>
                   </tr>
                   </thead>
                 </table>
@@ -99,26 +94,26 @@
           <tbody>
           <tr class="curr_s netto ">
             <th>Suma netto</th>
-            <td class="price_td"><span class="subtotal"></span><span class="subtotal_currency"></span></td>
+            <td class="price_td"><span class="netto_price">0.00</span><span class="subtotal_currency"></span></td>
             <td style="width:1%;" class="_curr1">PLN</td>
             <td id="invoice_summary_currency_change">
             </td>
           </tr>
           <tr class="curr_s ">
             <th>Suma VAT</th>
-            <td class="price_td"><span class="subtotal"></span><span class="subtotal_currency"></span></td>
+            <td class="price_td"><span class="vat">0.00</span><span class="subtotal_currency"></span></td>
             <td class="_curr1"> PLN</td>
             <td></td>
           </tr>
           <tr class="curr_s more_discount1 hidden" style="display: none;">
             <th class="">Suma rabatu</th>
-            <td class="price_td"><span class="subtotal"></span><span class="subtotal_currency"></span></td>
+            <td class="price_td"><span class="subtotal">0.00</span><span class="subtotal_currency"></span></td>
             <td class="_curr1"> PLN</td>
             <td></td>
           </tr>
           <tr class="curr_s">
             <th class="bold">Suma brutto</th>
-            <td class="price_td"><span class="subtotal"></span><span class="subtotal_currency"></span></td>
+            <td class="price_td"><span class="subtotal">0.00</span><span class="subtotal_currency"></span></td>
             <td class="_curr1">
               PLN
             </td>
