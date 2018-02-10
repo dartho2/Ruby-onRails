@@ -5,13 +5,16 @@ class OrdersController < ApplicationController
   # GET /orders.json
   def index
     @orders = Order.all
-
   end
 
   # GET /orders/1
   # GET /orders/1.json
-  def invoice
+  def earning
+    @orders = Order.order(:datatime)
 
+    @task_months = @orders.group_by {|t| t.created_at.beginning_of_month }
+
+   # @task = DateTime.strptime(@task_months ,"%B %e, %Y")
   end
 
   def autocomplete

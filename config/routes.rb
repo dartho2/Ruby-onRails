@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :categories
     resources :orders do
       get 'autocomplete', on: :collection
+      get 'earning', on: :collection
       member do
         put :status
       end

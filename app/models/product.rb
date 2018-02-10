@@ -26,7 +26,7 @@ class Product < ApplicationRecord
   def Product.autocomplete_by_description(term)
     t = arel_table
     q = t
-          .project(t[:id].maximum.as("id"), t[:name], t[:price])
+          .project(t[:id].maximum.as("id"), t[:name])
           .where(t[:name].matches("%#{term}%"))
           .group(t[:name])
           .order(t[:name])
