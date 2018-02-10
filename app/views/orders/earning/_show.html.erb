@@ -1,26 +1,44 @@
-<table id="datatable-orders" class="display responsive nowrap" cellspacing="0" width="100%" data-source="<%= orders_url(format: "json") %>" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
-  <thead>
-  <tr>
-    <th class="col-6 col-sm-2">Nr. FV</th>
-    <th class="col-6 col-sm-2">Nazwa</th>
-    <th class="col-6 col-sm-2">Zysk</th>
+<!--<table id="datatable-orders" class="display responsive nowrap" cellspacing="0" width="100%" data-source="<%= orders_url(format: "json") %>" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">-->
+<!--<thead>-->
+<!--<tr>-->
+<!--<th class="col-6 col-sm-2">Nr. FV</th>-->
+<!--<th class="col-6 col-sm-2">Nazwa</th>-->
+<!--<th class="col-6 col-sm-2">Zysk</th>-->
 
-  </tr>
-  </thead>
-  <tbody>
-  <% @task_months.each do |month,order| %>
-  <td>
-      <%= month.strftime('%B') %>
-      <% for order in order %>
-          <div class='task'>
-            <strong>  </strong>
-          <td>  due on <%= order.created_at.to_s(:long) %></td>
-          </div>
+<!--</tr>-->
+<!--</thead>-->
+<!--<tbody>-->
+<!--<table class="table">-->
+
+<% @orders_group.each do |month, posts| %>
+    <h2><%= month.strftime('%m/%d/%Y') %></h2>
+
+      <table class="table">
+      <thead class="thead-default">
+      <tr>
+        <th>a</th>
+        <th>b</th>
+        <th>c</th>
+        <th>d</th>
+        <th>e</th>
+        <th>f</th>
+      </tr>
+      <tbody>
+      <% for order in posts %>
+
+          <tr>
+            <td><%= order.created_at.strftime('%m/%d/%Y') %></td>
+            <td><%= order.name %></td>
+            <td><%= order.quantity %></td>
+            <td><%= order.price %></td>
+            <td><%= order.order.name %></td>
+            <td><%= order.order.datatime %></td>
+          </tr>
+
       <% end %>
-  </tr>
-  <% end %>
-  </tbody>
+      </tbody>
+    </table>
+<% end %>
 
-</table>
 
-<%=  @task_months %>
+<%= @a %>

@@ -10,12 +10,22 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def earning
-    @orders = Order.order(:datatime)
+    @orders = ProductOrder.order("created_at desc")
+    @orders_group = @orders.group_by {|t| t.created_at.beginning_of_month }
+    # @a = @orders_group.inspect
 
-    @task_months = @orders.group_by {|t| t.created_at.beginning_of_month }
+    # @task_months = @task_months.inject({}) do |h,(k,v)|
+    #   h[k] = v.sort do |x,y|
+    #     y.created_at <=> x.created_at
+    #   end
+    #   h
+    # end
+
+    # @task_months = @task_months.inject({}) do |h,(k,v)|
 
    # @task = DateTime.strptime(@task_months ,"%B %e, %Y")
-  end
+   #  end
+    end
 
   def autocomplete
     @items = Product.autocomplete_by_description(params[:term])
