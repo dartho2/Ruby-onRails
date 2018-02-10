@@ -1,5 +1,6 @@
 class Magazine < ApplicationRecord
   has_many :products
+  has_many :product_orders
   has_many :product_structures, :foreign_key => 'product_id'
   has_one :productshipment
   has_many :magazine_invoices, inverse_of: :magazine

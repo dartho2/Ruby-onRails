@@ -10,10 +10,14 @@
 <!--<tbody>-->
 <!--<table class="table">-->
 
-<% @orders_group.each do |month, posts| %>
-    <h2><%= month.strftime('%m/%d/%Y') %></h2>
 
-      <table class="table">
+<% @orders_group.each do |month, posts| %>
+    <% total_p = 0 %>
+<div class="center">
+  <div class="center-block col-sm-6">
+  <%= month.strftime('%m/%d/%Y') %>
+</div>
+    <table class="table <%= month.strftime('%m/%d/%Y') %>">
       <thead class="thead-default">
       <tr>
         <th>a</th>
@@ -22,23 +26,38 @@
         <th>d</th>
         <th>e</th>
         <th>f</th>
+        <th>g</th>
       </tr>
-      <tbody>
+      <tbody class="earning">
       <% for order in posts %>
-
           <tr>
             <td><%= order.created_at.strftime('%m/%d/%Y') %></td>
             <td><%= order.name %></td>
-            <td><%= order.quantity %></td>
-            <td><%= order.price %></td>
+            <td data-role="quantity_earning"><%= order.quantity %></td>
+            <td data-role="price_earning"><%= order.price %></td>
             <td><%= order.order.name %></td>
             <td><%= order.order.datatime %></td>
+            <td data-role="price_b_earning"><%= order.price_m(order) %></td>
           </tr>
-
-      <% end %>
+          <% total_p = total_p + ((order.price * order.quantity)- (order.price_m(order)* order.quantity)) %>
+          <% end %>
+      <tr>
+        <td id="sum1"></td>
+        <td id="sum2"></td>
+      </tr>
       </tbody>
+      <div class="col-sm-6">
+        <div class="total_month col-sm-6">opłaty: </div>
+        <div class="total_month col-sm-6"><%= total_p %></div>
+        <div class="total_month col-sm-6">zysk:</div>
+        <div class="total_month col-sm-6"><%= total_p %></div>
+        <div class="total_month col-sm-6">wynik:</div>
+        <div class="total_month col-sm-6"><%= total_p %></div>
+      </div>
     </table>
+</div>
+
 <% end %>
 
 
-<%= @a %>
+

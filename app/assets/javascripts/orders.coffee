@@ -1,3 +1,4 @@
+
 update_subtotal = ->
   subtotal = 0
   b = undefined
@@ -115,3 +116,64 @@ jQuery ->
     autoWidth: true
 
 
+#jQuery(document).ready ($) ->
+#  sum1 = 0
+#  sum2 = 0
+#  sum3 = 0
+#  $roww = $('[data-role="price_total_div"]')
+#  $('tr').not(':first').not(':last').each ->
+#    getnum = (t) ->
+#      isNumeric = (n) ->
+#        !isNaN(parseFloat(n)) and isFinite(n)
+#      if isNumeric(t)
+#        return parseInt(t, 10)
+#    sum1 = getnum($(this).find('[data-role="quantity_earning"]').html())
+#    sum2 += getnum($(this).find('[data-role="quantity_earning"]').html())* getnum($(this).find('[data-role="price_b_earning"]').html())
+#    sum3 = sum1-sum2
+#    console.log(sum1)
+#    $('[data-role="price_total_div"]').find('p[data-role="price_total"]').html(sum3)
+##    $('[data-role="price_total_div"]').find('p[data-role="price_total"]').html(sum2)
+#    return
+
+#jQuery(document).ready ($) ->
+#  sum1 = 0
+#  sum2 = 0
+#  sum3 = 0
+#  $('[data-role="price_total_div"]').each () ->
+#    console.log('b')
+##    $('.table tr').each (i) ->
+#    $(this).find('.table tr');
+#      getnum = (t) ->
+#        isNumeric = (n) ->
+#          !isNaN(parseFloat(n)) and isFinite(n)
+#        if isNumeric(t)
+#          return parseInt(t, 10)
+#        0
+#      sum1 += getnum($(this).find('[data-role="quantity_earning"]').html())
+#      sum2 += getnum($(this).find('[data-role="quantity_earning"]').html())* getnum($(this).find('[data-role="price_b_earning"]').html())
+#      sum3 = sum1-sum2
+#      console.log(sum1)
+#    $(this).find('#sum1').html(sum1)
+#  #    $('[data-role="price_total_div"]').find('p[data-role="price_total"]').html(sum2)
+#    return
+#jQuery(document).ready ($) ->
+#  sum1 = 0
+#  sum2 = 0
+#  $('.table tr').not(':first').not(':last').each ->
+#    console.log('aaaa')
+#    getnum = (t) ->
+#
+#      isNumeric = (n) ->
+#        !isNaN(parseFloat(n)) and isFinite(n)
+#
+#      if isNumeric(t)
+#        return parseInt(t, 10)
+#      0
+#
+#    sum1 = getnum($(this).find('td:eq(2)').text())
+#    sum2 = getnum($(this).find('td:eq(3)').text())
+#    console.log(sum1)
+#    console.log(sum2)
+#    return
+#  $('#sum1').text sum1
+#  $('#sum2').text sum2

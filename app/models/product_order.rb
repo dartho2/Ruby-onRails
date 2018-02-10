@@ -1,6 +1,7 @@
 class ProductOrder < ApplicationRecord
   belongs_to :order, inverse_of: :product_orders
   belongs_to :product, inverse_of: :product_orders
+  has_many :magazines
 
 
   before_save :check_magazine
@@ -14,8 +15,13 @@ class ProductOrder < ApplicationRecord
     super
   end
 
+  def price_m c
+    @a = self.product
+    @b = Magazine.find_by('id' => @a.product_f)
+    @b.price
+  end
+
   def check_magazine
-    debugger
     a = Product.find(product_id)
     if !a.deleted.blank?
       a = Product.where(:parent_id => a.id).last
@@ -24,7 +30,6 @@ class ProductOrder < ApplicationRecord
       a.update(:deleted => true)
       # nowa kolumna z poczatkowym id magazynu
       Product.create(:price => a.price, :name => a.name, :parent_id => a.id, :product_f => a.product_f)
-      debugger
       self.name = a.name
       self.price = a.price
       self.quantity = a.quantity
@@ -39,33 +44,33 @@ class ProductOrder < ApplicationRecord
       check_magazine_product(a)
     else
       # update product magazyne
-
-      Product.where(:id => self.product_id).update(:product_f => a.id)
+      # Product.where(:id => self.product_id).update(:product_f => a.id)
 
       magazine_update(a)
     end
   end
 
+#TODO repare update magazine
   def magazine_update x
-      a = Magazine.find_by :product_id => x.id
-      if !ProductOrder.find_by(:order_id => self.order_id, :product_id => self.product_id).nil?
-        x = ProductOrder.find_by(:order_id => self.order_id, :product_id => self.product_id)
-        if x.quantity != self.quantity
-          if x.quantity < self.quantity
-            x.quantity -= self.quantity #todo +=
-            a.quantity += x.quantity
-            a.update(quantity: a.quantity)
-          else
-            debugger
-            x.quantity -= self.quantity #todo +=
-            a.quantity += x.quantity
-            a.update(quantity: a.quantity)
-          end
+    a = Magazine.find_by :product_id => x.id
+    if !ProductOrder.find_by(:order_id => self.order_id, :product_id => self.product_id).nil?
+      x = ProductOrder.find_by(:order_id => self.order_id, :product_id => self.product_id)
+      if x.quantity != self.quantity
+        if x.quantity < self.quantity
+          x.quantity -= self.quantity #todo +=
+          a.quantity += x.quantity
+          a.update(quantity: a.quantity)
+        else
+          debugger
+          x.quantity -= self.quantity #todo +=
+          a.quantity += x.quantity
+          a.update(quantity: a.quantity)
         end
-      else
-        # a.quantity -= self.quantity #todo +=
-        # a.update(quantity: a.quantity)
       end
+    else
+      # a.quantity -= self.quantity #todo +=
+      # a.update(quantity: a.quantity)
+    end
   end
 end
 

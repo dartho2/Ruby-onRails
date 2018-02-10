@@ -21,7 +21,6 @@
 //= require cocoon
 
 
-
 $(document).ready(function() {
     console.log('a')
 
