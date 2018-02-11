@@ -1,12 +1,15 @@
 class Product < ApplicationRecord
-  attr_accessor :new_category_name, :price_zl
+  attr_accessor :new_category_name
   has_many :product_structure, foreign_key: "product_id"
   has_one :magazine
   belongs_to :category, required: false
   has_many :product_orders, inverse_of: :product
   has_one :productshipment, :through => :magazine
   has_many :orders, :through => :product_orders, inverse_of: :products
-
+  validates :price, :presence => true,
+            :numericality => true,
+            :format => { :with => /\A\d{1,4}(.\d{0,2})?\z/ }
+  validates :id , presence:  true
   before_save :create_category_from_name
   before_destroy :set_deleted_id
 
@@ -20,14 +23,6 @@ class Product < ApplicationRecord
   end
 
   def prince_n
-  end
-  def price_zl
-    debugger
-    price.to_d/100 if price
-  end
-  def price_zl=(zl)
-    debugger
-    self.price = zl*100 if zl.present?
   end
 
   def Product.autocomplete_by_description(term)

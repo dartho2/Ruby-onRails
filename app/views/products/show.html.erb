@@ -86,12 +86,15 @@
         </tr>
         </thead>
         <tbody>
+        <% if @a.product_structure.each.nil? %>
        <% @a.magazine.product_structures.each do |product| %>
                 <tr>
                   <td><%= product.label %> </td>
                   <td><%= product.value %></td>
                 </tr>
 
+
+            <% end %>
         <% end %>
         </tbody>
       </table>
@@ -126,7 +129,7 @@
           </tr>
           </thead>
           <tbody>
-
+          <% if @a.productshipment.present? %>
                   <tr>
                     <td> <%= @a.productshipment.height.present? ? @a.productshipment.height : "-" %></td>
                     <td> <%= @a.productshipment.width.present? ? @a.productshipment.width : "-" %></td>
@@ -134,7 +137,7 @@
                     <td> <%= @a.productshipment.weight.present? ? @a.productshipment.weight : "-" %></td>
                   </tr>
 
-
+          <% end %>
           </tbody>
         </table>
       </div>

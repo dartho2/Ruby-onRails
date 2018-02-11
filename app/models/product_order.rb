@@ -23,6 +23,9 @@ class ProductOrder < ApplicationRecord
 
   def check_magazine
     a = Product.find(product_id)
+    if a.product_f.nil?
+      a.product_f = a.id
+    end
     if !a.deleted.blank?
       a = Product.where(:parent_id => a.id).last
       a.update(:price => self.price)

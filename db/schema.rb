@@ -73,12 +73,12 @@ ActiveRecord::Schema.define(version: 20180206170020) do
 
   create_table "curiers", force: :cascade do |t|
     t.string "label"
-    t.integer "maxweight"
-    t.integer "minweight"
-    t.integer "price"
+    t.decimal "maxweight", precision: 8, scale: 2
+    t.decimal "minweight", precision: 8, scale: 2
+    t.decimal "price", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "maxheight"
+    t.decimal "maxheight", precision: 8, scale: 2
   end
 
   create_table "customers", force: :cascade do |t|
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20180206170020) do
     t.integer "magazine_id"
     t.integer "invoice_id"
     t.string "name"
-    t.integer "price"
+    t.decimal "price", precision: 8, scale: 2
     t.integer "quantity"
     t.index ["invoice_id"], name: "index_magazine_invoices_on_invoice_id"
     t.index ["magazine_id"], name: "index_magazine_invoices_on_magazine_id"
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 20180206170020) do
     t.string "productname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "price"
+    t.decimal "price", precision: 8, scale: 2
     t.integer "marza"
     t.index ["product_id"], name: "index_magazines_on_product_id"
   end
@@ -133,7 +133,7 @@ ActiveRecord::Schema.define(version: 20180206170020) do
     t.integer "order_id"
     t.integer "product_id"
     t.string "name"
-    t.integer "price"
+    t.decimal "price", precision: 8, scale: 2
     t.index ["order_id"], name: "index_product_orders_on_order_id"
     t.index ["product_id"], name: "index_product_orders_on_product_id"
   end
@@ -151,7 +151,7 @@ ActiveRecord::Schema.define(version: 20180206170020) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.integer "price"
+    t.decimal "price", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
@@ -162,10 +162,10 @@ ActiveRecord::Schema.define(version: 20180206170020) do
   end
 
   create_table "productshipments", force: :cascade do |t|
-    t.integer "height"
-    t.integer "weight"
-    t.integer "width"
-    t.integer "depth"
+    t.decimal "height", precision: 8, scale: 2
+    t.decimal "weight", precision: 8, scale: 2
+    t.decimal "width", precision: 8, scale: 2
+    t.decimal "depth", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "magazine_id"
