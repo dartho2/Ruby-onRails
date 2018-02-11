@@ -73,12 +73,12 @@ ActiveRecord::Schema.define(version: 20180206170020) do
 
   create_table "curiers", force: :cascade do |t|
     t.string "label"
-    t.decimal "maxweight", precision: 5, scale: 2
-    t.decimal "minweight", precision: 5, scale: 2
-    t.decimal "price", precision: 8, scale: 2
+    t.integer "maxweight"
+    t.integer "minweight"
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "maxheight", precision: 5, scale: 2
+    t.integer "maxheight"
   end
 
   create_table "customers", force: :cascade do |t|
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20180206170020) do
 
   create_table "invoices", force: :cascade do |t|
     t.string "name"
-    t.string "datatime"
+    t.date "datatime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 20180206170020) do
     t.integer "magazine_id"
     t.integer "invoice_id"
     t.string "name"
-    t.decimal "price", precision: 8, scale: 2
+    t.integer "price"
     t.integer "quantity"
     t.index ["invoice_id"], name: "index_magazine_invoices_on_invoice_id"
     t.index ["magazine_id"], name: "index_magazine_invoices_on_magazine_id"
@@ -110,17 +110,18 @@ ActiveRecord::Schema.define(version: 20180206170020) do
     t.string "productname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "price", precision: 8, scale: 2
-    t.decimal "marza", precision: 5, scale: 2
+    t.integer "price"
+    t.integer "marza"
     t.index ["product_id"], name: "index_magazines_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
     t.integer "customer_id"
     t.string "name"
+    t.date "sale_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "datatime"
+    t.date "datatime"
     t.boolean "status", default: false
     t.index ["customer_id"], name: "index_orders_on_customer_id"
   end
@@ -132,7 +133,7 @@ ActiveRecord::Schema.define(version: 20180206170020) do
     t.integer "order_id"
     t.integer "product_id"
     t.string "name"
-    t.decimal "price", precision: 8, scale: 2
+    t.integer "price"
     t.index ["order_id"], name: "index_product_orders_on_order_id"
     t.index ["product_id"], name: "index_product_orders_on_product_id"
   end
@@ -150,7 +151,7 @@ ActiveRecord::Schema.define(version: 20180206170020) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.decimal "price", precision: 8, scale: 2
+    t.integer "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
@@ -161,10 +162,10 @@ ActiveRecord::Schema.define(version: 20180206170020) do
   end
 
   create_table "productshipments", force: :cascade do |t|
-    t.decimal "height", precision: 5, scale: 2
-    t.decimal "weight", precision: 5, scale: 2
-    t.decimal "width", precision: 5, scale: 2
-    t.decimal "depth", precision: 5, scale: 2
+    t.integer "height"
+    t.integer "weight"
+    t.integer "width"
+    t.integer "depth"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "magazine_id"

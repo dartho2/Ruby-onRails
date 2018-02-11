@@ -1,6 +1,5 @@
 class Product < ApplicationRecord
-  attr_accessor :new_category_name
-
+  attr_accessor :new_category_name, :price_zl
   has_many :product_structure, foreign_key: "product_id"
   has_one :magazine
   belongs_to :category, required: false
@@ -21,6 +20,14 @@ class Product < ApplicationRecord
   end
 
   def prince_n
+  end
+  def price_zl
+    debugger
+    price.to_d/100 if price
+  end
+  def price_zl=(zl)
+    debugger
+    self.price = zl*100 if zl.present?
   end
 
   def Product.autocomplete_by_description(term)

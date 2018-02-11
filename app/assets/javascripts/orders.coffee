@@ -116,6 +116,31 @@ jQuery ->
     autoWidth: true
 
 
+
+
+jQuery(document).ready ($) ->
+  date_sale = $('form')
+  a = date_sale.find('#datepicker').val()
+  console.log(a)
+  $('input[data-role="data-sale"]').val a
+  date_sale.find('#datepicker').each () ->
+  bind1 $(this)
+  return
+
+
+
+
+bind1 = (input_field) ->
+  console.log('vvvv')
+  $('input[data-role="datapicker"]').blur update_date
+
+update_date = ->
+  console.log('hhhh')
+  b = $('form')
+  a = b.find('input[data-role="datapicker"]').val()
+  console.log(a)
+  $('input[data-role="data-sale"]').val a
+
 #jQuery(document).ready ($) ->
 #  sum1 = 0
 #  sum2 = 0

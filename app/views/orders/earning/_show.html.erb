@@ -1,62 +1,42 @@
-<!--<table id="datatable-orders" class="display responsive nowrap" cellspacing="0" width="100%" data-source="<%= orders_url(format: "json") %>" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">-->
-<!--<thead>-->
-<!--<tr>-->
-<!--<th class="col-6 col-sm-2">Nr. FV</th>-->
-<!--<th class="col-6 col-sm-2">Nazwa</th>-->
-<!--<th class="col-6 col-sm-2">Zysk</th>-->
-
-<!--</tr>-->
-<!--</thead>-->
-<!--<tbody>-->
-<!--<table class="table">-->
-
-
 <% @orders_group.each do |month, posts| %>
     <% total_p = 0 %>
-<div class="center">
-  <div class="center-block col-sm-6">
-  <%= month.strftime('%m/%d/%Y') %>
-</div>
-    <table class="table <%= month.strftime('%m/%d/%Y') %>">
-      <thead class="thead-default">
-      <tr>
-        <th>a</th>
-        <th>b</th>
-        <th>c</th>
-        <th>d</th>
-        <th>e</th>
-        <th>f</th>
-        <th>g</th>
-      </tr>
-      <tbody class="earning">
-      <% for order in posts %>
-          <tr>
-            <td><%= order.created_at.strftime('%m/%d/%Y') %></td>
-            <td><%= order.name %></td>
-            <td data-role="quantity_earning"><%= order.quantity %></td>
-            <td data-role="price_earning"><%= order.price %></td>
-            <td><%= order.order.name %></td>
-            <td><%= order.order.datatime %></td>
-            <td data-role="price_b_earning"><%= order.price_m(order) %></td>
-          </tr>
-          <% total_p = total_p + ((order.price * order.quantity)- (order.price_m(order)* order.quantity)) %>
-          <% end %>
-      <tr>
-        <td id="sum1"></td>
-        <td id="sum2"></td>
-      </tr>
-      </tbody>
-      <div class="col-sm-6">
-        <div class="total_month col-sm-6">opłaty: </div>
-        <div class="total_month col-sm-6"><%= total_p %></div>
-        <div class="total_month col-sm-6">zysk:</div>
-        <div class="total_month col-sm-6"><%= total_p %></div>
-        <div class="total_month col-sm-6">wynik:</div>
-        <div class="total_month col-sm-6"><%= total_p %></div>
+    <div class="center">
+      <div class="center-block col-sm-6">
+        <%= month.strftime('%m/%d/%Y') %>
       </div>
-    </table>
-</div>
-
+      <table class="table <%= month.strftime('%m/%d/%Y') %>">
+        <thead class="thead-default">
+        <tr>
+          <th>Faktura</th>
+          <th>Nazwa</th>
+          <th>Data Sprzedaży</th>
+          <th>Ilość</th>
+          <th>Cena Sprzedaży</th>
+          <th>Cena Zakupu</th>
+        </tr>
+        <tbody class="earning">
+        <% posts.each do |order| %>
+            <tr>
+              <td><%= order.order.name %></td>
+              <td><%= order.name %></td>
+              <td><%= order.created_at.strftime('%m/%d/%Y') %></td>
+              <td data-role="quantity_earning"><%= order.quantity %></td>
+              <td data-role="price_earning"><%= order.price %></td>
+              <td data-role="price_b_earning"><%= order.price_m(order) %></td>
+            </tr>
+            <% total_p = total_p + ((order.price * order.quantity)- (order.price_m(order)* order.quantity)) %>
+        <% end %>
+        </tbody>
+        <div class="col-sm-6">
+          <div class="total_month col-sm-6">opłaty:</div>
+          <div class="total_month col-sm-6"><%= total_p %></div>
+          <div class="total_month col-sm-6">zysk:</div>
+          <div class="total_month col-sm-6"><%= total_p %></div>
+          <div class="total_month col-sm-6">wynik:</div>
+          <div class="total_month col-sm-6"><%= total_p %></div>
+        </div>
+      </table>
+    </div>
 <% end %>
 
 

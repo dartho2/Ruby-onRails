@@ -11,13 +11,41 @@ class Order < ApplicationRecord
 
   validates :name, :uniqueness => true
 
+  def price_m c
+    @a = self.products
+    @b = Magazine.find_by('id' => @a.collect(&:product_f))
+    @b.price
+  end
+#
+# def name x = nil
+#   @x = Product.where('id' => self.id)
+#   @x.name
+# end
+# def quantity x = nil
+#   @x = Product.find(self.id)
+#   @x.quantity
+# end
+#
+#   def price x = nil
+#     @x = Product.find(self.id)
+#     @x.price
+# #   end
+#   <tr>
+#   <td><%= order.sale_date.strftime('%m/%d/%Y') %></td>
+#             <td><%= order.name(order.id) %></td>
+#             <td data-role="quantity_earning"><%= order.quantity(order.id)%></td>
+#   <td data-role="price_earning"><%= order.price(order.id) %></td>
+#             <td><%= order.sale_date %></td>
+#   <td data-role="price_b_earning"><%= order.price_m(order) %></td>
+#           </tr>
+
   def data_change
     if self.name.blank?
       if Order.last.nil?
         self.name = "1" + "/" + self.datatime.to_s
       else
         order = Order.last
-        self.name = (order.id + 1).to_s + "/" + self.datatime
+        self.name = (order.id + 1).to_s + "/" + self.datatime.to_s
       end
     else
       if Order.last.nil?

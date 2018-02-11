@@ -11,8 +11,10 @@ class OrdersController < ApplicationController
   # GET /orders/1.json
   def earning
     @orders = ProductOrder.order("created_at desc")
-    @orders_group = @orders.group_by {|t| t.created_at.beginning_of_month }
-    end
+    @orders_group = @orders.all.group_by { |m| m.created_at.beginning_of_month }
+  end
+
+
 
   def autocomplete
     @items = Product.autocomplete_by_description(params[:term])
@@ -103,8 +105,11 @@ class OrdersController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def order_params
     params.require(:order)
-      .permit([:name, :datatime, client_attributes: [:id, :firstname, :_destroy, adress_attributes: [:id, :city, :zip, :street, :phone, :number, :company_zip, :company_city, :company_street, :company_number, :company_nip]]], product_orders_attributes: [:id, :quantity, :name, :price, :_destroy,
-                                                                                                                                                                                                                                                             product_attributes: [:id, :price, :name, :quantity, :_destroy]])
+      .permit([:name, :datatime, :sale_date,
+               client_attributes: [:id, :firstname, :_destroy,
+                                   adress_attributes: [:id, :city, :zip, :street, :phone, :number, :company_zip, :company_city, :company_street, :company_number, :company_nip]]],
+              product_orders_attributes: [:id, :quantity, :name, :price, :created_at, :_destroy,
+                                          product_attributes: [:id, :price, :name, :quantity, :_destroy]])
   end
 
   def params_orderss

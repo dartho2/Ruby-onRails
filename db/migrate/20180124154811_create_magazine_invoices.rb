@@ -4,7 +4,7 @@ class CreateMagazineInvoices < ActiveRecord::Migration[5.1]
       t.references :magazine, foreign_key: true
       t.references :invoice, foreign_key: true
       t.string :name
-      t.decimal :price, precision: 8, scale: 2
+      t.integer :price
       t.integer :quantity
     end
   end
