@@ -5,7 +5,6 @@ class Order < ApplicationRecord
   has_one :adress, :through => :client
   before_create :data_change
 
-
   accepts_nested_attributes_for :product_orders, allow_destroy: true
   accepts_nested_attributes_for :client, allow_destroy: true
 
@@ -16,6 +15,11 @@ class Order < ApplicationRecord
     @b = Magazine.find_by('id' => @a.collect(&:product_f))
     @b.price
   end
+  def self.aaaa x
+    a = Invoice.where("cast(strftime('%m', datatime) as int) = ?", x.strftime('%m'))
+    a.map(&:name).to_param
+  end
+
 #
 # def name x = nil
 #   @x = Product.where('id' => self.id)
@@ -42,14 +46,14 @@ class Order < ApplicationRecord
   def data_change
     if self.name.blank?
       if Order.last.nil?
-        self.name = "1" + "/" + self.datatime.to_s
+        self.name = "1" + "/" + self.datatime.strftime('%m/%d/%Y').to_s
       else
         order = Order.last
-        self.name = (order.id + 1).to_s + "/" + self.datatime.to_s
+        self.name = (order.id + 1).to_s + "/" + self.datatime.strftime('%m/%d/%Y').to_s
       end
     else
       if Order.last.nil?
-        self.name = "1" + "/" + self.datatime.to_s
+        self.name = "1" + "/" + self.datatime.strftime('%m/%d/%Y').to_s
       end
     end
   end

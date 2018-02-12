@@ -26,7 +26,7 @@
             <div class="col-xs-12 invoice-header">
               <h1>
                 <i class="fa fa-globe"></i> FASS
-                <small class="pull-right">Data: <%= @order.datatime %></small>
+                <small class="pull-right">Data: <%= @order.datatime.strftime('%m/%d/%Y') %></small>
               </h1>
             </div>
             <!-- /.col -->
@@ -78,7 +78,7 @@
               <br>
               <b>Numer FV: </b> <%= @order.name %>
               <br>
-              <b>Data płatności:</b> <%= @order.datatime %>
+              <b>Data płatności:</b> <%= @order.sale_date.strftime('%m/%d/%Y') %>
               <br>
 
             </div>

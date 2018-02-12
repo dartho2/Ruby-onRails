@@ -100,8 +100,13 @@ $ ->
   return
 
 $ ->
+  $('#datepicker1').datepicker()
+  return
+
+$ ->
   $ 'fieldset .add_fields'
   $('fieldset').bind 'cocoon:after-insert', (e, loc) ->
+    update_date()
     bind()
     return
   $('fieldset').bind 'cocoon:after-remove', (e, loc) ->

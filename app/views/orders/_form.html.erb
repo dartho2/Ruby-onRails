@@ -26,7 +26,7 @@
             </div>
             <div class="col-sm-2">
               <%= order.label :sale_date, "Data Sprzedaży" %>
-              <%= order.text_field :sale_date, {class: 'form-control','data-role' => 'datapicker', as: :date, 'id' => "datepicker", value: Date.today.strftime("%d/%m/%Y")} %>
+              <%= order.text_field :sale_date, {class: 'form-control', 'data-role' => 'datapicker', as: :date, 'id' => "datepicker1", value: Date.today.strftime("%d/%m/%Y")} %>
             </div>
             <div class="col-sm-2">
               <label class="custom-control custom-checkbox">

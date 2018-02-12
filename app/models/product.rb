@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   validates :price, :presence => true,
             :numericality => true,
             :format => { :with => /\A\d{1,4}(.\d{0,2})?\z/ }
-  validates :id , presence:  true
+  # validates :id , presence:  true
   before_save :create_category_from_name
   before_destroy :set_deleted_id
 

@@ -13,7 +13,9 @@ class OrdersController < ApplicationController
     @orders = ProductOrder.order("created_at desc")
     @orders_group = @orders.all.group_by { |m| m.created_at.beginning_of_month }
   end
+  def aaaa
 
+  end
 
 
   def autocomplete
@@ -91,7 +93,6 @@ class OrdersController < ApplicationController
 
 
   def status
-    sleep 2
     @orders = Order.find(params[:id])
     @orders.update(status: params[:status])
   end
