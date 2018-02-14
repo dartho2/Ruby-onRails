@@ -16,8 +16,10 @@ class Order < ApplicationRecord
     @b.price
   end
   def self.aaaa x
-    a = Invoice.where("cast(strftime('%m', datatime) as int) = ?", x.strftime('%m'))
-    a.map(&:name).to_param
+    a = Invoice.where("cast(strftime('%m', datatime) as int) = ? AND cat_sell = ? OR cat_sell = ? OR cat_sell = ?", x.strftime('%m'), 1, 2, 3 )
+    a.each {|n | @b = MagazineInvoice.find_by('invoice_id' => n.id)}
+    @b.price.to_s + " " + @b.name.to_s
+
   end
 
 #
@@ -48,6 +50,7 @@ class Order < ApplicationRecord
       if Order.last.nil?
         self.name = "1" + "/" + self.datatime.strftime('%m/%d/%Y').to_s
       else
+        debugger
         order = Order.last
         self.name = (order.id + 1).to_s + "/" + self.datatime.strftime('%m/%d/%Y').to_s
       end

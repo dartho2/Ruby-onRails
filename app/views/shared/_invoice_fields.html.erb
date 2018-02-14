@@ -1,0 +1,29 @@
+<div class="invoice-row invoice-item js-item col-sm-12" id="js-item-product">
+  <div class="invoice-col invoice-col--description form-group col-sm-6">
+        <%= f.fields_for :magazine, @invoice.magazines.build do |f| %>
+        <div class="phidden">
+        <%= f.label :productname, "Produkt" %>
+        </div>
+            <%= f.collection_select(:id, Magazine.all, :id, :productname, {:include_blank => ""}, {class: 'form-control'}) %>
+        <% end %>
+    </div>
+  <div class="invoice-col invoice-col--quantity form-group col-sm-3">
+    <div class="phidden">
+      <%= f.label :quantity, "Ilość" %>
+    </div>
+        <%= f.number_field :quantity, class: 'form-control' %>
+  </div>
+    <div class="invoice-col invoice-col--price form-group col-sm-3">
+      <div class="phidden">
+        <%= f.label :price, "Cena" %>
+      </div>
+        <%= f.text_field :price, class: 'form-control' %>
+    </div>
+
+      <div class="invoice-col invoice-col--removal form-group">
+        <%= link_to_remove_association f, {wrapper_class: 'js-item', class: ''} do %>
+            <i class="fa fa-remove"></i>
+        <% end %>
+      </div>
+
+</div>

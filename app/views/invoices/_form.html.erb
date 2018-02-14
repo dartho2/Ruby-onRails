@@ -28,9 +28,9 @@
               <fieldset>
                 <div class="control-group">
                   <div class="controls">
-                    <div class="col-md-11 xdisplay_inputx form-group has-feedback">
+                    <div class="col-md-11 xdisplay_inputx form-group">
                       <%= invoice.label :datatime, "Data Wystawienia" %>
-                      <%= invoice.text_field :datatime, class: 'form-control has-feedback-left', id: "single_cal3", placeholder: "data", 'aria-describedby' => "inputSuccess2Status3" %>
+                      <%= invoice.text_field :datatime, {class: 'form-control', as: :date, 'id' => "datepicker", value: Date.today.strftime("%d/%m/%Y")} %>
                       <span class="fa fa-calendar-o form-control-feedback left" aria-hidden="true"></span>
                       <span id="inputSuccess2Status3" class="sr-only">(success)</span>
                     </div>
@@ -38,19 +38,34 @@
                 </div>
               </fieldset>
             </div>
+            <div class="col-sm-7 col-md-7">
+              <%= invoice.label :cat_sell, "Kategoria" %>
+              <div class="input-group">
+                <div id="radioBtn" class="btn-invoice">
+                  <a class="btn btn-primary btn-first btn-sm notActive" data-toggle="fun" data-title="0">Faktura</a>
+                  <a class="btn btn-primary btn-sm active" data-toggle="fun" data-title="1">Allegro</a>
+                  <a class="btn btn-primary btn-sm notActive" data-toggle="fun" data-title="2">Kurier</a>
+                  <a class="btn btn-primary btn-last btn-sm notActive" data-toggle="fun" data-title="3">INNE</a>
+                </div>
+                <%= invoice.hidden_field :cat_sell, {class: "fun", 'id' => 'fun'} %>
+              </div>
+            </div>
           </div>
           <table class="table table-striped table-bordered table-list">
             <thead>
             <tr>
-              <th class="col-sm-7">Nazwa Produktu</th>
-              <th class="col-sm-2">Ilość</th>
-              <th class="col-sm-2">Cena</th>
-              <th class="col-sm-1 center"><em class="fa fa-cog"></em></th>
+              <th class="col-sm-6">Nazwa Produktu</th>
+              <th class="col-sm-3">Ilość</th>
+              <th class="col-sm-3">Cena</th>
             </tr>
             </thead>
           </table>
-          <%= link_to_add_fields '+', invoice, :magazine_invoices %>
-          <%= invoice.submit "Zapisz Fakturę", class: "add_fields btn btn-primary add-more" %>
+          <%= render partial: 'shared/invoice_form', locals: {f: invoice, invoice: @invoice} %>
+          <div id="buttons1">
+            <div id="container-pos">
+              <%= invoice.submit("Zapisz Fakturę", class: 'btn btn-primary add-more') %>
+            </div>
+          </div>
       <% end %>
     </div>
   </div>

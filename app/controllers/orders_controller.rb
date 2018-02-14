@@ -13,10 +13,6 @@ class OrdersController < ApplicationController
     @orders = ProductOrder.order("created_at desc")
     @orders_group = @orders.all.group_by { |m| m.created_at.beginning_of_month }
   end
-  def aaaa
-
-  end
-
 
   def autocomplete
     @items = Product.autocomplete_by_description(params[:term])

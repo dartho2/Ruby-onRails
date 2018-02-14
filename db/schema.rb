@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(version: 20180206170020) do
   create_table "invoices", force: :cascade do |t|
     t.string "name"
     t.date "datatime"
+    t.integer "cat_sell"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

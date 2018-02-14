@@ -96,11 +96,11 @@ jQuery(document).ready ($) ->
 #      tax_selector.trigger('update')
 
 $ ->
-  $('#datepicker').datepicker()
+  $('#datepicker').datepicker({ dateFormat: 'dd/mm/yy' })
   return
 
 $ ->
-  $('#datepicker1').datepicker()
+  $('#datepicker1').datepicker({ dateFormat: 'dd/mm/yy' })
   return
 
 $ ->
