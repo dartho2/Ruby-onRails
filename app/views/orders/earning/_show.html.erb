@@ -1,45 +1,81 @@
-<% @orders_group.each do |month, posts| %>
+<% @orders_group.each do |month, order| %>
     <% total_p = 0 %>
-    <div class="center">
-      <div class="center-block col-sm-6">
-        <%= month.strftime('%m/%d/%Y') %>
-      </div>
-      <table class="table <%= month.strftime('%m/%d/%Y') %>">
-        <thead class="thead-default">
-        <tr>
-          <th>Faktura</th>
-          <th>Nazwa</th>
-          <th>Data Sprzedaży</th>
-          <th>Ilość</th>
-          <th>Cena Sprzedaży</th>
-          <th>Cena Zakupu</th>
-        </tr>
-
-        <%= Order.aaaa(month) %>
-        <tbody class="earning">
-        <% posts.each do |order| %>
-            <tr>
-              <td><%= order.order.name %></td>
-              <td><%= order.name %></td>
-              <td><%= order.created_at.strftime('%m/%d/%Y') %></td>
-              <td data-role="quantity_earning"><%= order.quantity %></td>
-              <td data-role="price_earning"><%= order.price %></td>
-              <td data-role="price_b_earning"><%= order.price_m(order) %></td>
-            </tr>
-            <% total_p = total_p + ((order.price * order.quantity)- (order.price_m(order)* order.quantity)) %>
-        <% end %>
-        </tbody>
-        <div class="col-sm-6">
-          <div class="total_month col-sm-6">opłaty:</div>
-          <div class="total_month col-sm-6"><%= total_p %></div>
-          <div class="total_month col-sm-6">zysk:</div>
-          <div class="total_month col-sm-6"><%= total_p %></div>
-          <div class="total_month col-sm-6">wynik:</div>
-          <div class="total_month col-sm-6"><%= total_p %></div>
-        </div>
-      </table>
+    <div class="page-header">
+      <h1><%= month.strftime('%m/%d/%Y') %>
+        <small></small>
+      </h1>
     </div>
-<% end %>
+    <div class="well">
+      <span>Allegro - <%= Order.aaaa(month, 1) %></span><br/>
+      <span>Kurier - <%= Order.aaaa(month, 2) %></span><br/>
+      <span>Inne - <%= Order.aaaa(month, 3) %></span>
+    </div>
+    <!-- CUSTOM BOOTSTRAP ELEMENT -->
+    <div class="collapse-custom">
+      <!-- HEADING -->
+      <nav class="navbar navbar-default navbar-heading " role="navigation">
+        <div class="navbar-collapse">
+          <ul class="nav navbar-nav col-sm-12">
+            <li class="col-sm-4"><a>Faktura</a></li>
+            <li class="col-sm-4"><a>Data Sprzedaży</a></li>
+            <li class="col-sm-4"><a>Cena Sprzedaży</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- ROW 1 -->
+      <% order.each do |f| %>
+          <nav class="navbar navbar-default" role="navigation">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-<%= f.id %>" data-toggle="collapse" href="#collapse<%= f.id %>">
+              <ul class="nav navbar-nav col-sm-12">
+                <li class="col-sm-4"><a><%= f.name %></a></li>
+                <li class="col-sm-4"><a><%= f.sale_date.strftime('%m/%d/%Y') %></a></li>
+                <li class="col-sm-4"><a><%= f.product_orders.inject(0) {|sum, p| sum + p.price * p.quantity} %></a></li>
+              </ul>
+            </div>
+          </nav>
+          <!-- HIDDING CONTANT -->
 
+              <div id="collapse<%= f.id %>" class="collapse" data-parent="bs-example-navbar-collapse-<%= f.id %>">
+                <nav class="navbar navbar-default navbar-heading-sub">
+                  <div class="navbar">
+                    <ul class="nav navbar-nav col-sm-12">
+                      <li class="col-sm-3"><a>Nazwa Produktu</a></li>
+                      <li class="col-sm-2"><a>Ilość</a></li>
+                      <li class="col-sm-2"><a>Cena Sprzedaży</a></li>
+                      <li class="col-sm-2"><a>Suma</a></li>
+                      <li class="col-sm-2"><a>Cena Zakupu</a></li>
+                    </ul>
+                  </div>
+                </nav>
+
+                <% f.product_orders.each do |product_order| %>
+                <div class="panel-body">
+                  <div class="row">
+                    <div class="col-sm-12 earning-p">
+                      <div class="col-sm-3" data-role="descriptions_earning"><%= product_order.name %></div>
+                      <div class="col-sm-2" data-role="quantity_earning"><%= product_order.quantity %></div>
+                      <div class="col-sm-2" data-role="price_earning"><%= product_order.price %></div>
+                      <div class="col-sm-2" data-role="price_b_earning"><%= product_order.quantity*product_order.price %></div>
+                      <div class="col-sm-2" data-role="price_z_earning"><%=  product_order.price_m(product_order.id)*product_order.quantity %> </div>
+                      <% total_p = total_p + (product_order.price * product_order.quantity) %>
+                    </div>
+                    <div class="col-sm-12">
+                    </div>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+      <% end %>
+      <div class="col-sm-6">
+        <div class="total_month col-sm-6">Obrót:</div>
+        <div class="total_month col-sm-6"><%= total_p %></div>
+        <div class="total_month col-sm-6">zysk:</div>
+        <div class="total_month col-sm-6">
+          <% total_p %></div>
+        <div class="total_month col-sm-6">wynik:</div>
+        <div class="total_month col-sm-6">
+          <% total_p %></div>
+      </div>
+<% end %>
 
 

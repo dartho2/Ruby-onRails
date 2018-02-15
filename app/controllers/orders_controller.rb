@@ -10,8 +10,8 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def earning
-    @orders = ProductOrder.order("created_at desc")
-    @orders_group = @orders.all.group_by { |m| m.created_at.beginning_of_month }
+    @orders = Order.order("sale_date desc")
+    @orders_group = @orders.all.group_by { |m| m.sale_date.beginning_of_month }
   end
 
   def autocomplete
