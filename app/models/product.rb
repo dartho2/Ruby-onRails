@@ -28,10 +28,10 @@ class Product < ApplicationRecord
   def Product.autocomplete_by_description(term)
     t = arel_table
     q = t
-          .project(t[:id].maximum.as("id"), t[:name])
+          .project(t[:id].maximum.as("id"), t[:name], t[:price])
           .where(t[:name].matches("%#{term}%"))
-          .group(t[:name])
-          .order(t[:name])
+          .group(t[:name], t[:price])
+          .order(t[:name], t[:price])
     find_by_sql(q.to_sql)
   end
 
