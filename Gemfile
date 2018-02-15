@@ -18,7 +18,6 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bcrypt', platforms: :ruby
 gem 'jquery-rails', '~> 4.1', '>= 4.1.1'
-gem 'pg', '~> 0.20'
 gem 'gentelella-rails'
 gem 'jquery-ui-rails'
 gem 'cocoon'
@@ -38,6 +37,6 @@ group :development do
 end
 
 group :production do
-
+  gem 'pg', '~> 0.11'
 end
 
