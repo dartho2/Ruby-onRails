@@ -234,7 +234,7 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2017.3)
       tzinfo (>= 1.0.0)
-    uglifier (4.1.2)
+    uglifier (4.1.6)
       execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
@@ -267,7 +267,7 @@ DEPENDENCIES
   jquery-datatables-rails
   jquery-rails (~> 4.1, >= 4.1.1)
   jquery-ui-rails
-  pg (~> 0.20)
+  pg (~> 0.11)
   puma (~> 3.7)
   rails (~> 5.1.4)
   sass-rails (~> 5.0)
