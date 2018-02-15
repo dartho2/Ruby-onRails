@@ -53,7 +53,6 @@ class Order < ApplicationRecord
       if Order.last.nil?
         self.name = "1" + "/" + self.datatime.strftime('%m/%d/%Y').to_s
       else
-        debugger
         order = Order.last
         self.name = (order.id + 1).to_s + "/" + self.datatime.strftime('%m/%d/%Y').to_s
       end

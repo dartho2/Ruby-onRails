@@ -1,6 +1,6 @@
 <% @orders_group.each do |month, order| %>
     <% total_p = 0 %>
-    <% total_ps = 0 %>
+    <% total_po = 0 %>
     <div class="page-header">
       <h1><%= month.strftime('%m/%d/%Y') %>
         <small></small>
@@ -25,6 +25,7 @@
       </nav>
       <!-- ROW 1 -->
       <% order.each do |f| %>
+          <% total_ps = 0 %>
           <nav class="navbar navbar-default" role="navigation">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-<%= f.id %>" data-toggle="collapse" href="#collapse<%= f.id %>">
               <ul class="nav navbar-nav col-sm-12">
@@ -36,21 +37,21 @@
           </nav>
           <!-- HIDDING CONTANT -->
 
-              <div id="collapse<%= f.id %>" class="collapse" data-parent="bs-example-navbar-collapse-<%= f.id %>">
-                <nav class="navbar navbar-default navbar-heading-sub">
-                  <div class="navbar">
-                    <ul class="nav navbar-nav col-sm-12">
-                      <li class="col-sm-2"><a>Nazwa Produktu</a></li>
-                      <li class="col-sm-2"><a>Ilość</a></li>
-                      <li class="col-sm-2"><a>Cena Sprzedaży</a></li>
-                      <li class="col-sm-2"><a>Suma</a></li>
-                      <li class="col-sm-2"><a>Cena Zakupu</a></li>
-                      <li class="col-sm-2"><a>Zysk</a></li>
-                    </ul>
-                  </div>
-                </nav>
+          <div id="collapse<%= f.id %>" class="collapse" data-parent="bs-example-navbar-collapse-<%= f.id %>">
+            <nav class="navbar navbar-default navbar-heading-sub">
+              <div class="navbar">
+                <ul class="nav navbar-nav col-sm-12">
+                  <li class="col-sm-2"><a>Nazwa Produktu</a></li>
+                  <li class="col-sm-2"><a>Ilość</a></li>
+                  <li class="col-sm-2"><a>Cena Sprzedaży</a></li>
+                  <li class="col-sm-2"><a>Suma</a></li>
+                  <li class="col-sm-2"><a>Cena Zakupu</a></li>
+                  <li class="col-sm-2"><a>Zysk</a></li>
+                </ul>
+              </div>
+            </nav>
 
-                <% f.product_orders.each do |product_order| %>
+            <% f.product_orders.each do |product_order| %>
                 <div class="panel-body">
                   <div class="row">
                     <div class="col-sm-12 earning-p">
@@ -58,21 +59,23 @@
                       <div class="col-sm-2" data-role="quantity_earning"><%= product_order.quantity %></div>
                       <div class="col-sm-2" data-role="price_earning"><%= product_order.price %></div>
                       <div class="col-sm-2" data-role="price_b_earning"><%= product_order.quantity*product_order.price %></div>
-                      <div class="col-sm-2" data-role="price_z_earning"><%=  product_order.price_m(product_order.id)*product_order.quantity %> </div>
+                      <div class="col-sm-2" data-role="price_z_earning"><%= (product_order.price_m(product_order.id)*0.7)*product_order.quantity %> </div>
                       <% total_p = total_p + (product_order.price * product_order.quantity) %>
-                      <div class="col-sm-2" data-role="price_z_earning"><%= total_ps = total_ps +((product_order.quantity*product_order.price)/(1.23.to_f)-((product_order.price_m(product_order.id)*product_order.quantity)/(1.23.to_f))).round(2) %></div>
+                      <div class="col-sm-2" data-role="price_z_earning"><%= total_ps = ((product_order.quantity*product_order.price)/(1.23.to_f)-(((product_order.price_m(product_order.id)*0.7)*product_order.quantity))).round(2) %></div>
+                      <% total_po = total_ps + total_po %>
+                      <!-- TODO RABAT 0.7 -->
                     </div>
                     <div class="col-sm-12">
                     </div>
                   </div>
                 </div>
-                <% end %>
-              </div>
+            <% end %>
+          </div>
       <% end %>
       <div class="col-sm-6">
-        <div class="total_month col-sm-6">Obrót: </div>
+        <div class="total_month col-sm-6">Obrót:</div>
         <div class="total_month col-sm-6"><%= total_p %></div>
-        <div class="total_month col-sm-6">Zysk:<%= total_ps %></div>
+        <div class="total_month col-sm-6">Zysk:<%= total_po %></div>
         <div class="total_month col-sm-6">
           <% total_p %></div>
         <div class="total_month col-sm-6">wynik:</div>
