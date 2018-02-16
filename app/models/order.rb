@@ -51,14 +51,14 @@ class Order < ApplicationRecord
   def data_change
     if self.name.blank?
       if Order.last.nil?
-        self.name = "1" + "/" + self.datatime.strftime('%m/%d/%Y').to_s
+        self.name = "1" + "/" + self.datatime.strftime('%m/%Y').to_s #TODO format FV '%m/%d/%Y'
       else
         order = Order.last
-        self.name = (order.id + 1).to_s + "/" + self.datatime.strftime('%m/%d/%Y').to_s
+        self.name = (order.id + 1).to_s + "/" + self.datatime.strftime('%m/%Y').to_s
       end
     else
       if Order.last.nil?
-        self.name = "1" + "/" + self.datatime.strftime('%m/%d/%Y').to_s
+        self.name = "1" + "/" + self.datatime.strftime('%m/%Y').to_s
       end
     end
   end

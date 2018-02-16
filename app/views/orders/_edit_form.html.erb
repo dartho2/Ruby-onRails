@@ -175,10 +175,15 @@
                   </tbody>
                 </table>
               </div>
-              <%= link_to_add_fields '+', order, :product_orders %>
+              <%= link_to_add_association t(" "), order, :product_orders,
+                                          'data-association-insertion-node' => '#js-items-table',
+                                          'data-association-insertion-method' => 'append',
+                                          :partial => 'shared/item_fields',
+                                          :class => 'fa fa-plus material-button-toggle' %>
             </div>
           </div>
-          <%= order.submit "Aktualizuj", class: "add_fields btn btn-primary add-more" %>
+          <%= order.submit("Aktualizuj", class: 'btn btn-primary add-more') %>
+
           </div>
           </div>
       <% end %>
