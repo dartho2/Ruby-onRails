@@ -20,17 +20,21 @@
       <table id="datatable-buttons" class="table table-striped table-bordered">
         <thead>
         <tr>
+          <th>ID</th>
           <th>Nazwa</th>
           <th>Cena</th>
+          <th>Code</th>
           <th>Data</th>
         </tr>
         </thead>
         <tbody>
         <% @p.each do |product| %>
             <tr>
+              <td><%= link_to(product.id, edit_product_path(product), class: "") %></td>
               <td><%= product.name %></td>
               <td><%= product.price %></td>
-              <td><%= product.updated_at%></td>
+              <td><%= product.code %></td>
+              <td><%= product.updated_at.strftime('%m/%d/%Y')  %></td>
             </tr>
         <% end %>
         </tbody>

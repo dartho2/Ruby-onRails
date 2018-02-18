@@ -4,9 +4,7 @@ Rails.application.routes.draw do
   resources :invoices
   devise_for :admins, :controllers => {:registrations => "admin/registrations"}
   scope :panel do
-    resources :products, only: [:index, :show] do
-      get 'autocomplete', on: :collection
-    end
+    resources :products
     resources :categories
     resources :orders do
       get 'autocomplete', on: :collection
