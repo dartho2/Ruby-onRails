@@ -1,12 +1,12 @@
 class ProductOrder < ApplicationRecord
-  # belongs_to :order, inverse_of: :product_orders
-  # belongs_to :product, inverse_of: :product_orders
-  # has_many :magazines
+  belongs_to :order, inverse_of: :product_orders
+  belongs_to :product, inverse_of: :product_orders
+  has_many :magazines
 
 
-  # before_save :check_magazine
-  #
-  # accepts_nested_attributes_for :product, allow_destroy: true
+  before_save :check_magazine
+
+  accepts_nested_attributes_for :product, allow_destroy: true
 
   def product_attributes=(attributes)
     if attributes['id'].present?
@@ -55,6 +55,7 @@ class ProductOrder < ApplicationRecord
 
 #TODO repare update magazine
   def magazine_update x
+    debugger
     a = Magazine.find_by :product_id => x.id
     if !ProductOrder.find_by(:order_id => self.order_id, :product_id => self.product_id).nil?
       x = ProductOrder.find_by(:order_id => self.order_id, :product_id => self.product_id)
