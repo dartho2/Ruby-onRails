@@ -115,10 +115,13 @@ $ ->
   return
 
 jQuery ->
-  $('#datatable-orders').dataTable
+  $('#datatable-orders').DataTable
     sPaginationType: "full_numbers"
     bProcessing: true
     autoWidth: true
+
+
+
 
 
 

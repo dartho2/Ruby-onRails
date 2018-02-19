@@ -28,7 +28,7 @@
         <% obj.each do |product| %>
             <tr>
               <td><%= product.name %></td>
-              <td><%= product.price %> zł</td>
+              <td><%= product.price %></td>
               <td>
                 <%= link_to(product_path(product), class: "btn btn-dark btn-xs") do %>Zobacz<% end %>
               </td>

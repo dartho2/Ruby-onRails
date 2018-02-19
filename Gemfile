@@ -23,6 +23,7 @@ gem 'jquery-ui-rails'
 gem 'cocoon'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-datatables-rails'
+gem 'seed_dump'
 
 
 group :development, :test do

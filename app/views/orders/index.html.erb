@@ -35,7 +35,7 @@
             <tr data-toggle="collapse" data-target="#<%= order.id %>" class="accordion-toggle">
               <td><%= order.client.present? ? order.client.firstname : "paragon" %></td>
               <td><%= order.name %></td>
-              <td><%= order.total_price %> zł</td>
+              <td><%= order.total_price %></td>
               <td>
                     <div class="toggle-button toggle-button--aava">
                     <a class=" <%= order.status.present? ? "notActive" : "active hidden" %>" data-toggle="happy"  data-title="Y">Wysłana</a>
