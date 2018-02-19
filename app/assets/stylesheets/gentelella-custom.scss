@@ -477,7 +477,7 @@ body .container.body .right_col {
 .navbar-nav>li>a,
 .navbar-brand,
 .navbar-nav>li>a {
-    color: #fff !important
+    //color: #fff !important
 }
 .top_nav .nav>li>a:focus,
 .top_nav .nav>li>a:hover,
@@ -800,8 +800,8 @@ a:focus {
 .navbar-brand,
 .navbar-nav>li>a {
     font-weight: 500;
-    color: #ECF0F1 !important;
-    margin-left: 0 !important;
+    //color: #ECF0F1 !important;
+      margin-left: 0 !important;
     line-height: 32px
 }
 .site_title {
@@ -823,7 +823,7 @@ a:focus {
     text-decoration: none
 }
 .nav.navbar-nav>li>a {
-    color: #515356 !important
+    //color: #515356 !important
 }
 .nav.top_menu>li>a {
     position: relative;
@@ -901,11 +901,6 @@ a:focus {
 .bs-docs-sidebar .nav>li>a {
     display: block;
     padding: 4px 6px
-}
-footer {
-    background: #fff;
-    padding: 15px 20px;
-    display: block
 }
 .nav-sm footer {
     margin-left: 70px

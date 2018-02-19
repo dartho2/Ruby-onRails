@@ -122,7 +122,6 @@ jQuery ->
 
 
 
-
 jQuery(document).ready ($) ->
   date_sale = $('form')
   a = date_sale.find('#datepicker').val()

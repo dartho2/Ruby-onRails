@@ -634,6 +634,30 @@ a.ui-datepicker-next {
   nav.sidebar a{
     padding-right: 13px;
   }
+  .well {
+    min-height: 90px;
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  }
+  .collapse-custom {
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  }
+  .collapse-custom .navbar:last-of-type {
+    -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+    -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  }
+
+  footer {
+    padding-top: 29px;
+    margin-top: 10px;
+    background: #f7f7f7;
+    padding: 15px 20px;
+    display: block;
+  }
   .navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:hover, .navbar-default .navbar-nav>.active>a:focus {
     //background-color: #2a3f54;
   }
