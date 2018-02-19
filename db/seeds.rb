@@ -1,6 +1,7 @@
-Admin.create!([
-  {email: "admin@admin.com", encrypted_password: "$2a$11$4JIiChmZpuwylZcBCbnrk.DpLVFMg2nD3dnKqLMoWNK3RvNnDuWTO", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2018-02-19 16:38:47", last_sign_in_at: "2018-02-19 16:38:47", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", first_name: "Admin", last_name: nil, zip: nil, street: nil, number: nil, nip: nil, phone: nil, fullname: nil, city: nil}
-])
+Admin.create( :first_name => 'Admin',
+              :email => 'admin@admin.com',
+              :password => 'admin123',
+              :password_confirmation => 'admin123')
 Adress.create!([
   {city: nil, client_id: 1, zip: nil, street: nil, number: nil, phone: nil, company_zip: "33-300", company_city: "Nowy Sącz", company_street: "Kunegundy", company_number: "14/9", company_nip: "7343555244"},
   {city: nil, client_id: 2, zip: nil, street: nil, number: nil, phone: nil, company_zip: "63-210", company_city: "Żerków", company_street: "Targowisko", company_number: "5", company_nip: nil},
