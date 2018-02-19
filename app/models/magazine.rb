@@ -1,23 +1,23 @@
 class Magazine < ApplicationRecord
-  has_many :products
-  has_many :product_orders
-  has_many :product_structures, :foreign_key => 'product_id'
-  has_one :productshipment
-  has_many :magazine_invoices, inverse_of: :magazine
-  has_many :invoices, :through => :magazine_invoices, inverse_of: :magazines
-
-  validates :productname, :presence => true
-  validates :price, :presence => true, :numericality => true
-  validates :marza, :presence => true, :numericality => true
-  validates :quantity, :presence => true, :numericality => true
-  validates :productshipment, :presence => true
-
-
-  after_save :add_product_list
-  # before_update :add_quantity_to_magazine
-
-  accepts_nested_attributes_for :product_structures, allow_destroy: true
-  accepts_nested_attributes_for :productshipment, allow_destroy: true
+  # has_many :products
+  # has_many :product_orders
+  # has_many :product_structures, :foreign_key => 'product_id'
+  # has_one :productshipment
+  # has_many :magazine_invoices, inverse_of: :magazine
+  # has_many :invoices, :through => :magazine_invoices, inverse_of: :magazines
+  #
+  # validates :productname, :presence => true
+  # validates :price, :presence => true, :numericality => true
+  # validates :marza, :presence => true, :numericality => true
+  # validates :quantity, :presence => true, :numericality => true
+  # validates :productshipment, :presence => true
+  #
+  #
+  # after_save :add_product_list
+  # # before_update :add_quantity_to_magazine
+  #
+  # accepts_nested_attributes_for :product_structures, allow_destroy: true
+  # accepts_nested_attributes_for :productshipment, allow_destroy: true
 
 
   # def add_quantity_to_magazine

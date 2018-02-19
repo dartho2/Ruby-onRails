@@ -1,12 +1,12 @@
 class Order < ApplicationRecord
-  has_many :product_orders, inverse_of: :order
-  has_many :products, :through => :product_orders, inverse_of: :orders
-  has_one :client
-  has_one :adress, :through => :client
+  # has_many :product_orders, inverse_of: :order
+  # has_many :products, :through => :product_orders, inverse_of: :orders
+  # has_one :client
+  # has_one :adress, :through => :client
   before_create :data_change
 
-  accepts_nested_attributes_for :product_orders, allow_destroy: true
-  accepts_nested_attributes_for :client, allow_destroy: true
+  # accepts_nested_attributes_for :product_orders, allow_destroy: true
+  # accepts_nested_attributes_for :client, allow_destroy: true
 
   validates :name, :uniqueness => true
 
