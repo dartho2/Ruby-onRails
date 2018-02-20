@@ -15,13 +15,16 @@ class Order < ApplicationRecord
     @b = Magazine.find_by('id' => @a.collect(&:product_f))
     @b.price
   end
-  def self.aaaa x, y  #todo dodanie kolejnej fv zakupowej do sumy
-    @b = nil
-    a = Invoice.where("cast(strftime('%m%Y', datatime) as int) = ? AND cat_sell = ?", x.strftime('%m%Y'), y )
-    a.each {|n| @b = MagazineInvoice.find_by('invoice_id' => n.id).price }
-    if !@b.nil?
-    @b.to_s
+
+  def self.aaaa x, y #todo dodanie kolejnej fv zakupowej do sumy
+    a = Invoice.where("cast(strftime('%m%Y', datatime) as int) = ? AND cat_sell = ?", x.strftime('%m%Y'), y)
+    if a.exists?
+      @b = a.sum {|n| MagazineInvoice.find_by('invoice_id' => n.id).price}.to_f
+      # a.each {|sum, n | sum + n.cat_sell}
+      if !@b.nil?
+        @b
       end
+    end
 
   end
 

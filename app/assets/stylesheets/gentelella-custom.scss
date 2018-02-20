@@ -486,14 +486,6 @@ body .container.body .right_col {
 .top_nav .nav .open>a:hover {
     background: #D9DEE4
 }
-body {
-    color: #73879C;
-    background: #ffffff;
-    font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
-    font-size: 13px;
-    font-weight: 400;
-    line-height: 1.471
-}
 .main_container .top_nav {
     display: block;
     margin-left: 230px
@@ -1271,11 +1263,7 @@ table.countries_list td {
     line-height: 30px;
     border-top: 1px solid #eeeeee
 }
-.dataTables_paginate a {
-    padding: 6px 9px !important;
-    background: #ddd !important;
-    border-color: #ddd !important
-}
+
 .paging_full_numbers a.paginate_active {
     background-color: rgba(38, 185, 154, 0.59) !important;
     border-color: rgba(38, 185, 154, 0.59) !important
@@ -1306,8 +1294,10 @@ table.jambo_table tbody tr.selected td {
     border-top: 1px solid rgba(38, 185, 154, 0.4);
     border-bottom: 1px solid rgba(38, 185, 154, 0.4)
 }
-.dataTables_paginate a {
-    background: #ff0000
+.dataTables_wrapper .dataTables_paginate .paginate_button.current, .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover {
+  font-weight: bold;
+  border: none;
+  background: none;
 }
 .dataTables_wrapper {
     position: relative;
@@ -1329,23 +1319,10 @@ table.jambo_table tbody tr.selected td {
     font-size: 14px;
     background-color: white
 }
-.dataTables_length {
-    width: 40%;
-    float: left
-}
-.dataTables_filter {
-    width: 50%;
-    float: right;
-    text-align: right
-}
-.dataTables_info {
-    width: 60%;
-    float: left
-}
-.dataTables_paginate {
-    float: right;
-    text-align: right
-}
+
+
+
+
 table.dataTable th.focus,
 table.dataTable td.focus {
     outline: 2px solid #1ABB9C !important;

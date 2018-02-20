@@ -55,7 +55,6 @@ class ProductOrder < ApplicationRecord
 
 #TODO repare update magazine
   def magazine_update x
-    debugger
     a = Magazine.find_by :product_id => x.id
     if !ProductOrder.find_by(:order_id => self.order_id, :product_id => self.product_id).nil?
       x = ProductOrder.find_by(:order_id => self.order_id, :product_id => self.product_id)
@@ -65,15 +64,14 @@ class ProductOrder < ApplicationRecord
           a.quantity += x.quantity
           a.update(quantity: a.quantity)
         else
-          debugger
           x.quantity -= self.quantity #todo +=
           a.quantity += x.quantity
           a.update(quantity: a.quantity)
         end
       end
     else
-      # a.quantity -= self.quantity #todo +=
-      # a.update(quantity: a.quantity)
+      a.quantity -= self.quantity #todo +=
+      a.update(quantity: a.quantity)
     end
   end
 end

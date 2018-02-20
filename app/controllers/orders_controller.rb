@@ -12,6 +12,9 @@ class OrdersController < ApplicationController
   def earning
     @orders = Order.order("sale_date desc")
     @orders_group = @orders.all.group_by { |m| m.sale_date.beginning_of_month }
+    # respond_to do |format|
+    #   format.json
+    # end
   end
 
   def autocomplete

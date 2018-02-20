@@ -634,6 +634,21 @@ a.ui-datepicker-next {
   nav.sidebar a{
     padding-right: 13px;
   }
+  body {
+    color: #000000;
+    background: #ffffff;
+    font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.471;
+  }
+  .dataTables_paginate a {
+
+  }
+  .dataTables_paginate a {
+    padding: 6px 9px !important;
+
+  }
   .well {
     min-height: 90px;
     -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
@@ -650,7 +665,11 @@ a.ui-datepicker-next {
     -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
     box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
   }
-
+  p, ol, ul, td {
+    font-family: Montserrat, verdana, arial, helvetica, sans-serif;
+    font-size: 1.2rem;
+    line-height: 18px;
+  }
   footer {
     padding-top: 29px;
     margin-top: 10px;

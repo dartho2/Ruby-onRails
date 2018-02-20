@@ -116,10 +116,26 @@ $ ->
 
 jQuery ->
   $('#datatable-orders').DataTable
-    sPaginationType: "full_numbers"
+#    sPaginationType: "full_numbers"
     bProcessing: true
     autoWidth: true
-
+    dom: "<'row'<'col-sm-3'l><'col-sm-3'f><'col-sm-6'p>>" +
+    "<'row'<'col-sm-12'tr>>" +
+    "<'row'<'col-sm-5'i><'col-sm-7'p>>"
+    language: {
+      "lengthMenu": "Show _MENU_ items per page",
+      "zeroRecords": "Nothing found. Please change your search term",
+      "info": "Page _PAGE_ of _PAGES_",
+      "infoEmpty": "No results",
+      "infoFiltered": "(filtered out of _MAX_)",
+      "search": "Search:",
+      "paginate": {
+        "first": false,
+        "last": false,
+        "next": ">>",
+        "previous": "<<"
+      }
+    }
 
 
 

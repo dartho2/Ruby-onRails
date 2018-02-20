@@ -695,7 +695,6 @@ $('.collapse').on('shown.bs.collapse', function () {
 
 $(document).ready(function() {
     $(function () {
-        console.log('sdsdsd')
         var $button = $('.well#obrot').clone();
         $('.well-1').appendTo('.well');
     });
