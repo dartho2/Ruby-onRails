@@ -794,7 +794,7 @@ a:focus {
     font-weight: 500;
     //color: #ECF0F1 !important;
       margin-left: 0 !important;
-    line-height: 32px
+    line-height: 10px
 }
 .site_title {
     text-overflow: ellipsis;
@@ -849,20 +849,13 @@ a:focus {
     color: #93A2B2;
     margin-bottom: 0 !important
 }
-.toggle {
-    float: left;
-    margin: 0;
-    padding-top: 16px;
-    width: 70px
-}
+
 .toggle a {
     padding: 15px 15px 0;
     margin: 0;
     cursor: pointer
 }
-.toggle a i {
-    font-size: 26px
-}
+
 .nav.child_menu>li>a {
     color: rgba(0, 0, 0, 0.75);
     font-size: 12px;
@@ -985,10 +978,7 @@ article.media {
     width: 85%;
     float: left
 }
-h2 {
-    font-size: 18px;
-    font-weight: 400
-}
+
 #left,
 #right {
     display: table
@@ -1034,25 +1024,6 @@ h2 {
 }
 .accordion .panel:hover {
     background: #F2F5F7
-}
-.x_panel {
-    //position: relative;
-    //width: 100%;
-    //margin-bottom: 10px;
-    //padding: 10px 17px;
-    //display: inline-block;
-    //background: #fff;
-    //border: 1px solid #E6E9ED;
-    //-webkit-column-break-inside: avoid;
-    //-moz-column-break-inside: avoid;
-    //column-break-inside: avoid;
-    //opacity: 1;
-    //transition: all .2s ease
-}
-.x_title {
-    //border-bottom: 2px solid #E6E9ED;
-    //padding: 1px 5px 6px;
-    //margin-bottom: 10px
 }
 .x_title .filter {
     width: 40%;
@@ -1327,17 +1298,6 @@ table.dataTable th.focus,
 table.dataTable td.focus {
     outline: 2px solid #1ABB9C !important;
     outline-offset: -1px
-}
-table.display {
-    margin: 0 auto;
-    clear: both;
-    width: 100%
-}
-table.display thead th {
-    padding: 8px 18px 8px 10px;
-    border-bottom: 1px solid black;
-    font-weight: bold;
-    cursor: pointer
 }
 table.display tfoot th {
     padding: 3px 18px 3px 10px;

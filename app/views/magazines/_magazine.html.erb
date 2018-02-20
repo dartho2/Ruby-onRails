@@ -34,7 +34,7 @@
           <th>Allegro Koszta</th>
           <th>Zysk</th>
           <div style="display: none">Zysk</div>
-          <th class="col-md-2 center"><em class="fa fa-cog"></em></th>
+          <th class="col-md-2 center"></th>
         </tr>
         </thead>
 
@@ -54,12 +54,17 @@
               <td><%= magazine.n %></td>
                     <div style="display: none"><%= magazine.o %></div>
               <td align="center">
-                <%= link_to(magazine_path(magazine), class: 'btn btn-dark btn-xs') do %>
-                Zobacz
-                <% end %>
-                <%= link_to(edit_magazine_path(magazine), class: 'btn btn-primary btn-xs') do %>
-                Edycja
-                <% end %>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-danger"><%= link_to "Zobacz", magazine_path(magazine), class: '' %></button>
+                  <button type="button" class="fa fa-chevron-down dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <div class="dropdown-menu">
+                    <%= link_to "Edycja", edit_magazine_path(magazine), class: '' %>
+                    <div class="dropdown-divider"></div>
+                    <%= link_to "Usuń", magazine, method: :delete, class: '' %>
+                  </div>
+                </div>
               </td>
             </tr>
         <% end %>

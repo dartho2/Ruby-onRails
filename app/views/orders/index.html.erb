@@ -22,21 +22,21 @@
       <table id="datatable-orders" class="display responsive nowrap" cellspacing="0" width="100%" data-source="<%= orders_url(format: "json") %>" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
         <thead>
         <tr>
-          <th class="col-6 col-sm-2">Kupujący</th>
-          <th class="col-6 col-sm-2">Numer FV</th>
-          <th class="col-6 col-sm-2">Cena</th>
-          <th class="col-6 col-sm-2">Status</th>
-          <th class="col-6 col-sm-2">Data Wystawienia</th>
-          <th class="col-6 col-sm-2">Akcja</th>
+          <th class="cont-left cont-right col-6 col-sm-2">Kupujący</th>
+          <th class="cont-left cont-right col-6 col-sm-2">Numer FV</th>
+          <th class="cont-left cont-right col-6 col-sm-2">Cena</th>
+          <th class="cont-left cont-right col-6 col-sm-2">Status</th>
+          <th class="cont-left cont-right col-6 col-sm-2">Data Wystawienia</th>
+          <th class="cont-left cont-right col-6 col-sm-2">Akcja</th>
         </tr>
         </thead>
         <tbody>
         <% @orders.each do |order| %>
             <tr data-toggle="collapse" data-target="#<%= order.id %>" class="accordion-toggle">
-              <td><%= order.client.present? ? order.client.firstname : "paragon" %></td>
-              <td><%= order.name %></td>
-              <td><%= order.total_price %></td>
-              <td>
+              <td class="cont-left cont-right"><%= order.client.present? ? order.client.firstname : "paragon" %></td>
+              <td class="cont-left cont-right"><%= order.name %></td>
+              <td class="cont-left cont-right"><%= order.total_price %></td>
+              <td class="cont-left cont-right">
                     <div class="toggle-button toggle-button--aava">
                     <a class=" <%= order.status.present? ? "notActive" : "active hidden" %>" data-toggle="happy"  data-title="Y">Wysłana</a>
                     <a class=" <%= order.status.present? ? "active hidden" : "notActive" %> " data-toggle="happy" data-title="N">Nie Wysłana</a>
@@ -45,17 +45,17 @@
                     </div>
                 </div>
               </td>
-              <td><%= order.datatime %></td>
-              <td>
+              <td class="cont-left cont-right"><%= order.datatime %></td>
+              <td class="cont-left cont-right">
                 <div class="btn-group">
                   <button type="button" class="btn btn-danger"><%= link_to "Zobacz", order_path(order), class: '' %></button>
                   <button type="button" class="fa fa-chevron-down dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <div class="dropdown-menu">
-                    <%= link_to "Edycja", edit_order_path(order), class: 'btn btn-primary btn-xs' %>
+                    <%= link_to "Edycja", edit_order_path(order), class: '' %>
                     <div class="dropdown-divider"></div>
-                    <%= link_to "Usuń", order, method: :delete, class: 'btn btn-danger btn-xs' %>
+                    <%= link_to "Usuń", order, method: :delete, class: '' %>
                   </div>
                 </div>
               </td>

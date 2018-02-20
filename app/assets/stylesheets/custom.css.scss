@@ -44,13 +44,13 @@
 }
 a[data-title="Y"] {
   background-color: #61B136;
-  width: 120px;
+  width: 100px;
   -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
   -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
-  height: 20px;
+  height: 15px;
   color: white;
-  line-height: 20px;
+  line-height: 15px;
   text-transform: uppercase;
   transition: all 0.2s;
   display: block;
@@ -68,7 +68,7 @@ a[data-title="Y"]:after {
 }
 a[data-title="N"] {
   background-color: #61B136;
-  width: 120px;
+  width: 100px;
   background: #428bca;
   text-align: center;
   color: white;
@@ -76,8 +76,8 @@ a[data-title="N"] {
   -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
   -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
-  height: 20px;
-  line-height: 20px;
+  height: 15px;
+  line-height: 15px;
   transition: all 0.2s;
   display: block;
   border-radius: 2rem;
@@ -127,8 +127,60 @@ text-align: center;
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
   z-index: 0;
   color: #000;
+  border:none;
   background-color: #ededed;
-  border-color: #ddd;
+  //border-color: #ddd;
+}
+.toggle a i {
+  padding-top: 3px;
+  font-size: 20px;
+  color: #000000;
+}
+.nav-sm .container.body .col-md-3.left_col {
+  min-height: 100%;
+  width: 70px;
+  padding: 0;
+  z-index: 9999;
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  position: fixed;
+}
+.toggle {
+  float: left;
+  margin: 0;
+  padding-top: 4px;
+  width: 70px;
+}
+.list-group-item {
+  position: relative;
+  display: block;
+  /* padding: 7px 2px; */
+  padding-right: 0px;
+  padding-left: 10px;
+  padding-top: 10px;
+  /* background-color: #fff; */
+  /* border: 1px solid #ddd; */
+}
+button a:hover, a:focus {
+  color: black;
+}
+.open>.dropdown-menu {
+  display: block;
+  background: white;
+  padding: 1px;
+  text-align: center;
+}
+table.dataTable tbody tr {
+  background-color: #ffffff;
+  text-align: center;
+}
+button a {
+  margin-left: -24px;
+}
+table.dataTable thead th, table.dataTable tfoot th {
+  font-weight: 500;
+  text-align: center;
 }
 .ui-datepicker a {
   text-decoration: none;
@@ -251,9 +303,14 @@ a.ui-datepicker-next {
     border-bottom: 1px solid #e7e7e7;
 
   }
-
+  .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+    border: none;
+    color: #000000 !important;
+    background-color: transparent;
+    background: none !important;
+  }
   .navbar-heading {
-    background-color: #428bca;
+    background-color: #f5f5f5;
     cursor: default;
     font-weight: bold;
     font-size: 16px;
@@ -263,7 +320,7 @@ a.ui-datepicker-next {
     li a {
       color: #fff;
       &:hover {
-        color: #fff;
+        color: #000000;
       }
     }
   }
@@ -314,19 +371,52 @@ a.ui-datepicker-next {
 #container-pos {
   padding-left: 70px;
 }
-
+h2 {
+  font-size: 15px;
+  font-weight: 100;
+}
 .x_title {
   /* border-bottom: 2px solid #ededed; */
-  padding: 1px 5px 6px;
+  //padding: 1px 5px 6px;
   margin-bottom: 10px;
+  /* border-radius: 5px; */
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.45);
   border: none;
+}
+table.dataTable.no-footer {
+  border: none;
+  /* border-bottom: 1px solid #111; */
+}
+table {
+  padding-bottom: 50px;
+}
+table.dataTable.nowrap th, table.dataTable.nowrap td {
+  white-space: nowrap;
+  font-size: 7pt;
+}
+.x_panel2 {
+  padding-top: 0px;
+}
+
+.checkedbox .x_panel2 {
+  background: #ededed;
+  padding: 0px;
+  border: none;
+  padding-top: 15px;
+  webkit-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  -moz-box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+  -moz-column-break-inside: avoid;
+  column-break-inside: avoid;
 }
 .x_content.adreess_content {
   position: relative;
   width: 100%;
   float: left;
   clear: both;
-  background-color: #f7f7f7;
+  background-color: #ededed;
   margin-top: 3px;
   padding-top: 10px;
 }
@@ -342,6 +432,9 @@ a.ui-datepicker-next {
   background-color: #ededed;
   display: inline-block;
   /* background: #fff; */
+  -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.45);
   border: 1px solid #E6E9ED;
   -webkit-column-break-inside: avoid;
   -moz-column-break-inside: avoid;
@@ -638,12 +731,49 @@ a.ui-datepicker-next {
     color: #000000;
     background: #ffffff;
     font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
-    font-size: 13px;
+    font-size: 8pt;
     font-weight: 400;
     line-height: 1.471;
   }
+  table.display thead th {
+    padding: 8px 18px 8px 10px;
+    border-bottom: 1px solid black;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  table.display {
+    margin: 0 auto;
+    clear: both;
+    text-align: center;
+    width: 100%;
+  }
+
+
   .dataTables_paginate a {
 
+  }
+  .navbar {
+
+    min-height: 10px;
+
+  }
+  .panel-body {
+    padding: 0px;
+    padding-bottom: 5px;
+    padding-top: 12px;
+  }
+  .navbar-default .navbar-nav>li>a {
+    color: #000;
+    padding: 6px;
+  }
+  .well {
+    font-size: 11pt;
+  }
+  li h5 {
+    font-size: 8pt;
+  }
+  li a {
+    font-size: 8pt;
   }
   .dataTables_paginate a {
     padding: 6px 9px !important;
@@ -754,7 +884,7 @@ a.ui-datepicker-next {
 }
 
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
-  height: 45px;
+  //height: 45px;
 }
 .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
   padding: 6px;

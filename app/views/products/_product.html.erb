@@ -30,7 +30,16 @@
               <td><%= product.name %></td>
               <td><%= product.price %></td>
               <td>
-                <%= link_to(product_path(product), class: "btn btn-dark btn-xs") do %>Zobacz<% end %>
+                <div class="btn-group">
+                  <button type="button" class="btn btn-danger"><%= link_to "Zobacz", product_path(product), class: '' %></button>
+                  <button type="button" class="fa fa-chevron-down dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="sr-only">Toggle Dropdown</span>
+                  </button>
+                  <div class="dropdown-menu">
+                    <%= link_to "Edycja", edit_product_path(product), class: '' %>
+                  </div>
+                </div>
+
               </td>
             </tr>
         <% end %>

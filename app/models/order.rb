@@ -22,7 +22,7 @@ class Order < ApplicationRecord
       @b = a.sum {|n| MagazineInvoice.find_by('invoice_id' => n.id).price}.to_f
       # a.each {|sum, n | sum + n.cat_sell}
       if !@b.nil?
-        @b
+        '%.2f' % @b + " zł"
       end
     end
 
