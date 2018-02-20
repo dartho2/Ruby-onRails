@@ -55,6 +55,8 @@
                   <div class="dropdown-menu">
                     <%= link_to "Edycja", edit_order_path(order), class: '' %>
                     <div class="dropdown-divider"></div>
+                    <%= link_to "Drukuj", order_path(order, :pdf), class: '' %>
+                    <div class="dropdown-divider"></div>
                     <%= link_to "Usuń", order, method: :delete, class: '' %>
                   </div>
                 </div>

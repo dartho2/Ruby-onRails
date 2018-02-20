@@ -25,6 +25,17 @@ class OrdersController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        pdf = OrderPdf.new(@order, view_context)
+        send_data pdf.render,
+                  filename: "FV_#{@order.name}",
+                  type: 'application/pdf',
+                  disposition: 'inline'
+      end
+    end
+
   end
 
   # GET /orders/new

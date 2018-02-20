@@ -24,7 +24,10 @@ gem 'cocoon'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-datatables-rails'
 gem 'seed_dump'
+# PDF generator
 gem 'prawn'
+gem 'responders'
+gem 'prawn-table'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
