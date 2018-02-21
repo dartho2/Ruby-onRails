@@ -28,19 +28,26 @@ class OrderPdf < Prawn::Document
   def right_top
     move_down 0
 
-      draw_text "#{@view.current_admin.fullname}", :at => [400, 715], :size => 10
-      draw_text "#{@view.current_admin.zip}"+" "+"#{@view.current_admin.city}", :at => [400, 705], :size => 10
-      draw_text "#{@view.current_admin.street}"+" "+"#{@view.current_admin.number}", :at => [400, 695], :size => 10
-      draw_text "NIP: " "#{@view.current_admin.nip}", :at => [400, 685], :size => 10
+    draw_text "#{@view.current_admin.fullname}", :at => [400, 715], :size => 10
+    draw_text "#{@view.current_admin.zip}"+" "+"#{@view.current_admin.city}", :at => [400, 705], :size => 10
+    draw_text "#{@view.current_admin.street}"+" "+"#{@view.current_admin.number}", :at => [400, 695], :size => 10
+    draw_text "NIP: " "#{@view.current_admin.nip}", :at => [400, 685], :size => 10
 
   end
 
   def nabywca
     move_down 30
 
-      table(nabywca_item, :cell_style => {:size => 8, :align => :center, :width => 250, :border_lines => [:dotted], :background_color => 'DDDDDD'})
-      table(nabywcax_item, :cell_style => {:size => 8, :height => 19, :width => 250, :border_lines => [:dotted], :background_color => 'FFFFFF'})
-
+    table(nabywca_item, :cell_style => {:size => 8, :align => :center, :width => 250, :border_lines => [:dotted], :background_color => 'DDDDDD'})
+    table(nabywcax_item, :cell_style => {:padding => [0, 0, 0, 5],:size => 8, :height => 12, :width => 250, :border_lines => [:dotted], :background_color => 'FFFFFF'}) do |t|
+      t.cells.border_width = 0
+      t.before_rendering_page do |page|
+        page.row(0).border_top_width = 1
+        page.row(-1).border_bottom_width = 1
+        page.column(0).border_left_width = 1
+        page.column(-1).border_right_width = 1
+      end
+    end
   end
 
   def nabywca_item
@@ -48,20 +55,25 @@ class OrderPdf < Prawn::Document
   end
 
   def nabywcax_item
-
-    [["#{@order.client.firstname}"],
-     ["#{@order.client.adress.company_zip}"+" "+"#{@order.client.adress.company_city}"],
-     ["#{@order.client.adress.company_street}"+" "+"#{@order.client.adress.company_number}"],
-     ["#{@order.client.adress.company_nip}"]
+    [["#{@order.client.try(:firstname).present? ? @order.client.try(:firstname) : "" }"],
+     ["#{@order.client.try(:adress).try(:company_zip).present? ? (@order.client.try(:adress).try(:company_zip) + " " + @order.client.try(:adress).try(:company_city)) : @order.client.try(:adress).try(:zip).present? ? (@order.client.try(:adress).try(:zip) + " " + @order.client.try(:adress).try(:city)) : "" }"],
+     ["#{@order.client.try(:adress).try(:company_street).present? ? @order.client.try(:adress).try(:company_street) + " "+ @order.client.try(:adress).try(:company_number) : @order.client.try(:adress).try(:street).present? ? @order.client.try(:adress).try(:street) + " " + @order.client.try(:adress).try(:number) : ""}"],
+     ["#{@order.client.try(:adress).try(:company_nip).present? ? @order.client.try(:adress).try(:company_nip) : ""}"]
     ]
   end
 
   def odbiorca
-    move_down -93
-
-      table(odbiorca_item, :position => :right, :cell_style => {:size => 8, :align => :center, :width => 250, :border_lines => [:dotted], :background_color => 'DDDDDD'})
-      table(odbiorcax_item, :position => :right, :cell_style => {:size => 8, :height => 19, :width => 250, :border_lines => [:dotted], :background_color => 'FFFFFF'})
-
+    move_down -65
+    table(odbiorca_item, :position => :right, :cell_style => {:size => 8, :align => :center, :width => 250, :border_lines => [:dotted], :background_color => 'DDDDDD'})
+    table(odbiorcax_item, :position => :right, :cell_style => {:padding => [0, 0, 0, 5],:size => 8, :height => 12, :width => 250, :border_lines => [:dotted], :background_color => 'FFFFFF'}) do |t|
+      t.cells.border_width = 0
+      t.before_rendering_page do |page|
+        page.row(0).border_top_width = 1
+        page.row(-1).border_bottom_width = 1
+        page.column(0).border_left_width = 1
+        page.column(-1).border_right_width = 1
+      end
+    end
   end
 
   def odbiorca_item
@@ -69,16 +81,16 @@ class OrderPdf < Prawn::Document
   end
 
   def odbiorcax_item
-    [["#{@order.client.firstname}"],
-     ["#{@order.client.adress.zip}"+ " "+ "#{@order.client.adress.city}"],
-     ["#{@order.client.adress.city}"],
+    [["#{@order.client.try(:firstname).present? ? @order.client.try(:firstname) : ""}"],
+     ["#{@order.client.try(:adress).try(:zip).present? ? (@order.client.try(:adress).try(:zip) + " " + @order.client.try(:adress).try(:city)) : @order.client.try(:adress).try(:company_zip).present? ? (@order.client.try(:adress).try(:company_zip) + " " + @order.client.try(:adress).try(:company_city)) : "" }"],
+     ["#{@order.client.try(:adress).try(:street).present? ? @order.client.try(:adress).try(:street) + " " + @order.client.try(:adress).try(:number) : @order.client.try(:adress).try(:company_street).present? ? @order.client.try(:adress).try(:company_street) + " " + @order.client.try(:adress).try(:company_number) : ""}"],
     ]
   end
 
   def order_number
     move_down -160
 
-      draw_text "FV " + "#{@order.name}", :at => [400, 655]
+    draw_text "FV " + "#{@order.name}", :at => [400, 655]
 
     move_down 160
   end
@@ -97,15 +109,15 @@ class OrderPdf < Prawn::Document
       columns(3).width = 55
       columns(4).width = 55
       self.row_colors = ['DDDDDD', 'FFFFFF']
-      self.cell_style = { :border_lines => [:dotted] }
+      self.cell_style = {:border_lines => [:dotted]}
     end
   end
 
   def line_item_rows
 
-    [["Towar/usluga", "Jednostka", "Ilosc", "Cena Netto", "VAT","Cena Brutto","Wartosc Brutto","Wartosc Brutto"]] +
+    [["Towar/usluga", "Jednostka", "Ilosc", "Cena Netto", "VAT", "Cena Brutto", "Wartosc Brutto", "Wartosc Brutto"]] +
       @order.product_orders.map do |order|
-        [order.name, "szt.", order.quantity, '%.2f' % order.price,"23", '%.2f' % (order.price*order.quantity)]
+        [order.name, "szt.", order.quantity, '%.2f' % order.price, "23", '%.2f' % (order.price*order.quantity)]
       end
   end
 

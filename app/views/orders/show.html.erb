@@ -19,9 +19,7 @@
         <div class="clearfix"></div>
       </div>
       <div class="x_content">
-
         <section class="content invoice">
-          <!-- title row -->
           <div class="row">
             <div class="col-xs-12 invoice-header">
               <h1>
@@ -29,9 +27,7 @@
                 <small class="pull-right">Data: <%= @order.datatime.strftime('%m/%d/%Y') %></small>
               </h1>
             </div>
-            <!-- /.col -->
           </div>
-          <!-- info row -->
           <div class="row invoice-info">
             <div class="col-sm-3 invoice-col">
               <address>
@@ -42,51 +38,40 @@
                 <br><%= current_admin.nip %>
               </address>
             </div>
-            <!-- /.col -->
             <div class="col-sm-3 invoice-col">
               <address>
                 <strong>Nabywca</strong>
-
                 <tr>
                   <% if !@order.client.blank? %>
                       <br><%= @order.client.firstname.present? ? @order.client.firstname : "" %>
-                      <br><%= @order.client.adress.company_zip.present? ? (@order.client.adress.company_zip + " " + @order.client.adress.company_street) : @order.client.adress.zip.present? ? (@order.client.adress.zip + " " + @order.client.adress.street) : "" %>
-                      <br><%= @order.client.adress.company_city.present? ? @order.client.adress.company_city : @order.client.adress.city.present? ? @order.client.adress.city : "" %>
+                      <br><%= @order.client.adress.company_zip.present? ? (@order.client.adress.company_zip + " " + @order.client.adress.company_city) : @order.client.adress.zip.present? ? (@order.client.adress.zip + " " + @order.client.adress.city) : "" %>
+                      <br><%= @order.client.adress.company_street.present? ? @order.client.adress.company_street + " "+ @order.client.adress.company_number : @order.client.adress.street.present? ? @order.client.adress.street + @order.client.adress.number : "" %>
                       <br><%= @order.client.adress.company_nip.present? ? @order.client.adress.company_nip : "" %>
                   <% end %>
                 </tr>
-
               </address>
             </div>
             <div class="col-sm-3 invoice-col">
               <address>
                 <strong>Odbiorca</strong>
-
                 <tr>
                   <% if !@order.client.blank? %>
                       <br><%= @order.client.firstname.present? ? @order.client.firstname : "" %>
-                      <br><%= @order.client.adress.zip.present? ? (@order.client.adress.zip + " " + @order.client.adress.street) : @order.client.adress.company_zip.present? ? (@order.client.adress.company_zip + " " + @order.client.adress.company_street) : "" %>
-                      <br><%= @order.client.adress.city.present? ? @order.client.adress.city : @order.client.adress.company_city.present? ? @order.client.adress.company_city : "" %>
+                      <br><%= @order.client.adress.zip.present? ? (@order.client.adress.zip + " " + @order.client.adress.city) : @order.client.adress.company_zip.present? ? (@order.client.adress.company_zip + " " + @order.client.adress.company_city) : "" %>
+                      <br><%= @order.client.adress.street.present? ? @order.client.street + " " + @order.client.adress.number : @order.client.adress.company_street.present? ? @order.client.adress.company_street + " " + @order.client.adress.company_number : "" %>
                       <br><%= @order.client.adress.city.present? ? " " : @order.client.adress.company_nip %>
                   <% end %>
                 </tr>
-
               </address>
             </div>
-            <!-- /.col -->
             <div class="col-sm-3 invoice-col">
               <br>
               <b>Numer FV: </b> <%= @order.name %>
               <br>
               <b>Data płatności:</b> <%= @order.sale_date.strftime('%m/%d/%Y') %>
               <br>
-
             </div>
-            <!-- /.col -->
           </div>
-          <!-- /.row -->
-
-          <!-- Table row -->
           <div class="row">
             <div class="col-xs-12 table">
               <table class="table table-striped">
@@ -99,7 +84,6 @@
                 </tr>
                 </thead>
                 <tbody>
-
                 <% @order.product_orders.each do |order, array| %>
                     <tr>
                       <td><%= order.name %></td>
@@ -111,20 +95,14 @@
                 </tbody>
               </table>
             </div>
-            <!-- /.col -->
           </div>
-          <!-- /.row -->
-
           <div class="row">
-            <!-- accepted payments column -->
             <div class="col-xs-6">
               <p class="lead">Metoda Płatności:</p>
-
               <p class="text-muted well well-sm no-shadow" style="margin-top: 10px;">
                 Informacje dodatkowe
               </p>
             </div>
-            <!-- /.col -->
             <div class="col-xs-6">
               <p class="lead"></p>
               <div class="table-responsive">
@@ -138,21 +116,16 @@
                 </table>
               </div>
             </div>
-            <!-- /.col -->
           </div>
-          <!-- /.row -->
-
-          <!-- this row will not appear when printing -->
           <div class="row no-print">
             <div class="col-xs-12">
               <button class="btn btn-default" onclick="window.print();"><i class="fa fa-print"></i> Print</button>
               <button class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Zapłacono</button>
               <%= link_to(order_path(@order, format: 'pdf')) do %>
-              <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i>
+                  <button class="btn btn-primary pull-right" style="margin-right: 5px;"><i class="fa fa-download"></i>
                     Wygeneruj PDF
-                    </button>
-
-                  <%end%>
+                  </button>
+              <% end %>
             </div>
           </div>
         </section>
