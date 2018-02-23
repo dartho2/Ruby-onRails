@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :json
 
   # GET /orders
   # GET /orders.json
@@ -12,9 +13,10 @@ class OrdersController < ApplicationController
   def earning
     @orders = Order.order("sale_date desc")
     @orders_group = @orders.all.group_by { |m| m.sale_date.beginning_of_month }
-    # respond_to do |format|
-    #   format.json
-    # end
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def autocomplete
