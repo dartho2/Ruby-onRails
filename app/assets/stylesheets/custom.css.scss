@@ -769,6 +769,10 @@ table.dataTable.nowrap th, table.dataTable.nowrap td {
   .well {
     font-size: 11pt;
   }
+  .table-bordered {
+    border: 1px solid #ddd;
+    text-align: center;
+  }
   li h5 {
     font-size: 8pt;
   }

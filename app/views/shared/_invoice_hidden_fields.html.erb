@@ -1,0 +1,12 @@
+<div class="invoice-row invoice-item js-item col-sm-12" id="js-item-product">
+  <%= f.fields_for :magazine, @invoice.magazines.build do |f| %>
+      <%= f.collection_select(:id, Magazine.where(:productname => "ALLEGRO"), :id, :id, {:include_blank => "177"}, {class: 'hidden'}) %>
+      <%= f.hidden_field :_destroy, class: 'hidden-destroy' %>
+  <% end %>
+    <%= f.number_field :quantity, :value => 1, :class => "hidden" %>
+  <div class="invoice-col invoice-col--price form-group col-sm-3">
+    <div class="phidden"><%= f.label :price, "Cena" %></div>
+    <%= f.text_field :price, class: 'form-control' %>
+    <%= f.hidden_field :_destroy, class: 'hidden-destroy' %>
+  </div>
+</div>

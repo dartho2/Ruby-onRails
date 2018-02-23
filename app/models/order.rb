@@ -13,7 +13,7 @@ class Order < ApplicationRecord
   def price_m c
     @a = self.products
     @b = Magazine.find_by('id' => @a.collect(&:product_f))
-    @b.price
+    @b.try(:price)
   end
 
   def self.aaaa x, y #todo dodanie kolejnej fv zakupowej do sumy

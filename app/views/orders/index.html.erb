@@ -34,9 +34,9 @@
         <% @orders.each do |order| %>
             <tr data-toggle="collapse" data-target="#<%= order.id %>" class="accordion-toggle">
               <td class="cont-left cont-right"><%= order.client.present? ? order.client.firstname : "paragon" %></td>
-              <td class="cont-left cont-right"><%= order.name %></td>
+              <td class="cont-left cont-right" data-sort="<%= order.name.gsub('/','') %>"><%= order.name %></td>
               <td class="cont-left cont-right"><%= order.total_price %></td>
-              <td class="cont-left cont-right">
+              <td class="cont-left cont-right" data-sort="<%= order.status %>">
                     <div class="toggle-button toggle-button--aava">
                     <a class=" <%= order.status.present? ? "notActive" : "active hidden" %>" data-toggle="happy"  data-title="Y">Wysłana</a>
                     <a class=" <%= order.status.present? ? "active hidden" : "notActive" %> " data-toggle="happy" data-title="N">Nie Wysłana</a>

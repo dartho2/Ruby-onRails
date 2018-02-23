@@ -18,7 +18,7 @@ class ProductOrder < ApplicationRecord
   def price_m c
     @a = self.product
     @b = Magazine.find_by('id' => @a.product_f)
-    @b.price
+    @b.try(:price)
   end
 
   def check_magazine
