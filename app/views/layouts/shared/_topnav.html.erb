@@ -3,15 +3,22 @@
 </div>
 
 <ul class="nav navbar-nav navbar-right">
-  <li class="">
-    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-      <img src="" alt=""><%= current_admin.full_name.present? ? current_admin.full_name : current_admin.email %>
-      <span class=" fa fa-angle-down"></span>
+  <li class="pull-right_left cont-right">
+    <a href="javascript:;" class="user-profile btn dropdown-toggle add-more" style="border-color: #ff7a2d;"data-toggle="dropdown" aria-expanded="false">
+      <img src="" alt="" class="fa fa fa-user-o"><%= current_admin.full_name.present? ? current_admin.full_name : current_admin.email %>
+
     </a>
     <ul class="dropdown-menu dropdown-usermenu pull-right">
       <li><%= link_to "Profil", edit_admin_registration_path(current_admin) %></li>
       <li><%= link_to("logout", destroy_admin_session_path, class: "", method: :delete) %></li>
     </ul>
+  </li>
+
+  <li class="pull-right_left cont-left cont-right">
+    <%= link_to "Nowa Faktura", new_order_path, class: "btn btn-default add-more" %>
+  </li>
+  <li class="pull-right_left cont-left">
+    <%= link_to "Magazyn", magazines_path, class: "btn btn-default add-more" %>
   </li>
 </ul>
 

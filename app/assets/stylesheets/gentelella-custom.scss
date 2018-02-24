@@ -205,9 +205,7 @@ html , body{
     width: 200px;
     background: none
 }
-.nav-sm>.nav.side-menu>li.active-sm>a {
-    color: #1ABB9C !important
-}
+
 .nav-sm .nav.side-menu li a i.toggle-up {
     display: none !important
 }
@@ -238,17 +236,7 @@ html , body{
 .menu_section {
     margin-bottom: 35px
 }
-.menu_section h3 {
-    padding-left: 15px;
-    color: #fff;
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    font-weight: bold;
-    font-size: 11px;
-    margin-bottom: 0;
-    margin-top: 0;
-    text-shadow: 1px 1px #000
-}
+
 .menu_section>ul {
     margin-top: 10px
 }
@@ -714,9 +702,6 @@ a:focus {
 .nav.side-menu>li>a {
     margin-bottom: 6px
 }
-.nav.side-menu>li>a:hover {
-    color: #428bca !important
-}
 .nav.side-menu>li>a:hover,
 .nav>li>a:focus {
     text-decoration: none;
@@ -796,20 +781,7 @@ a:focus {
       margin-left: 0 !important;
     line-height: 10px
 }
-.site_title {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    font-weight: 400;
-    font-size: 22px;
-    width: 100%;
-    color: #000000 !important;
-    margin-left: 0 !important;
-    line-height: 59px;
-    display: block;
-    height: 55px;
-    margin: 0;
-    padding-left: 10px
-}
+
 .site_title:hover,
 .site_title:focus {
     text-decoration: none
@@ -1686,12 +1658,7 @@ span.right {
 a.user-profile {
     color: #5E6974 !important
 }
-.user-profile img {
-    width: 29px;
-    height: 29px;
-    border-radius: 50%;
-    margin-right: 10px
-}
+
 ul.top_profiles {
     height: 330px;
     width: 100%

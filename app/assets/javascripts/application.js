@@ -14,12 +14,14 @@
 //= require jquery-ui
 //= require dataTables/jquery.dataTables
 //= require dataTables/extras/dataTables.responsive
+//= require dataTables/jquery.dataTables.foundation
+//= require dataTables/extras/dataTables.tableTools
+//= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require twitter/bootstrap
 //= require autosize
 //= require select2
 //= require_tree .
 //= require cocoon
-
 
 $(document).ready(function() {
     $('#datatable-orders').on('click', '.toggle-button.toggle-button--aava a', function(e) {

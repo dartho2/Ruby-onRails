@@ -131,7 +131,7 @@ jQuery ->
       null
     ]
     language: {
-      "lengthMenu": "Show _MENU_ items per page",
+      "lengthMenu": "Pokaż _MENU_ ",
       "zeroRecords": "Nie Znaleziono.",
       "info": "Page _PAGE_ of _PAGES_",
       "infoEmpty": "Brak",

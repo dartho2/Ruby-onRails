@@ -4,10 +4,6 @@
       <%= render partial: 'shared/invoice_fields', locals: {f: invoice} %>
   <% end %>
 </div>
-<div class="invoice-table-hidden" id="js-items-table-hidden">
-  <%= f.fields_for :magazine_invoices, @invoice.magazine_invoices.build, include_id: false do |invoice| %>
-      <%= render partial: 'shared/invoice_hidden_fields', locals: {f: invoice} %>
-  <% end %>
 </div>
 <div class="row">
   <div class="col-xs-12 col-sm-6 col-md-7 col-lg-8">
@@ -17,13 +13,7 @@
                                   'data-association-insertion-method' => 'append',
                                   :partial => 'shared/invoice_fields',
                                   :class => 'fa fa-plus material-button-toggle' %>
-      <%= link_to_add_association (" "), f, :magazine_invoices,
-                                  'data-association-insertion-node' => '#js-items-table',
-                                  'data-association-insertion-method' => 'append',
-                                  :partial => 'shared/invoice_hidden_fields',
-                                  :class => 'fa fa-plus material-button-toggle' %>
     </div>
   </div>
-</div>
 </div>
 

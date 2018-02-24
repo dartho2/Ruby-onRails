@@ -2,12 +2,14 @@
     <% total_p = 0 %>
     <% total_po = 0 %>
     <div class="page-header">
-      <h1><%= month.strftime('%m/%d/%Y') %>
-        <small></small>
-      </h1>
+
     </div>
     <div class="dupa">
     <div class="well" id="oplaty">
+      <div class="col-sm-3">
+     <h1><%= month.strftime('%m/%d/%Y') %></h1>
+        <small></small>
+</div>
       <div class="well-2 col-sm-3 cont-left" id="oplaty">
         <span><small class="col-sm-3">Allegro - </small><small class="col-sm-3"><%= Order.aaaa(month, 1) %></small></span><br/>
         <span><small class="col-sm-3">Kurier - </small><small class="col-sm-3"><%= Order.aaaa(month, 2) %></small></span><br/>
@@ -15,7 +17,7 @@
       </div>
     </div>
     <!-- CUSTOM BOOTSTRAP ELEMENT -->
-    <div class="collapse-custom">
+    <div class="collapse-custom hidden">
       <!-- HEADING -->
       <nav class="navbar navbar-default navbar-heading " role="navigation">
         <div class="navbar-collapse">
@@ -29,7 +31,7 @@
       <!-- ROW 1 -->
       <% order.each do |f| %>
           <% total_ps = 0 %>
-          <div class="<%= f.sale_date.strftime('%m/%d/%Y') %>">
+          <div class="<%= f.sale_date.strftime('%m/%d/%Y') %>" data-sort="<%= f.sale_date.strftime('%m/%d/%Y').gsub('/','') %>">
           <nav class="navbar navbar-default" role="navigation">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-<%= f.id %>" data-toggle="collapse" href="#collapse<%= f.id %>">
               <ul class="nav navbar-nav col-sm-12">
