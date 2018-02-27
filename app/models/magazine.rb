@@ -1,4 +1,5 @@
 class Magazine < ApplicationRecord
+  attr_accessor :code, :price_sell
   has_many :products
   has_many :product_orders
   has_many :product_structures, :foreign_key => 'product_id'
@@ -6,6 +7,8 @@ class Magazine < ApplicationRecord
   has_many :magazine_invoices, inverse_of: :magazine
   has_many :invoices, :through => :magazine_invoices, inverse_of: :magazines
 
+  validates :price_sell, :presence => true, :numericality => true
+  validates :code, :presence => true
   validates :productname, :presence => true
   validates :price, :presence => true, :numericality => true
   validates :marza, :presence => true, :numericality => true
@@ -22,7 +25,7 @@ class Magazine < ApplicationRecord
 
   def add_product_list
     if !self.product_id
-      product = Product.new(:name => self.productname, :code => :code, :parent_id => false, :product_f => self.id)
+      product = Product.new(:name => self.productname, :price => self.price_sell, :code => self.code, :parent_id => false, :product_f => self.id)
       product.save(:validate => false)
       self.update_columns(product_id: product.id)
     end
