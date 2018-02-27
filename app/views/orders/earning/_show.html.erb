@@ -1,3 +1,4 @@
+<% if @orders_groups.present?  %>
 <% @orders_groups.each  do |month, order| %>
     <% total_p = 0 %>
     <% total_po = 0 %>
@@ -55,4 +56,5 @@
   </div>
   </tbody>
 </table>
+    <%end%>
 <%end%>
