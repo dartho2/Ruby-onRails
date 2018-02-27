@@ -20,16 +20,9 @@ class Magazine < ApplicationRecord
   accepts_nested_attributes_for :productshipment, allow_destroy: true
 
 
-  # def add_quantity_to_magazine
-  #   a = Magazine.find(self.id)
-  #   self.quantity += a.quantity
-  # end
-
-
-
   def add_product_list
     if !self.product_id
-      product = Product.new(:name => self.productname, :parent_id => false, :product_f => self.id)
+      product = Product.new(:name => self.productname, :code => :code, :parent_id => false, :product_f => self.id)
       product.save(:validate => false)
       self.update_columns(product_id: product.id)
     end

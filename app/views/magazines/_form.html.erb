@@ -25,8 +25,12 @@
             <div class="col-md-6">
               <div class="form-group">
                 <div class="col-sm-12">
-                  <%= f.label :productname, "Nazwa Produktu" %>
-                  <%= f.text_field :productname, class: 'form-control' %>
+                <%= f.label :productname, "Nazwa Produktu" %>
+                <%= f.text_field :productname, class: 'form-control' %>
+              </div>
+                <div class="col-sm-12">
+                  <%= f.label :code, "Kod Produktu" %>
+                  <%= f.text_field :code, class: 'form-control' %>
                 </div>
                 <div class="col-sm-12">
                   <%= f.label :marza, "Marża" %>
