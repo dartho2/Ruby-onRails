@@ -17,7 +17,7 @@ class Order < ApplicationRecord
   end
 
   def self.aaaa x, y #todo dodanie kolejnej fv zakupowej do sumy
-    a = Invoice.where("cast(strftime('%m%Y', datatime) as int) = ? AND cat_sell = ?", x.to_datetime.strftime('%m%Y'), y)
+    a = Invoice.where("cast(to_char(timestamp, 'MMYYY')) = ? AND cat_sell = ?", '%m%Y' x.to_datetime.strftime('%m%Y'), y)
     if a.exists?
       @b = a.try(:collect).sum {|n| MagazineInvoice.find_by('invoice_id' => n.id).price}
       # a.each {|sum, n | sum + n.cat_sell}
