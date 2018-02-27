@@ -24,6 +24,7 @@
 //= require ./datatables/aa/jszip.min.js
 //= require ./datatables/aa/pdfmake.min.js
 //= require ./datatables/aa/vfs_fonts.js
+//= require ./datatables/aa/buttons.colVis.min.js
 //= require twitter/bootstrap
 //= require autosize
 //= require select2
@@ -699,8 +700,8 @@ $('.collapse').on('shown.bs.collapse', function () {
     $(target).addClass('collapse-open');
 })
 
-$(document).ready(function() {
-    $('.dupa').each(function () {
-        $(this).find('.well-1').appendTo($(this).find('.well'))
-    });
-});
+// $(document).ready(function() {
+//     $('.dupa').each(function () {
+//         $(this).find('.well-1').appendTo($(this).find('.well'))
+//     });
+// });

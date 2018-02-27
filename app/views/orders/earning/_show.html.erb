@@ -6,14 +6,15 @@
 <table id="datatable-orders" class="display responsive nowrap" cellspacing="0" width="100%" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
   <thead>
   <tr>
-    <th class="cont-left cont-right col-6 col-sm-2">Kupujący</th>
-    <th class="cont-left cont-right col-6 col-sm-2">Numer FV</th>
+    <th class="cont-left cont-right col-6 col-sm-1">Kupujący</th>
+    <th class="cont-left cont-right col-6 col-sm-1">Numer FV</th>
     <th class="cont-left cont-right col-6 col-sm-1">Kod Produktu</th>
-    <th class="cont-left cont-right col-6 col-sm-2">Cena Sprzedaży (B)</th>
+    <th class="cont-left cont-right col-6 col-sm-1">Cena Sprzedaży (B)</th>
     <th class="cont-left cont-right col-6 col-sm-1">Ilość</th>
-    <th class="cont-left cont-right col-6 col-sm-2">Cena Zakupu (N) + Rabat</th>
-    <th class="cont-left cont-right col-6 col-sm-2">Suma</th>
-    <th class="cont-left cont-right col-6 col-sm-2">Zysk (N)</th>
+    <th class="cont-left cont-right col-6 col-sm-1">Cena Zakupu (N) + Rabat</th>
+    <th class="cont-left cont-right col-6 col-sm-1">Cena Zakupu 1szt.</th>
+    <th class="cont-left cont-right col-6 col-sm-1">Suma</th>
+    <th class="cont-left cont-right col-6 col-sm-1">Zysk (N)</th>
   </tr>
   </thead>
   <tbody>
@@ -24,11 +25,12 @@
               <% end %>
 
             <td><%= f.client.present? ? f.client.firstname : "Paragon" %></td>
-            <td data-sort="<%= f.name.gsub('/','') %>"><%= f.name %></td>
+            <td data-sort="<%= f.name.gsub('/','') %>"><%= link_to "#{f.name}", order_path(f.id) %></td>
             <td><%= product_order.ddd %></td>
             <td><%= '%.2f' % product_order.price %></td>
             <td><%= product_order.quantity %></td>
             <td><%= '%.2f' % ((product_order.price_m(product_order.id)*0.7)*product_order.quantity) %></td>
+            <td><%= '%.2f' % (product_order.price_m(product_order.id)*0.7) %></td>
             <td><%= '%.2f' % (product_order.price * product_order.quantity) %></td>
             <td><%= total_ps = ((product_order.quantity*product_order.price)/(1.23.to_f)-(((product_order.price_m(product_order.id)*0.7)*product_order.quantity))).round(2) %></td>
             <% total_p = total_p + (product_order.price * product_order.quantity) %>
@@ -40,7 +42,7 @@
   <div class="col-sm-12">
     <div class="dupa">
       <div class="well" id="oplaty">
-        <div class="well-1 col-sm-6 cont-right" id="obrot">
+        <div class="well-1 col-sm-6 cont-left" id="obrot">
       <span><small class="col-sm-3">Obrót - </small><small class="col-sm-3"><%= '%.2f' % total_p %> zł</small></span><br/>
       <span><small class="col-sm-3">Zysk - </small><small class="col-sm-3"><%= '%.2f' % total_po %> zł</small></span><br/>
       <span><small class="col-sm-3">Wynik - </small><small class="col-sm-3"><%= '%.2f' % total_sum = total_po -(Order.aaaa(month, 1).to_i + Order.aaaa(month, 3).to_i + Order.aaaa(month, 2).to_i) %> zł</small></span><br/>

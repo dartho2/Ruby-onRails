@@ -1,6 +1,7 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,500,700);
 *, *::after, *::before {
   box-sizing: border-box; }
@@ -12,7 +13,10 @@ html, body {
 body {
   margin: 0;
   background: #FFFFFF;
-  font-family: 'Raleway', Arial, sans-serif; }
+  font-family: Montserrat, verdana, arial, helvetica, sans-serif;
+  font-size: 1.2rem;
+  line-height: 18px;
+}
 .panel-body {
   background-color: #f8f8f8;
 }

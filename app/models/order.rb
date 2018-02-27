@@ -17,8 +17,8 @@ class Order < ApplicationRecord
   end
 
   def self.aaaa x, y #todo dodanie kolejnej fv zakupowej do sumy
-    # a = Invoice.where("cast(strftime('%m%Y', datatime) as int) = ? AND cat_sell = ?", x.strftime('%m%Y'), y)
-    a = Invoice.where("cast(to_char(datatime, 'MMYYYY') as int) = ? AND cat_sell = ?", x.strftime('%m%Y'), y)
+    a = Invoice.where("cast(strftime('%m%Y', datatime) as int) = ? AND cat_sell = ?", x.strftime('%m%Y'), y)
+    # a = Invoice.where("cast(to_char(datatime, 'MMYYYY') as int) = ? AND cat_sell = ?", x.strftime('%m%Y'), y)
     # postsql heroku
     if a.exists?
       @b = a.try(:collect).sum {|n| MagazineInvoice.find_by('invoice_id' => n.id).price}
