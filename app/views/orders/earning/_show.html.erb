@@ -1,90 +1,66 @@
-<% @orders_group.each do |month, order| %>
-    <% total_p = 0 %>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.bootstrap.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+
+<% total_p = 0 %>
+<% @orders_groups.each  do |month, order| %>
     <% total_po = 0 %>
-    <div class="page-header">
 
-    </div>
-    <div class="dupa">
-    <div class="well" id="oplaty">
-      <div class="col-sm-3">
-     <h1><%= month.strftime('%m/%d/%Y') %></h1>
-        <small></small>
-</div>
-      <div class="well-2 col-sm-3 cont-left" id="oplaty">
-        <span><small class="col-sm-3">Allegro - </small><small class="col-sm-3"><%= Order.aaaa(month, 1) %></small></span><br/>
-        <span><small class="col-sm-3">Kurier - </small><small class="col-sm-3"><%= Order.aaaa(month, 2) %></small></span><br/>
-        <span><small class="col-sm-3">Inne - </small><small class="col-sm-3"><%= Order.aaaa(month, 3) %></small></span>
-      </div>
-    </div>
-    <!-- CUSTOM BOOTSTRAP ELEMENT -->
-    <div class="collapse-custom hidden">
-      <!-- HEADING -->
-      <nav class="navbar navbar-default navbar-heading " role="navigation">
-        <div class="navbar-collapse">
-          <ul class="nav navbar-nav col-sm-12">
-            <li class="cont-left col-sm-4" id="fv"><a>Faktura</a></li>
-            <li class="cont-left cont-right col-sm-4"><a>Data Sprzedaży</a></li>
-            <li class="cont-right col-sm-4"><a>Cena Sprzedaży</a></li>
-          </ul>
-        </div>
-      </nav>
-      <!-- ROW 1 -->
-      <% order.each do |f| %>
-          <% total_ps = 0 %>
-          <div class="<%= f.sale_date.strftime('%m/%d/%Y') %>" data-sort="<%= f.sale_date.strftime('%m/%d/%Y').gsub('/','') %>">
-          <nav class="navbar navbar-default" role="navigation">
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-<%= f.id %>" data-toggle="collapse" href="#collapse<%= f.id %>">
-              <ul class="nav navbar-nav col-sm-12">
-                <li class="cont-left col-sm-4"><a><h5><%= f.name %></h5></a></li>
-                <li class="cont-left cont-right col-sm-4"><a><h5><%= f.sale_date.strftime('%m/%d/%Y') %></h5></a></li>
-                <li class="cont-right col-sm-4"><a><h5><%= f.product_orders.inject(0) {|sum, p| sum + p.price * p.quantity} %></h5></a></li>
-              </ul>
-            </div>
-          </nav>
-          <!-- HIDDING CONTANT -->
-
-          <div id="collapse<%= f.id %>" class="collapse" data-parent="bs-example-navbar-collapse-<%= f.id %>">
-            <nav class="navbar navbar-default navbar-heading-sub">
-              <div class="navbar">
-                <ul class="nav navbar-nav col-sm-12">
-                  <li class="cont-left col-sm-2"><a>Nazwa Produktu</a></li>
-                  <li class="cont-left cont-right col-sm-2"><a>Ilość</a></li>
-                  <li class="cont-left cont-right col-sm-2"><a>Cena Sprzedaży</a></li>
-                  <li class="cont-left cont-right col-sm-2"><a>Suma</a></li>
-                  <li class="cont-left cont-right col-sm-2"><a>Cena Zakupu</a></li>
-                  <li class="cont-right col-sm-2"><a>Zysk</a></li>
-                </ul>
-              </div>
-            </nav>
-
-            <% f.product_orders.each do |product_order| %>
-                <div class="panel-body">
-
-                    <div class="col-sm-12 earning-p">
-                      <div class="cont-left col-sm-2" data-role="descriptions_earning"><%= product_order.name %></div>
-                      <div class="cont-left cont-right col-sm-2" data-role="quantity_earning"><%= product_order.quantity %></div>
-                      <div class="cont-left cont-right col-sm-2" data-role="price_earning"><%= product_order.price %></div>
-                      <div class="cont-left cont-right col-sm-2" data-role="price_b_earning"><%= product_order.quantity*product_order.price %></div>
-                      <div class="cont-left cont-right col-sm-2" data-role="price_z_earning"><%= (product_order.price_m(product_order.id)*0.7)*product_order.quantity %> </div>
-                      <% total_p = total_p + (product_order.price * product_order.quantity) %>
-                      <div class="cont-right col-sm-2" data-role="price_z_earning"><%= total_ps = ((product_order.quantity*product_order.price)/(1.23.to_f)-(((product_order.price_m(product_order.id)*0.7)*product_order.quantity))).round(2) %></div>
-                      <% total_po = total_ps + total_po %>
-                      <!-- TODO RABAT 0.7 -->
-                    </div>
-                    <div class="col-sm-12">
-                    </div>
-
-                </div>
+    <% date_in_link = "#{month.strftime('%m/%d/%Y')}" %>
+    <h1 class="center"><%= date_in_link %></h1>
+<table id="datatable-orders" class="display responsive nowrap" cellspacing="0" width="100%" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+  <thead>
+  <tr>
+    <th class="cont-left cont-right col-6 col-sm-2">Kupujący</th>
+    <th class="cont-left cont-right col-6 col-sm-2">Numer FV</th>
+    <th class="cont-left cont-right col-6 col-sm-1">Kod Produktu</th>
+    <th class="cont-left cont-right col-6 col-sm-2">Cena Sprzedaży (B)</th>
+    <th class="cont-left cont-right col-6 col-sm-1">Ilość</th>
+    <th class="cont-left cont-right col-6 col-sm-2">Cena Zakupu (N) + Rabat</th>
+    <th class="cont-left cont-right col-6 col-sm-2">Suma</th>
+    <th class="cont-left cont-right col-6 col-sm-2">Zysk (N)</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% order.each do |f| %>
+      <tr>
+        <% f.product_orders.each_with_index do |product_order, i| %>
+            <% if i >= 1 %> <% total_ps = 0 %></tr><tr>
+              <% end %>
+            <td><%= i %> - i</td>
+            <td data-sort="<%= f.name.gsub('/','') %>"><%= f.name %></td>
+            <td><%= product_order.ddd %></td>
+            <td><%= '%.2f' % product_order.price %></td>
+            <td><%= product_order.quantity %></td>
+            <td><%= '%.2f' % ((product_order.price_m(product_order.id)*0.7)*product_order.quantity) %></td>
+            <td><%= '%.2f' % (product_order.price * product_order.quantity) %></td>
+            <td><%= total_ps = ((product_order.quantity*product_order.price)/(1.23.to_f)-(((product_order.price_m(product_order.id)*0.7)*product_order.quantity))).round(2) %></td>
+            <% total_p = total_p + (product_order.price * product_order.quantity) %>
+            <% total_po = total_ps + total_po %>
+          <% if i >= 1 %></tr><% end %>
             <% end %>
-          </div></div>
-      <% end %>
-      <div class="col-sm-6">
+      </tr>
+  <% end %>
+  <div class="col-sm-12">
+    <div class="dupa">
+      <div class="well" id="oplaty">
         <div class="well-1 col-sm-6 cont-right" id="obrot">
-          <span><small class="col-sm-3">Obrót - </small><small class="col-sm-3"><%= '%.2f' % total_p %> zł</small></span><br/>
-          <span><small class="col-sm-3">Zysk - </small><small class="col-sm-3"><%= '%.2f' % total_po %> zł</small></span><br/>
-          <span><small class="col-sm-3">Wynik - </small><small class="col-sm-3"><%= '%.2f' % total_po %> zł</small></span><br/>
+      <span><small class="col-sm-3">Obrót - </small><small class="col-sm-3"><%= '%.2f' % total_p %> zł</small></span><br/>
+      <span><small class="col-sm-3">Zysk - </small><small class="col-sm-3"><%= '%.2f' % total_po %> zł</small></span><br/>
+      <span><small class="col-sm-3">Wynik - </small><small class="col-sm-3"><%= '%.2f' % total_po %> zł</small></span><br/>
         </div>
+          <div class="well-1 col-sm-6 cont-right" id="oplaty">
+      <span><small class="col-sm-3">Allegro - </small><small class="col-sm-3"><%= Order.aaaa(month, 1) %></small></span><br/>
+      <span><small class="col-sm-3">Kurier - </small><small class="col-sm-3"><%= Order.aaaa(month, 2) %></small></span><br/>
+      <span><small class="col-sm-3">Inne - </small><small class="col-sm-3"><%= Order.aaaa(month, 3) %></small></span>
+    </div>
       </div>
-    </div>
-    </div>
-<% end %>
+  </div>
+  </div>
+  </div>
+  </tbody>
+</table>
+<%end%>

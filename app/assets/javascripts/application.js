@@ -17,6 +17,7 @@
 //= require dataTables/jquery.dataTables.foundation
 //= require dataTables/extras/dataTables.tableTools
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
+//= require dataTables/extras/dataTables.buttons
 //= require twitter/bootstrap
 //= require autosize
 //= require select2

@@ -11,8 +11,15 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def earning
-    @orders = Order.order("sale_date desc")
-    @orders_group = @orders.all.group_by { |m| m.sale_date.beginning_of_month }
+    # @orders = Order.order("sale_date desc")
+    @client = Client.all
+    @orders = Order.order(:id)
+    # @client = @order.client
+    @orders = @orders.all.order('sale_date DESC')
+    # @orders_group = @orders.all.group_by { |m| m.sale_date.beginning_of_month }
+    if @orders.present?
+      @orders_groups = @orders.all.group_by { |m| m.sale_date.beginning_of_month }
+    end
     respond_to do |format|
       format.html
       format.json

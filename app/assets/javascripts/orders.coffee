@@ -114,14 +114,21 @@ $ ->
     return
   return
 
-jQuery ->
-  $('#datatable-orders').DataTable
+$(document).ready ->
+  $('table.display').DataTable
 #    sPaginationType: "full_numbers"
     bProcessing: true
     autoWidth: true
     dom: "<'row'<'col-sm-3'l><'col-sm-3'f><'col-sm-6'p>>" +
     "<'row'<'col-sm-12'tr>>" +
     "<'row'<'col-sm-5'i><'col-sm-7'p>>"
+    dom: 'Bfrtip',
+    buttons: [
+      'copyHtml5',
+      'excelHtml5',
+      'csvHtml5',
+      'pdfHtml5'
+    ]
     column: [
       "type": "string",
       "data": "num",
@@ -131,9 +138,13 @@ jQuery ->
       null
     ]
     language: {
+      "buttons": {
+        "copyTitle": 'Data copied',
+        "copyKeys": 'Use your keyboard or menu to select the copy command'
+      }
       "lengthMenu": "Pokaż _MENU_ ",
       "zeroRecords": "Nie Znaleziono.",
-      "info": "Page _PAGE_ of _PAGES_",
+      "info": "Strona _PAGE_ z _PAGES_",
       "infoEmpty": "Brak",
       "infoFiltered": "(filtered out of _MAX_)",
       "search": "Szukaj:",
@@ -144,6 +155,7 @@ jQuery ->
         "previous": "<<"
       }
     }
+
 
 
 

@@ -15,6 +15,10 @@ class ProductOrder < ApplicationRecord
     super
   end
 
+  def ddd
+    Product.find_by(:id => product_id).code
+  end
+
   def price_m c
     @a = self.product
     @b = Magazine.find_by('id' => @a.product_f)

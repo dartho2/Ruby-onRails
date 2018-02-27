@@ -1,7 +1,7 @@
 class Order < ApplicationRecord
   has_many :product_orders, inverse_of: :order
   has_many :products, :through => :product_orders, inverse_of: :orders
-  has_one :client
+  has_one :client, inverse_of: :order
   has_one :adress, :through => :client
   before_create :data_change
 
@@ -27,6 +27,7 @@ class Order < ApplicationRecord
     end
 
   end
+
 
 #
 # def name x = nil
