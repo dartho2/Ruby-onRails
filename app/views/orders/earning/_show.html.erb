@@ -8,8 +8,7 @@
 <% total_p = 0 %>
 <% @orders_groups.each  do |month, order| %>
     <% total_po = 0 %>
-
-    <% date_in_link = "#{month.strftime('%m/%d/%Y')}" %>
+    <% date_in_link = "#{month.to_datetime.strftime('%m/%d/%Y')}" %>
     <h1 class="center"><%= date_in_link %></h1>
 <table id="datatable-orders" class="display responsive nowrap" cellspacing="0" width="100%" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
   <thead>
