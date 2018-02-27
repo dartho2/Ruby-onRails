@@ -18,6 +18,12 @@
 //= require dataTables/extras/dataTables.tableTools
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require dataTables/extras/dataTables.buttons
+//= require ./datatables/aa/buttons.bootstrap.min.js
+//= require ./datatables/aa/buttons.html5.min.js
+//= require ./datatables/aa/datatables.buttons.min.js
+//= require ./datatables/aa/jszip.min.js
+//= require ./datatables/aa/pdfmake.min.js
+//= require ./datatables/aa/vfs_fonts.js
 //= require twitter/bootstrap
 //= require autosize
 //= require select2
@@ -230,8 +236,8 @@ $(document).ready(function() {
 
 // Switchery
     $(document).ready(function() {
-        if ($(".js-switch")[0]) {
-            var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+        if ($(".aa-switch")[0]) {
+            var elems = Array.prototype.slice.call(document.querySelectorAll('.aa-switch'));
             elems.forEach(function (html) {
                 var switchery = new Switchery(html, {
                     color: '#26B99A'
@@ -590,7 +596,7 @@ $(document).ready(function() {
         $('#datatable-responsive').DataTable();
 
         $('#datatable-scroller').DataTable({
-            ajax: "js/datatables/json/scroller-demo.json",
+            ajax: "aa/datatables/json/scroller-demo.json",
             deferRender: true,
             scrollY: 380,
             scrollCollapse: true,

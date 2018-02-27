@@ -86,7 +86,7 @@ a.btn.btn-dark.btn-xs, a.btn.btn-danger.btn-xs, a.btn.btn-primary.btn-xs{
   /* border-bottom-left-radius: 0; */
   /* border-top-right-radius: 0; */
 }
-.btn-group>.btn:first-child:not(:last-child):not(.dropdown-toggle) {
+button.btn.btn-danger {
   background-color: #ededed;
   width: 100px;
   border: 1px #d8d8d8 solid;

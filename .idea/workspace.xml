@@ -2,11 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="660c31f4-9dbd-4bcf-a328-1779181a6391" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/datatables/aa/pdfmake.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/magazines_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/magazines_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/magazine.rb" afterPath="$PROJECT_DIR$/app/models/magazine.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/config/manifest.js" afterPath="$PROJECT_DIR$/app/assets/config/manifest.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/adresses.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/adresses.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/categories.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/categories.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/clients.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/clients.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/curiers.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/curiers.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/gentelella-custom.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/gentelella-custom.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/invoices.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/invoices.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/magazines.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/magazines.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/orders.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/orders.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/product_structures.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/product_structures.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/products.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/products.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/productshipments.coffee" afterPath="$PROJECT_DIR$/app/assets/javascripts/productshipments.coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/client.rb" afterPath="$PROJECT_DIR$/app/models/client.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/order.rb" afterPath="$PROJECT_DIR$/app/models/order.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/magazines/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/magazines/_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/magazines/_magazine.html.erb" afterPath="$PROJECT_DIR$/app/views/magazines/_magazine.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/orders/_edit_form.html.erb" afterPath="$PROJECT_DIR$/app/views/orders/_edit_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/orders/earning/_show.html.erb" afterPath="$PROJECT_DIR$/app/views/orders/earning/_show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_invoice_fields.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_invoice_fields.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_invoice_form.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_invoice_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_item_fields.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_item_fields.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/shared/_item_form.html.erb" afterPath="$PROJECT_DIR$/app/views/shared/_item_form.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/assets.rb" afterPath="$PROJECT_DIR$/config/initializers/assets.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -55,34 +75,14 @@
       <file leaf-file-name="_show.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/orders/earning/_show.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
+            <state relative-caret-position="102">
+              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/magazines/new.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/magazines/_form.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="48" column="46" lean-forward="false" selection-start-line="48" selection-start-column="46" selection-end-line="48" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="magazine.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="magazine.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/magazine.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
@@ -92,51 +92,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="product.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/product.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="31" column="47" lean-forward="false" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="product_order.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/product_order.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="43" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="magazines_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/magazines_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="604">
+            <state relative-caret-position="618">
               <caret line="80" column="80" lean-forward="false" selection-start-line="80" selection-start-column="80" selection-end-line="80" selection-end-column="80" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="order.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/order.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" column="20" lean-forward="false" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="orders.coffee" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/orders.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="146" column="30" lean-forward="false" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -145,8 +105,71 @@
       <file leaf-file-name="application.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+            <state relative-caret-position="374">
+              <caret line="25" column="28" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+              <folding>
+                <element signature="e#1422#2171#0" expanded="false" />
+                <element signature="e#2204#24900#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/magazines/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_magazine.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/magazines/_magazine.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="20" column="50" lean-forward="false" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="invoices.coffee" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/invoices.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="459">
+              <caret line="27" column="106" lean-forward="false" selection-start-line="27" selection-start-column="106" selection-end-line="27" selection-end-column="106" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="order.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/order.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="46" lean-forward="false" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="orders.coffee" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/orders.coffee">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="129" column="7" lean-forward="false" selection-start-line="129" selection-start-column="7" selection-end-line="129" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="orders.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/orders.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="273">
+              <caret line="88" column="21" lean-forward="false" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -192,8 +215,8 @@
       <find>.site_title</find>
       <find>.user-profile img</find>
       <find>.nav.side-menu</find>
-      <find>.nav.side-menu &gt; li &gt; a:hover</find>
       <find>appe</find>
+      <find>.nav.side-menu &gt; li &gt; a:hover</find>
     </findStrings>
     <dirStrings>
       <dir>D:\xampp\htdocs\REPARE_RAILS\Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7\tmp\cache</dir>
@@ -207,8 +230,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/invoices.scss" />
-        <option value="$PROJECT_DIR$/db/migrate/20180124154631_create_invoices.rb" />
         <option value="$PROJECT_DIR$/app/views/orders/_form.html.erb" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c80fc05a-ef83-4c6d-8364-93d1159ff1fa/console.sql" />
         <option value="$PROJECT_DIR$/app/views/invoices/index.html.erb" />
@@ -222,8 +243,6 @@
         <option value="$PROJECT_DIR$/app/models/productshipment.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/scaffolds.scss" />
         <option value="$PROJECT_DIR$/app/models/magazine_invoice.rb" />
-        <option value="$PROJECT_DIR$/app/views/magazines/_magazine.html.erb" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/orders.scss" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/views/orders/show.html.erb" />
         <option value="$PROJECT_DIR$/app/pdfs/order_pdf.rb" />
@@ -231,7 +250,6 @@
         <option value="$PROJECT_DIR$/app/views/shared/_invoice2_fields.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/invoices_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/invoices/_form.html.erb" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/invoices.coffee" />
         <option value="$PROJECT_DIR$/app/views/shared/_invoice_fields.html.erb" />
         <option value="$PROJECT_DIR$/app/views/shared/_invoice_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/shared/_invoice_hidden_fields.html.erb" />
@@ -247,17 +265,22 @@
         <option value="$PROJECT_DIR$/app/assets/stylesheets/custom.css.scss" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/app/models/product_order.rb" />
-        <option value="$PROJECT_DIR$/app/models/client.rb" />
         <option value="$PROJECT_DIR$/app/controllers/orders_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/orders/index.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/orders.coffee" />
-        <option value="$PROJECT_DIR$/app/views/orders/earning/_show.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/order.rb" />
         <option value="$PROJECT_DIR$/app/views/magazines/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/magazines_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/magazine.rb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/invoices.coffee" />
+        <option value="$PROJECT_DIR$/app/models/order.rb" />
+        <option value="$PROJECT_DIR$/app/models/client.rb" />
+        <option value="$PROJECT_DIR$/app/views/magazines/_magazine.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/orders.coffee" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/datatables/aa/pdfmake.mini.js" />
+        <option value="$PROJECT_DIR$/app/views/orders/earning/_show.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/datatables/aa/pdfmake.min.js.map" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/orders.scss" />
       </list>
     </option>
   </component>
@@ -268,8 +291,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1642" />
-    <option name="y" value="-16" />
+    <option name="x" value="-1906" />
+    <option name="y" value="-8" />
     <option name="width" value="1378" />
     <option name="height" value="733" />
   </component>
@@ -318,19 +341,30 @@
               <item name="Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
+              <item name="datatables" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
+              <item name="datatables" type="462c0819:PsiDirectoryNode" />
+              <item name="aa" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
               <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7" type="b2602c69:ProjectViewProjectNode" />
               <item name="Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="controllers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="datatables" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7" type="b2602c69:ProjectViewProjectNode" />
@@ -391,11 +425,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\xampp\htdocs\REPARE_RAILS\Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7\app\assets\javascripts\datatables" />
+      <recent name="D:\xampp\htdocs\REPARE_RAILS\Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7\app\assets" />
       <recent name="D:\xampp\htdocs\REPARE_RAILS\Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7\public" />
       <recent name="D:\xampp\htdocs\REPARE_RAILS\Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7" />
       <recent name="D:\xampp\htdocs\REPARE_RAILS\Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7\app" />
-      <recent name="D:\xampp\htdocs\REPARE_RAILS\Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7\app\views\datatables" />
-      <recent name="D:\xampp\htdocs\REPARE_RAILS\Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7\app\views\orders" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\xampp\htdocs\REPARE_RAILS\Ruby-onRails-826a6289fb5be639d433e5d43731e54c733b23d7\db" />
@@ -534,7 +568,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="982239000" />
+    <option name="totallyTimeSpent" value="995264000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -547,16 +581,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19189766" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328125" sideWeight="0.49562362" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32665965" sideWeight="0.51759064" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2560175" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3263889" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32552955" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3265306" sideWeight="0.4824094" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.49736565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="1" y="31" width="1364" height="696" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.49736565" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="1" y="31" width="1364" height="696" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -635,35 +670,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/products/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/products/_product.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="11">
-          <caret line="22" column="33" lean-forward="true" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/shared/_invoice2_fields.html.erb" />
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/magazines.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/orders/new.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/orders/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-553">
@@ -675,6 +681,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="1" lean-forward="true" selection-start-line="1" selection-start-column="1" selection-end-line="1" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -703,6 +710,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="64" lean-forward="false" selection-start-line="6" selection-start-column="64" selection-end-line="6" selection-end-column="64" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -710,6 +718,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="33" lean-forward="false" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -860,14 +869,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/invoices.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/database.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-408">
@@ -880,14 +881,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="10992">
           <caret line="1282" column="2" lean-forward="false" selection-start-line="1282" selection-start-column="2" selection-end-line="1282" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/client.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="40" lean-forward="false" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
           <folding />
         </state>
       </provider>
@@ -918,14 +911,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -934,42 +919,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/orders.coffee">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="146" column="30" lean-forward="false" selection-start-line="146" selection-start-column="30" selection-end-line="146" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/product_order.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
           <caret line="18" column="43" lean-forward="false" selection-start-line="18" selection-start-column="43" selection-end-line="18" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/order.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="20" lean-forward="false" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/orders/earning/_show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -998,10 +951,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/magazines_controller.rb">
+    <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="80" column="80" lean-forward="false" selection-start-line="80" selection-start-column="80" selection-end-line="80" selection-end-column="80" />
+        <state relative-caret-position="357">
+          <caret line="24" column="5" lean-forward="false" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/client.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/magazines/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/magazines/_magazine.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="50" lean-forward="false" selection-start-line="20" selection-start-column="50" selection-end-line="20" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/invoices.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="106" lean-forward="false" selection-start-line="27" selection-start-column="106" selection-end-line="27" selection-end-column="106" />
           <folding />
         </state>
       </provider>
@@ -1010,6 +995,75 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="36" lean-forward="false" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/magazines_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="618">
+          <caret line="80" column="80" lean-forward="false" selection-start-line="80" selection-start-column="80" selection-end-line="80" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/order.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="46" lean-forward="false" selection-start-line="1" selection-start-column="46" selection-end-line="1" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/datatables/aa/pdfmake.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="5" lean-forward="false" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/orders/earning/_show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/datatables/aa/pdfmake.min.js.map">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="2845539" lean-forward="false" selection-start-line="0" selection-start-column="2845539" selection-end-line="0" selection-end-column="2845539" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="25" column="28" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding>
+            <element signature="e#1422#2171#0" expanded="false" />
+            <element signature="e#2204#24900#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/orders.coffee">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="129" column="7" lean-forward="false" selection-start-line="129" selection-start-column="7" selection-end-line="129" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/orders.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="88" column="21" lean-forward="false" selection-start-line="88" selection-start-column="21" selection-end-line="88" selection-end-column="21" />
           <folding />
         </state>
       </provider>

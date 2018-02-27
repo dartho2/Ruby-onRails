@@ -3,9 +3,9 @@ update_subtotal = ->
   subtotal = 0
   b = undefined
 
-  $('.js-net-val-b').each (i) ->
+  $('.aa-net-val-b').each (i) ->
     price = $(this).html()
-    a = parseFloat($('.js-net-vat').html())
+    a = parseFloat($('.aa-net-vat').html())
     if !isNaN(price)
       subtotal += Number(price)
     return
@@ -15,7 +15,7 @@ update_subtotal = ->
   return
 
 update_balance = ->
-  total = (Number($('.subtotal').html()) * (parseFloat($('.js-net-vat').html())/100))
+  total = (Number($('.subtotal').html()) * (parseFloat($('.aa-net-vat').html())/100))
   total = total.toFixed(2)
   total_1 =  Number($('.subtotal').html()) - total
   total_1 = total_1.toFixed(2)
@@ -50,20 +50,20 @@ update_prices = ->
   return
 
 $('body').on 'click', '.remove_fields', ->
-  $(this).parents('#js-item-product').remove()
+  $(this).parents('#aa-item-product').remove()
   update_subtotal()
   if $('.delete').length < 2
     $('.delete').hide()
   return
 
 update_price = ->
-  row = $(this).parents('#js-item-product')
+  row = $(this).parents('#aa-item-product')
   price = row.find('input[data-role="quantity"]').val() * row.find('input[data-role="price"]').val()
   price = price.toFixed(2)
-  if isNaN(price) then row.find('.js-net-val-b').html('0') else row.find('.js-net-val-b').html(price)
-  a = row.find('.js-net-val-b').html()-(row.find('.js-net-val-b').html() * (parseFloat($('.js-net-vat').html())/100))
+  if isNaN(price) then row.find('.aa-net-val-b').html('0') else row.find('.aa-net-val-b').html(price)
+  a = row.find('.aa-net-val-b').html()-(row.find('.aa-net-val-b').html() * (parseFloat($('.aa-net-vat').html())/100))
   a = a.toFixed(2)
-  row.find('.js-net-prince-n').html(a)
+  row.find('.aa-net-prince-n').html(a)
   update_subtotal()
   return
 
@@ -87,10 +87,10 @@ jQuery(document).ready ($) ->
     bind $(this)
 
   form.on 'cocoon:after-insert', (e, item) ->
-    if item.hasClass 'js-payment'
+    if item.hasClass 'aa-payment'
       date_item = item.find 'input[name*=date]'
       date_item.val (new Date).toISOString().substr 0, 10
-    else if item.hasClass 'js-item'
+    else if item.hasClass 'aa-item'
       init_invoice_item_autocomplete item.find('[data-role="item-description"]')
 #      tax_selector = item.find('[data-role="taxes-selector"]')
 #      tax_selector.trigger('update')
@@ -124,10 +124,10 @@ $(document).ready ->
     "<'row'<'col-sm-5'i><'col-sm-7'p>>"
     dom: 'Bfrtip',
     buttons: [
-      'copyHtml5',
       'excelHtml5',
       'csvHtml5',
-      'pdfHtml5'
+      'pdfHtml5',
+      'copyHtml5'
     ]
     column: [
       "type": "string",

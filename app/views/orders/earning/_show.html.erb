@@ -1,9 +1,9 @@
-<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.bootstrap.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>
+  <!--<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.bootstrap.min.js"></script>-->
+  <!--<script src="https://cdn.datatables.net/buttons/1.5.1/js/buttons.html5.min.js"></script>-->
+  <!--<script src="https://cdn.datatables.net/buttons/1.5.1/js/dataTables.buttons.min.js"></script>-->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>-->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/pdfmake.min.js"></script>-->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.32/vfs_fonts.js"></script>-->
 
 
 <% @orders_groups.each  do |month, order| %>
@@ -30,7 +30,8 @@
         <% f.product_orders.each_with_index do |product_order, i| %>
             <% if i >= 1 %> <% total_ps = 0 %></tr><tr>
               <% end %>
-            <td><%= i %> - i</td>
+
+            <td><%= f.client.present? ? f.client.firstname : "Paragon" %></td>
             <td data-sort="<%= f.name.gsub('/','') %>"><%= f.name %></td>
             <td><%= product_order.ddd %></td>
             <td><%= '%.2f' % product_order.price %></td>
@@ -50,7 +51,7 @@
         <div class="well-1 col-sm-6 cont-right" id="obrot">
       <span><small class="col-sm-3">Obrót - </small><small class="col-sm-3"><%= '%.2f' % total_p %> zł</small></span><br/>
       <span><small class="col-sm-3">Zysk - </small><small class="col-sm-3"><%= '%.2f' % total_po %> zł</small></span><br/>
-      <span><small class="col-sm-3">Wynik - </small><small class="col-sm-3"><%= '%.2f' % total_po %> zł</small></span><br/>
+      <span><small class="col-sm-3">Wynik - </small><small class="col-sm-3"><%= '%.2f' % total_sum = total_po -(Order.aaaa(month, 1).to_i + Order.aaaa(month, 3).to_i + Order.aaaa(month, 2).to_i) %> zł</small></span><br/>
         </div>
           <div class="well-1 col-sm-6 cont-right" id="oplaty">
       <span><small class="col-sm-3">Allegro - </small><small class="col-sm-3"><%= Order.aaaa(month, 1) %></small></span><br/>
