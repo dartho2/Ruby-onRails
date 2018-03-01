@@ -82,6 +82,7 @@ jQuery(document).ready ($) ->
   form = $('form[data-role="invoice"]')
 
   form.find('[data-role="item-description"]').each () ->
+    console.log('fv.auto')
     init_invoice_item_autocomplete $(this)
     bind $(this)
 

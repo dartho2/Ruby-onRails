@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180215231617) do
+ActiveRecord::Schema.define(version: 20180301102721) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(version: 20180215231617) do
     t.datetime "updated_at", null: false
     t.decimal "price", precision: 8, scale: 2
     t.integer "marza"
+    t.integer "cat_buy"
     t.index ["product_id"], name: "index_magazines_on_product_id"
   end
 

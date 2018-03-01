@@ -1,6 +1,7 @@
 class MagazineInvoice < ApplicationRecord
   belongs_to :invoice, inverse_of: :magazine_invoices
   belongs_to :magazine, inverse_of: :magazine_invoices
+
     accepts_nested_attributes_for :magazine, allow_destroy: true
 
   def magazine_attributes=(attributes)

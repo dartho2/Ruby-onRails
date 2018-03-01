@@ -4,8 +4,8 @@
         <div class="phidden">
           <%= f.label :productname, "Produkt" %>
         </div>
+        <%= f.text_area :productname, class: "form-control", rows: 1, "data-role": "item-description" %>
         <%= f.hidden_field :_destroy, class: 'hidden-destroy' %>
-        <%= f.collection_select(:id, Magazine.all, :id, :productname, {:include_blank => ""}, {class: 'form-control'}) %>
     <% end %>
   </div>
   <div class="invoice-col invoice-col--quantity form-group col-sm-3">

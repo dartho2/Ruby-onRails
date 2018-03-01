@@ -27,6 +27,12 @@
   margin: 0;
   padding-left: 10px;
 }
+tr.accordion-toggle img {
+  height: 18px;
+}
+th {
+  font-weight: 500;
+}
 .nav.side-menu > li > a i:hover {
   color: #ff7a34 !important;
   text-shadow: 2px 1px #000000;

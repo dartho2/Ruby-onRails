@@ -4,7 +4,14 @@ class MagazinesController < ApplicationController
   # GET /magazines
   # GET /magazines.json
   def index
-    @magazines = Magazine.all
+    @magazines = Magazine.where(:cat_buy => '0')
+  end
+
+  def autocomplete
+    @magazine = Magazine.autocomplete_by_description(params[:term])
+    respond_to do |format|
+      format.json
+    end
   end
 
   # GET /magazines/1
@@ -78,7 +85,7 @@ class MagazinesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def magazine_params
-      params.require(:magazine).permit(:productname, :price, :code, :price_sell, :marza, :quantity, productshipment_attributes: [:id, :height, :weight, :width, :depth, :_destroy], product_structures_attributes: [:id, :label, :value, :_destroy])
+      params.require(:magazine).permit(:productname, :price, :code, :price_sell, :cat_buy, :marza, :quantity, productshipment_attributes: [:id, :height, :weight, :width, :depth, :_destroy], product_structures_attributes: [:id, :label, :value, :_destroy])
     end
   def magazine_params_update
     # params.require(:magazine).permit(:productname,:quantity, product_structures_attributes: [:id, :label, :value, :_destroy]).merge(id: @magazine.product_id)

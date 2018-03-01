@@ -25,9 +25,9 @@
             <div class="col-md-6">
               <div class="form-group">
                 <div class="col-sm-12">
-                <%= f.label :productname, "Nazwa Produktu" %>
-                <%= f.text_field :productname, class: 'form-control' %>
-              </div>
+                  <%= f.label :productname, "Nazwa Produktu" %>
+                  <%= f.text_field :productname, class: 'form-control' %>
+                </div>
                 <div class="col-sm-12">
                   <%= f.label :code, "Kod Produktu" %>
                   <%= f.text_field :code, class: 'form-control' %>
@@ -48,6 +48,7 @@
                   <%= f.label :price_sell, "Cena Sprzedaży" %>
                   <%= f.text_field :price_sell, class: 'form-control' %>
                 </div>
+                <%= f.hidden_field :cat_buy, :value => '0' %>
               </div>
             </div>
             <%= f.fields_for :productshipment, class: "col-md-12" do |f| %>
@@ -103,5 +104,45 @@
     </div>
   </div>
 </div>
+
+<div class="clearfix"></div>
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <div class="list-group-item active">
+          <h2>Nowy Produkt
+            <small> - do FV- zakupu</small>
+          </h2>
+          <div class="pull-right">
+            <ul class="nav navbar-right panel_toolbox">
+              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+              </li>
+              <li><a class="close-link"><i class="fa fa-close"></i></a>
+              </li>
+            </ul>
+          </div> <!-- pull-right -->
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="x_content">
+        <br/>
+        <%= form_for(@magazine, :html => {class: "form-horizontal form-label-left", id: "demo-form2", role: "form"}) do |f| %>
+            <div class="col-md-6">
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <%= f.label :productname, "Nazwa Produktu" %>
+                  <%= f.text_field :productname, class: 'form-control' %>
+                </div>
+                <%= f.hidden_field :cat_buy, :value => '1' %>
+              </div>
+            </div>
+            <%= f.submit 'Zapisz', class: "btn btn-primary add-more" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 

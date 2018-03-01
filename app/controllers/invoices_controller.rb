@@ -72,6 +72,6 @@ class InvoicesController < ApplicationController
       params.require(:invoice)
         .permit(:id, :name, :datatime, :cat_sell,
                 magazine_invoices_attributes: [:id, :price, :_destroy, :quantity,
-                                               magazine_attributes: [:id, :_destroy, :price, :quantity]])
+                                               magazine_attributes: [:id, :productname, :_destroy, :price, :quantity]])
     end
 end

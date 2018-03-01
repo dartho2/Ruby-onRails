@@ -1,22 +1,7 @@
 <%= render '/shared/errors', obj: @order %>
 <div class="col-md-12 col-sm-12 col-xs-12">
   <div class="x_panel">
-    <div class="x_title">
-      <div class="list-group-item active">
-        <h2>Faktura
-          <small> - sprzedaży</small>
-        </h2>
-        <div class="pull-right">
-          <ul class="nav navbar-right panel_toolbox">
-            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-            </li>
-            <li><a class="close-link"><i class="fa fa-close"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="clearfix"></div>
-    </div>
+
     <div class="x_content">
       <%= form_for(@order, :data => {role: 'invoice'}, :html => {class: "form-horizontal", role: "form"}) do |order| %>
           <div class="form-group">
@@ -40,22 +25,6 @@
           </div>
           <div class="checkedbox">
             <div class="x_panel x_panel2">
-              <div class="x_title">
-                <div class="list-group-item active">
-                  <h2>Adress
-                    <small> - dodaj</small>
-                  </h2>
-                  <div class="pull-right">
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="clearfix"></div>
-              </div>
               <div class="x_content adreess_content">
                 <%= render partial: 'shared/client_form', locals: {f: order} %>
               </div>

@@ -16,7 +16,9 @@ Rails.application.routes.draw do
       end
     end
     resources :curiers
-    resources :magazines
+    resources :magazines do
+      get 'autocomplete', on: :collection
+    end
   end
   # patch  '/panel/products', to: 'panel/products#update'
   # post  '/panel/products', to: 'panel/products#update'

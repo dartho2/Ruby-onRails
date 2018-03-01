@@ -6,14 +6,14 @@ class Magazine < ApplicationRecord
   has_one :productshipment
   has_many :magazine_invoices, inverse_of: :magazine
   has_many :invoices, :through => :magazine_invoices, inverse_of: :magazines
-
-  validates :price_sell, :presence => true, :numericality => true
-  validates :code, :presence => true
   validates :productname, :presence => true
-  validates :price, :presence => true, :numericality => true
-  validates :marza, :presence => true, :numericality => true
-  validates :quantity, :presence => true, :numericality => true
-  validates :productshipment, :presence => true
+  validates :cat_buy, presence: true, :numericality => true, :inclusion => 0..4, :if => :check_if_form_one?
+  validates :price_sell, :presence => true, :numericality => true, :if => :check_if_form_one?
+  validates :code, :presence => true, :if => :check_if_form_one?
+  validates :price, :presence => true, :numericality => true, :if => :check_if_form_one?
+  validates :marza, :presence => true, :numericality => true, :if => :check_if_form_one?
+  validates :quantity, :presence => true, :numericality => true, :if => :check_if_form_one?
+  validates :productshipment, :presence => true, :if => :check_if_form_one?
 
 
   after_save :add_product_list
@@ -22,12 +22,32 @@ class Magazine < ApplicationRecord
   accepts_nested_attributes_for :product_structures, allow_destroy: true
   accepts_nested_attributes_for :productshipment, allow_destroy: true
 
+  def check_if_form_one?
+    self.cat_buy == '0'.to_i
+  end
+
+  def Magazine.autocomplete_by_description(term)
+    t = arel_table
+    q = t
+          .project(t[:id].maximum.as("id"), t[:productname])
+          .where(t[:productname].matches("%#{term}%"))
+          .group(t[:productname])
+          .order(t[:productname])
+    find_by_sql(q.to_sql)
+  end
+
+  #
+  # def form_type
+  #   self[:form_type]
+  # end
 
   def add_product_list
-    if !self.product_id
-      product = Product.new(:name => self.productname, :price => self.price_sell, :code => self.code, :parent_id => false, :product_f => self.id)
-      product.save(:validate => false)
-      self.update_columns(product_id: product.id)
+    if self.cat_buy == '0'
+      if !self.product_id
+        product = Product.new(:name => self.productname, :price => self.price_sell, :code => self.code, :parent_id => false, :product_f => self.id)
+        product.save(:validate => false)
+        self.update_columns(product_id: product.id)
+      end
     end
   end
 
@@ -39,10 +59,10 @@ class Magazine < ApplicationRecord
     a = Curier.where(":x BETWEEN minweight AND maxweight AND maxheight > :y", {x: x, y: y}).order("price ASC").first
     if a.present?
       @g ||= a.price
-       a.label + " " + @g.to_s
-          else
+      a.label + " " + @g.to_s
+    else
       @g = 1
-       "-"
+      "-"
     end
   end
 
