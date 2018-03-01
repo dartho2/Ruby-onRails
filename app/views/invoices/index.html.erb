@@ -36,7 +36,8 @@
                 <%= (invoice.cat_sell == '1'.to_i).present? ? "<img src=allegro.png>".html_safe :
                           (invoice.cat_sell == '2'.to_i).present? ? "<img src=dpd.png>".html_safe :
                               (invoice.cat_sell == '0'.to_i).present? ? "<img src=drabest.png>".html_safe :
-                                  (invoice.cat_sell == '3'.to_i).present? ? "<img src=inne.png>".html_safe : "brak" %>
+                                  (invoice.cat_sell == '3'.to_i).present? ? "<img src=inne.png>".html_safe :
+                                      (invoice.cat_sell == '4'.to_i).present? ? "<img src=pekaes.png>".html_safe : "brak"%>
               </td>
               <td><%= invoice.name %></td>
               <td data-sort="<%= invoice.total_price %>"><%= invoice.total_price %>- zł</td>

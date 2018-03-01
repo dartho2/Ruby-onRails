@@ -26,6 +26,11 @@ class Magazine < ApplicationRecord
     self.cat_buy == '0'.to_i
   end
 
+  def last_price
+    Product.where(:product_f => self.product_id).last
+    self.price
+  end
+
   def Magazine.autocomplete_by_description(term)
     t = arel_table
     q = t
