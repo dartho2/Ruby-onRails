@@ -86,9 +86,10 @@
                     </tr>
                   </table>
               <% end %>
-              <%= link_to_add_fields '+', f, :product_structures %>
+
+              <%= link_to_add_association t(" "), f, :product_structures %>
             </div>
-            <%= f.submit 'Aktualizuj', class: "add_fields btn btn-primary add-more" %>
+            <%= f.submit 'Aktualizuj', class: "btn btn-primary add-more" %>
         <% end %>
       </div>
     </div>

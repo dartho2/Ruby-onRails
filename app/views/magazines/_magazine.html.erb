@@ -22,7 +22,8 @@
 
         <thead>
         <tr>
-          <th>Nazwa</th>
+          <th>ID</th>
+          <th>Nazwa/code</th>
           <th>Ilość</th>
           <div style="display: none">Cena Zakupu</div>
           <th>Cena Zakupu</th>
@@ -42,7 +43,8 @@
         <tbody>
         <% obj.each do |magazine| %>
             <tr>
-              <td><%= magazine.productname %></td>
+              <td><%= magazine.id %></td>
+              <td><%= magazine.productname %> - <%= magazine.products.map(&:code) %></td>
               <td><%= magazine.quantity %></td>
               <div style="display: none"><%= magazine.price %></div>
               <td><%= magazine.f %></td>

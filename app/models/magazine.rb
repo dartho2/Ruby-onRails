@@ -1,21 +1,21 @@
 class Magazine < ApplicationRecord
   attr_accessor :code, :price_sell
-  has_many :products
+  has_many :products, :foreign_key => 'id', inverse_of: :magazine
   has_many :product_orders
   has_many :product_structures, :foreign_key => 'product_id'
   has_one :productshipment
   has_many :magazine_invoices, inverse_of: :magazine
   has_many :invoices, :through => :magazine_invoices, inverse_of: :magazines
-  validates :productname, :presence => true
-  validates :cat_buy, presence: true, :numericality => true, :inclusion => 0..4, :if => :check_if_form_one?
-  validates :price_sell, :presence => true, :numericality => true, :if => :check_if_form_one?
-  validates :code, :presence => true, :if => :check_if_form_one?
-  validates :price, :presence => true, :numericality => true, :if => :check_if_form_one?
-  validates :marza, :presence => true, :numericality => true, :if => :check_if_form_one?
-  validates :quantity, :presence => true, :numericality => true, :if => :check_if_form_one?
-  validates :productshipment, :presence => true, :if => :check_if_form_one?
+  validates :productname, :presence => true, :on => :create
+  validates :cat_buy, presence: true, :numericality => true, :on => :create, :inclusion => 0..4, :if => :check_if_form_one?
+  validates :price_sell, :presence => true, :numericality => true, :on => :create, :if => :check_if_form_one?
+  validates :code, :presence => true, :on => :create, :if => :check_if_form_one?
+  validates :price, :presence => true, :numericality => true, :on => :create, :if => :check_if_form_one?
+  validates :marza, :presence => true, :numericality => true, :on => :create, :if => :check_if_form_one?
+  validates :quantity, :presence => true, :numericality => true, :on => :create, :if => :check_if_form_one?
+  validates :productshipment, :presence => true, :on => :create, :if => :check_if_form_one?
 
-
+ # Todo dla edytowania validacja nie poprawna
   after_save :add_product_list
   # before_update :add_quantity_to_magazine
 
@@ -27,8 +27,8 @@ class Magazine < ApplicationRecord
   end
 
   def last_price
-    Product.where(:product_f => self.product_id).last
-    self.price
+    a = Product.where(:product_f => self.product_id).last
+   a.price
   end
 
   def Magazine.autocomplete_by_description(term)
