@@ -24,7 +24,7 @@
         <tr>
           <th class="col-6 col-sm-2">Kategoria</th>
           <th class="col-6 col-sm-2">Numer FV</th>
-          <th class="col-6 col-sm-2">Cena</th>
+          <th class="col-6 col-sm-2">Cena N</th>
           <th class="col-6 col-sm-2">Data Wystawienia</th>
           <th class="col-6 col-sm-2">Akcja</th>
         </tr>
@@ -40,7 +40,7 @@
                                       (invoice.cat_sell == '4'.to_i).present? ? "<img src=pekaes.png>".html_safe : "brak"%>
               </td>
               <td><%= invoice.name %></td>
-              <td data-sort="<%= invoice.total_price %>"><%= invoice.total_price %>- zł</td>
+              <td data-sort="<%= invoice.total_price %>"><%= '%.2f' % invoice.total_price %> zł</td>
               <td data-sort="<%= invoice.datatime %>"><%= invoice.datatime %></td>
 
             <td>

@@ -31,8 +31,8 @@
                 <td><%= product_order.ddd %></td>
                 <td><%= '%.2f' % product_order.price %></td>
                 <td><%= product_order.quantity %></td>
-                <td><%= '%.2f' % ((product_order.price_m(product_order.id)*0.7)*product_order.quantity) %></td>
-                <td><%= '%.2f' % (product_order.price_m(product_order.id)*0.7) %></td>
+                <td><%= '%.2f' % ((product_order.price_m(product_order.id))*product_order.quantity) %></td>
+                <td><%= '%.2f' % (product_order.price_m(product_order.id)) %></td>
                 <td><%= '%.2f' % (product_order.price * product_order.quantity) %></td>
                 <td><%= total_ps = ((product_order.quantity*product_order.price)/(1.23.to_f)-(((product_order.price_m(product_order.id)*0.7)*product_order.quantity))).round(2) %></td>
                 <% total_p = total_p + (product_order.price * product_order.quantity) %>
@@ -55,10 +55,10 @@
                 zł</small></span><br/>
             </div>
             <div class="well-1 col-sm-6 cont-right" id="oplaty">
-              <span><small class="col-sm-3">Allegro - </small><small class="col-sm-3"><%= Order.aaaa(month, 1) %></small></span><br/>
-              <span><small class="col-sm-3">DPD - </small><small class="col-sm-3"><%= Order.aaaa(month, 2) %></small></span><br/>
-              <span><small class="col-sm-3">Pekaes - </small><small class="col-sm-3"><%= Order.aaaa(month, 4) %></small></span><br/>
-              <span><small class="col-sm-3">Inne - </small><small class="col-sm-3"><%= Order.aaaa(month, 3) %></small></span>
+              <span><small class="col-sm-3">Allegro netto - </small><small class="col-sm-3"><%= Order.aaaa(month, 1) %></small></span><br/>
+              <span><small class="col-sm-3">DPD netto - </small><small class="col-sm-3"><%= Order.aaaa(month, 2) %></small></span><br/>
+              <span><small class="col-sm-3">Pekaes netto - </small><small class="col-sm-3"><%= Order.aaaa(month, 4) %></small></span><br/>
+              <span><small class="col-sm-3">Inne netto - </small><small class="col-sm-3"><%= Order.aaaa(month, 3) %></small></span>
             </div>
           </div>
         </div>

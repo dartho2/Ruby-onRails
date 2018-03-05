@@ -30,7 +30,7 @@
             <tr>
               <td><%= product.code %></td>
               <td><%= link_to product.name, product_path(product), class: '' %></td>
-              <td><%= product.price %></td>
+              <td><%= product.price.present? ? product.price : " " %></td>
               <td>
                 <div class="btn-group">
                   <button type="button" class="btn btn-danger"><%= link_to "Zobacz", product_path(product), class: '' %></button>

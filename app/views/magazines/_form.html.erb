@@ -134,7 +134,11 @@
                   <%= f.label :productname, "Nazwa Produktu" %>
                   <%= f.text_field :productname, class: 'form-control' %>
                 </div>
-                <%= f.hidden_field :cat_buy, :value => '1' %>
+                <div class="col-sm-12">
+                  <%= f.label :code, "Kod Produktu" %>
+                  <%= f.text_field :code, class: 'form-control' %>
+                </div>
+                <%= f.text_field :cat_buy %>
               </div>
             </div>
             <%= f.submit 'Zapisz', class: "btn btn-primary add-more" %>

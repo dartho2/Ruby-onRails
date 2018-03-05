@@ -44,10 +44,10 @@
         <% obj.each do |magazine| %>
             <tr>
               <td><%= magazine.id %></td>
-              <td><%= magazine.productname %> - <%= magazine.products.map(&:code) %></td>
-              <td><%= magazine.quantity %></td>
-              <div style="display: none"><%= magazine.price %></div>
-              <td><%= magazine.f %></td>
+              <td><%= magazine.productname %> - <%= magazine.product.code %></td>
+              <td data-role="quantity_magazine"><%= magazine.quantity %></td>
+              <div><%# magazine.price %></div><%# magazine.magazine_invoices.map(&:price) %>
+              <td data-role="kt_magazine"><%= magazine.f %></td>
               <td><%= magazine.g((magazine.productshipment.weight),(magazine.productshipment.height)) %></td>
               <td><%= magazine.h %>%</td>
                 <div style="display: none"><%= magazine.i %></div>

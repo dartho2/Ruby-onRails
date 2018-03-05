@@ -82,7 +82,6 @@ jQuery(document).ready ($) ->
   form = $('form[data-role="invoice"]')
 
   form.find('[data-role="item-description"]').each () ->
-    console.log('fv.auto')
     init_invoice_item_autocomplete $(this)
     bind $(this)
 
@@ -106,10 +105,12 @@ $ ->
 $ ->
   $ 'fieldset .add_fields'
   $('fieldset').bind 'cocoon:after-insert', (e, loc) ->
+    console.log('add-after-insert')
     update_date()
     bind()
     return
   $('fieldset').bind 'cocoon:after-remove', (e, loc) ->
+    console.log('add-after-remove')
     update_price()
     return
   return
@@ -125,11 +126,9 @@ jQuery(document).ready ($) ->
 
 
 bind1 = (input_field) ->
-  console.log('vvvv')
   $('input[data-role="datapicker"]').blur update_date
 
 update_date = ->
-  console.log('hhhh')
   b = $('form')
   a = b.find('input[data-role="datapicker"]').val()
   console.log(a)
