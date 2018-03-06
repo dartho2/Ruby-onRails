@@ -29,20 +29,40 @@ class Order < ApplicationRecord
     end
   end
 
+  # def data_change
+  #   if self.name.blank?
+  #     if Order.last.nil?
+  #       self.name = "1" + "/" + self.datatime.strftime('%m/%Y').to_s #TODO format FV '%m/%d/%Y'
+  #     else
+  #       order = Order.last
+  #       self.name = (order.id + 1).to_s + "/" + self.datatime.strftime('%m/%Y').to_s
+  #     end
+  #   else
+  #     if Order.last.nil?
+  #       self.name = "1" + "/" + self.datatime.strftime('%m/%Y').to_s
+  #     end
+  #   end
+  # end
+
+  # format daty zaczyna nowy miesiac od 1/m/y
   def data_change
-    if self.name.blank?
-      if Order.last.nil?
-        self.name = "1" + "/" + self.datatime.strftime('%m/%Y').to_s #TODO format FV '%m/%d/%Y'
-      else
-        order = Order.last
-        self.name = (order.id + 1).to_s + "/" + self.datatime.strftime('%m/%Y').to_s
-      end
+    if self.datatime.strftime('%m') == Order.last.datatime.strftime('%m')
+      a = Order.where("cast(strftime('%m', datatime) as int) = ? AND cast(strftime('%Y', datatime) as int) = ?", self.datatime.strftime('%m'), self.datatime.strftime('%Y')).last
+      a = a.name.split('/').first
+      a = a.to_i + 1
+      self.name = a.to_s + "/" + self.datatime.strftime('%m/%Y').to_s
     else
-      if Order.last.nil?
+      if self.datatime.strftime('%m/%Y') < Order.last.datatime.strftime('%m/%Y')
+        a = Order.where("cast(strftime('%m', datatime) as int) = ? AND cast(strftime('%Y', datatime) as int) = ?", self.datatime.strftime('%m'), self.datatime.strftime('%Y')).last
+        a = a.name.split('/').first
+        a = a.to_i + 1
+        self.name = a.to_s + "/" + self.datatime.strftime('%m/%Y').to_s
+      else
         self.name = "1" + "/" + self.datatime.strftime('%m/%Y').to_s
       end
     end
   end
+
 
   def total_price
     @total_price ||= product_orders.includes(:product).reduce(0) do |sum, a|

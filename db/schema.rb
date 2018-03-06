@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180301102721) do
+ActiveRecord::Schema.define(version: 20180305200450) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -136,6 +136,7 @@ ActiveRecord::Schema.define(version: 20180301102721) do
     t.integer "product_id"
     t.string "name"
     t.decimal "price", precision: 8, scale: 2
+    t.decimal "price_z", precision: 8, scale: 2
     t.index ["order_id"], name: "index_product_orders_on_order_id"
     t.index ["product_id"], name: "index_product_orders_on_product_id"
   end

@@ -1,6 +1,6 @@
 class Magazine < ApplicationRecord
   attr_accessor :code, :price_sell
-  has_one :product, :primary_key => 'product_id', :foreign_key => 'id', class_name: "Product"
+  has_one :product, :primary_key => 'product_id', :foreign_key => 'id', class_name: "Product", inverse_of: :magazine
   has_many :product_orders
   has_many :product_structures, :foreign_key => 'id'
   has_one :productshipment

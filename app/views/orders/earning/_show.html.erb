@@ -9,11 +9,16 @@
         <th class="cont-left cont-right col-6 col-sm-1">Kupujący</th>
         <th class="cont-left cont-right col-6 col-sm-1">Numer FV</th>
         <th class="cont-left cont-right col-6 col-sm-1">Kod Produktu</th>
-        <th class="cont-left cont-right col-6 col-sm-1">Cena Sprzedaży (B)</th>
         <th class="cont-left cont-right col-6 col-sm-1">Ilość</th>
-        <th class="cont-left cont-right col-6 col-sm-1">Cena Zakupu (N) + Rabat</th>
         <th class="cont-left cont-right col-6 col-sm-1">Cena Zakupu 1szt.</th>
-        <th class="cont-left cont-right col-6 col-sm-1">Suma</th>
+        <th class="cont-left cont-right col-6 col-sm-1">Cena Zakupu B</th>
+        <th>Transport</th>
+        <th class="cont-left cont-right col-6 col-sm-1">Cena Sprzedaży (N)</th>
+        <th class="cont-left cont-right col-6 col-sm-1">Cena Sprzedaży (B)</th>
+
+
+
+        <!--<th class="cont-left cont-right col-6 col-sm-1">Suma</th>-->
         <th class="cont-left cont-right col-6 col-sm-1">Zysk (N)</th>
       </tr>
       </thead>
@@ -29,12 +34,13 @@
                 <td><%= f.client.present? ? f.client.firstname : "Paragon" %></td>
                 <td data-sort="<%= f.name.gsub('/', '') %>"><%= link_to "#{f.name}", order_path(f.id) %></td>
                 <td><%= product_order.ddd %></td>
-                <td><%= '%.2f' % product_order.price %></td>
                 <td><%= product_order.quantity %></td>
-                <td><%= '%.2f' % ((product_order.price_m(product_order.id))*product_order.quantity) %></td>
-                <td><%= '%.2f' % (product_order.price_m(product_order.id)) %></td>
+                <td><%= '%.2f' % (product_order.price_z) %></td>
+                <td><%= '%.2f' % ((product_order.price_z * product_order.quantity)*1.23) %></td>
+                <td></td>
+                <td><%= '%.2f' % (( product_order.price * product_order.quantity) / 1.23) %></td>
                 <td><%= '%.2f' % (product_order.price * product_order.quantity) %></td>
-                <td><%= total_ps = ((product_order.quantity*product_order.price)/(1.23.to_f)-(((product_order.price_m(product_order.id)*0.7)*product_order.quantity))).round(2) %></td>
+                <td><%= total_ps = ((( product_order.price * product_order.quantity) / 1.23)-(product_order.price_z*product_order.quantity)).round(2) %></td>
                 <% total_p = total_p + (product_order.price * product_order.quantity) %>
                 <% total_po = total_ps + total_po %>
                 <% if i >= 1 %></tr>

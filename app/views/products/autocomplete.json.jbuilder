@@ -1,5 +1,5 @@
 json.array! @items do |i|
-  json.label "#{i.name} - #{i.code} - #{'%.2f' % i.price}zł"
+  json.label "#{i.name} - #{i.code} - #{i.price}zł "
   json.value i.name
   json.code i.code
   json.id i.id
