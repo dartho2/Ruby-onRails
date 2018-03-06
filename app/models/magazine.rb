@@ -31,7 +31,7 @@ class Magazine < ApplicationRecord
 
   def last_price
     a = Product.where(:product_f => self.product_id).last
-   a.price
+    a.price
   end
 
   def Magazine.autocomplete_by_description(term)
@@ -44,17 +44,17 @@ class Magazine < ApplicationRecord
     find_by_sql(q.to_sql)
   end
 
-  #
-  # def form_type
-  #   self[:form_type]
-  # end
+ #
+ # def form_type
+ #   self[:form_type]
+ # end
 
   def add_product_list
-      if !self.product_id
-        product = Product.new(:name => self.productname, :price => self.price_sell, :code => self.code, :parent_id => false, :product_f => self.id)
-        product.save(:validate => false)
-        self.update_columns(product_id: product.id)
-      end
+    if !self.product_id
+      product = Product.new(:name => self.productname, :price => self.price_sell, :code => self.code, :parent_id => false, :product_f => self.id)
+      product.save(:validate => false)
+      self.update_columns(product_id: product.id)
+    end
   end
 
   def f
@@ -101,4 +101,56 @@ class Magazine < ApplicationRecord
   def o
     @o ||= (@k-(((@f+@g)*1.23)+(@m*1.23))).round(2)
   end
+
+  def zakup
+    @zakup ||= (self.price).round(2)
+  end
+
+  def kt x, y
+    kt = Curier.where(":x BETWEEN minweight AND maxweight AND maxheight > :y", {x: x, y: y}).order("price ASC").first
+    if kt.present?
+      @kt ||= kt.price
+      @kt
+    else
+      @kt = 1
+      "-"
+    end
+  end
+
+  def marza
+    @marza = self[:marza]
+  end
+
+  def zakup_kt
+   @zakup_kt  = ((@zakup + @kt) * (@marza/100.to_f + 1)).round(2)
+  end
+
+  def cena_sell_b
+    @cena_sell_b = (@zakup_kt * 1.23).round(0)
+  end
+
+  def kwota_sell_b
+    @kwota_sell_b = @cena_sell_b.round(0)
+  end
+
+  def alle_cost
+    @alle_cost = @cena_sell_b*0.1
+  end
+
+  def alle_cost_a x
+    @alle_cost_a = (x*0.1).round(2)
+  end
+
+  def zysk_n
+    @zysk_n =  (@cena_sell_b /1.23 - (@alle_cost/1.23 + @kt + @zakup)).round(2)
+  end
+
+  def zysk_a x
+    if x == 0
+      @zysk_a = 0
+    else
+      @zysk_a =  (x / 1.23 - (@alle_cost_a/1.23 + @kt + @zakup)).round(2)
+    end
+  end
+
 end

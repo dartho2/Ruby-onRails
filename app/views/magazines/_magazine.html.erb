@@ -2,7 +2,9 @@
   <div class="x_panel">
     <div class="x_title">
       <div class="list-group-item active">
-        <h2>Magazyn<small> - lista</small></h2>
+        <h2>Magazyn
+          <small> - lista</small>
+        </h2>
         <div class="pull-right">
           <ul class="nav navbar-right panel_toolbox">
             <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
@@ -17,59 +19,39 @@
     <div class="x_content">
       <p class="text-muted font-13 m-b-30">
 
-  </p>
+      </p>
       <table id="datatable-orders" class="display table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
-
         <thead>
         <tr>
-          <th>ID</th>
-          <th>Nazwa/code</th>
-          <th>Ilość</th>
-          <div style="display: none">Cena Zakupu</div>
-          <th>Cena Zakupu</th>
-          <th>Koszt Transportu</th>
-          <th>Marza</th>
-          <div style="display: none">Zakup + Koszt Transportu</div>
-          <th>Kwota Sprzedaży</th>
-          <div style="display: none">Cena Sprzedaży</div>
+          <th>Kod</th>
+          <th>Nazwa</th>
+          <th>Zakup</th>
+          <th>KT</th>
+          <th>Marża</th>
+          <th>Zakup+KT</th>
+          <th>Cena Sprzedaży</th>
+          <th style="background-color: #d9ebd9">Cena Sprzedaży A</th>
           <th>Allegro Koszta</th>
-          <th style="background-color: #d9ebd9">Aktualna CS</th>
-          <th>Zysk</th>
-          <div style="display: none">Zysk</div>
-          <th class="col-md-2 center"></th>
+          <th style="background-color: #d9ebd9">Allegro Koszta A</th>
+          <th>Zysk -N</th>
+          <th style="background-color: #d9ebd9">Zysk -A</th>
         </tr>
         </thead>
-
         <tbody>
         <% obj.each do |magazine| %>
             <tr>
-              <td><%= magazine.id %></td>
-              <td><%= magazine.productname %> - <%= magazine.product.code %></td>
-              <td data-role="quantity_magazine"><%= magazine.quantity %></td>
-              <div><%# magazine.price %></div><%# magazine.magazine_invoices.map(&:price) %>
-              <td data-role="kt_magazine"><%= magazine.f %></td>
-              <td><%= magazine.g((magazine.productshipment.weight),(magazine.productshipment.height)) %></td>
-              <td><%= magazine.h %>%</td>
-                <div style="display: none"><%= magazine.i %></div>
-              <td><%= magazine.k %></td>
-                  <div style="display: none"><%= magazine.j %></div>
-              <td><%= magazine.m %></td>
+              <td><%= magazine.product.code %></td>
+              <td><%= link_to magazine.productname, magazine_path(magazine) %></td>
+              <td><%= magazine.zakup %></td>
+              <td><%= magazine.kt((magazine.productshipment.weight), (magazine.productshipment.height)) %></td>
+              <td><%= magazine.marza %>%</td>
+              <td><%= magazine.zakup_kt %></td>
+              <td><%= magazine.cena_sell_b %></td>
               <td style="background-color: #d9ebd9"><%= magazine.last_price %></td>
-              <td><%= magazine.n %></td>
-                    <div style="display: none"><%= magazine.o %></div>
-              <td align="center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-danger"><%= link_to "Zobacz", magazine_path(magazine), class: '' %></button>
-                  <button type="button" class="fa fa-chevron-down dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <div class="dropdown-menu">
-                    <%= link_to "Edycja", edit_magazine_path(magazine), class: '' %>
-                    <div class="dropdown-divider"></div>
-                    <%= link_to "Usuń", magazine, method: :delete, class: '' %>
-                  </div>
-                </div>
-              </td>
+              <td><%= magazine.alle_cost %></td>
+              <td style="background-color: #d9ebd9"><%= magazine.alle_cost_a(magazine.last_price) %></td>
+              <td><%= magazine.zysk_n %></td>
+              <td><%= magazine.zysk_a(magazine.last_price) %></td>
             </tr>
         <% end %>
         </tbody>
@@ -77,6 +59,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 

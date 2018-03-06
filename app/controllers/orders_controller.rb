@@ -13,12 +13,12 @@ class OrdersController < ApplicationController
   def earning
     # @orders = Order.order("sale_date desc")
     @client = Client.all
-    @orders = Order.order(:id)
+    @orders = Order.order(:id, sale_date: :desc)
     # @client = @order.client
     @orders = @orders.all.order('sale_date DESC')
     # @orders_group = @orders.all.group_by { |m| m.sale_date.beginning_of_month }
     if @orders.present?
-      @orders_groups = @orders.all.group_by { |m| m.sale_date.beginning_of_month }
+      @orders_groups = @orders.all.group_by { |m| m.sale_date.beginning_of_month }.reverse_each
     end
     respond_to do |format|
       format.html
